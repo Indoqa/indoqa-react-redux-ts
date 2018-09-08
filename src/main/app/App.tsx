@@ -1,17 +1,18 @@
 import * as React from 'react'
-import TimeComponent from "../time/components/TimeComponent.redux"
+import {Switch, Route} from 'react-router-dom'
 
-export type Props = {
-  message: string,
-}
+import OverviewPage from "../overview/components/OverviewPage"
+import TimePage from "../time/components/TimePage"
 
-export default class App extends React.Component<Props> {
+export default class App extends React.Component<{}> {
 
   render() {
     return (
       <div>
-        <div>Message: {this.props.message}</div>
-        <TimeComponent />
+        <Switch>
+          <Route exact path="/" component={OverviewPage} />
+          <Route exact path="/time" component={TimePage} />
+        </Switch>
       </div>
     )
   }

@@ -44,10 +44,10 @@ import createStore from "./app/createStore"
 
 const history = createHistory()
 const store = createStore(history)
-const app = (
-  <IndoqaApplication history={history} store={store}>
-    <App message="hello, world!"/>
-  </IndoqaApplication>
-)
 
-ReactDOM.render(app, document.getElementById('app'))
+ReactDOM.render(
+  <IndoqaApplication history={history} store={store}>
+    <App/>
+  </IndoqaApplication>,
+  document.getElementById('app')
+)
