@@ -8,7 +8,7 @@ import {TOGGLE} from "./time.constants"
 const timeEpic$: Epic<TimeAction, TimeState> = (action$) =>
   action$.pipe(
     filter(isOfType(TOGGLE)),
-    tap(x => console.log('xxxx', x)),
+    tap(x => console.log('xxxxyz', x)),
     ignoreElements()
   )
 

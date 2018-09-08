@@ -42,12 +42,28 @@ import createStore from "./app/createStore"
 // * linting
 // * IntelliJ typescript formatting and linting
 
+declare var module: any
+
 const history = createHistory()
 const store = createStore(history)
+const rootEl =  document.getElementById('app')
 
 ReactDOM.render(
   <IndoqaApplication history={history} store={store}>
     <App/>
   </IndoqaApplication>,
-  document.getElementById('app')
+  rootEl
 )
+
+if (module.hot) {
+  module.hot.accept('./app/App', () => {
+    const NextApp = require('./app/App.tsx').default
+    ReactDOM.render(
+      <IndoqaApplication history={history} store={store}>
+        <NextApp/>
+      </IndoqaApplication>,
+      rootEl
+    )
+  })
+}
+
