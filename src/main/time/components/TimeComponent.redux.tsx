@@ -1,14 +1,13 @@
 import * as React from 'react'
+import {connect} from 'react-redux'
 
-import { connect } from 'react-redux'
 import TimeComponent from "./TimeComponent"
 import {toggle} from "../store/time.actions"
+import {RootState} from "../../app/rootReducer"
 
-const mapStateToProps = (state: any) => {
-  console.log('state', state)
-  return ({
-    today: state.time.today
-  })
-}
+const mapStateToProps = (state: RootState) => ({
+  today: state.time.today,
+})
 
-export default connect(mapStateToProps, {onToggle: toggle})(TimeComponent);
+export {React}
+export default connect(mapStateToProps, {onToggle: toggle})(TimeComponent)

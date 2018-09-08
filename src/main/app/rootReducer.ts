@@ -1,9 +1,14 @@
-import {combineReducers, AnyAction} from 'redux'
-import {routerReducer} from 'react-router-redux'
+import {combineReducers} from 'redux'
+import {routerReducer, RouterState} from 'react-router-redux'
 
-import {timeReducer} from '../time'
+import timeReducer, {TimeState} from '../time/store/time.reducer'
 
-const rootReducer = combineReducers({
+export type RootState = {
+  router: RouterState;
+  time: TimeState;
+};
+
+const rootReducer: any = combineReducers({
   router: routerReducer,
   time: timeReducer,
 })

@@ -1,4 +1,5 @@
-import { combineEpics, Epic } from 'redux-observable'
+import {combineEpics} from 'redux-observable'
 import time from '../time/store/time.epics'
 
-export default combineEpics(time)
+const rootEpic: any = combineEpics(time)
+export default rootEpic

@@ -1,4 +1,4 @@
-import { ActionType, getType } from 'typesafe-actions'
+import {ActionType} from 'typesafe-actions'
 
 import * as time from './time.actions'
 import {TOGGLE} from "./time.constants"
@@ -6,20 +6,20 @@ import {TOGGLE} from "./time.constants"
 export type TimeAction = ActionType<typeof time>
 
 export type TimeState = {
-  readonly today: string,
+  readonly today: number,
 }
 
 const initialTime = {
-  today: 'n/a'
+  today: 0
 }
 
-const timeReducer = (state: TimeState = initialTime, action: TimeAction) => {
+const timeReducer = (timeState: TimeState = initialTime, action: TimeAction) => {
   switch (action.type) {
     case TOGGLE:
-      console.log('reducer: toggle3')
-      return {today: 'updated2'}
+      console.log('reducer: toggle')
+      return {today: timeState.today + 2}
     default:
-      return state
+      return timeState
   }
 }
 

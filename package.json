@@ -55,7 +55,8 @@
     "@types/webpack-env": "^1.13.6",
     "indoqa-webpack": "next",
     "redux-devtools-extension": "^2.13.5",
-    "source-map-explorer": "1.5.0"
+    "source-map-explorer": "1.5.0",
+    "typescript": "^3.0.3"
   },
   "proxy": {
     "/geonames": {
