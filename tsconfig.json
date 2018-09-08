@@ -6,7 +6,7 @@
     "allowJs": false,
     "module": "esnext",
     "moduleResolution": "node",
-    "declaration": true,
+    "declaration": false,
     "sourceMap": true,
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,

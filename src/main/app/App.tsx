@@ -4,6 +4,7 @@ import {Switch, Route} from 'react-router-dom'
 import IndoqaFela from '../idq/IndoqaFela'
 import OverviewPage from "../overview/components/OverviewPage"
 import TimePage from "../time/components/TimePage"
+import fela from "./fela"
 
 export type Props = {
   fela: any,
@@ -13,7 +14,7 @@ export default class App extends React.Component<Props> {
 
   render() {
     return (
-      <IndoqaFela fela={this.props.fela}>
+      <IndoqaFela fela={fela}>
         <div>
           <Switch>
             <Route exact path="/" component={OverviewPage}/>

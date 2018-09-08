@@ -1,9 +1,18 @@
-import {createRenderer as createFelaRenderer, IRenderer} from 'fela'
+import extend from 'fela-plugin-extend'
+import prefixer from 'fela-plugin-prefixer'
+import fallbackValue from 'fela-plugin-fallback-value'
+import unit from 'fela-plugin-unit'
+import {createRenderer as createFelaRenderer} from 'fela'
 
 import resetCssStyles from './reset.css'
 
 const DEFAULT_CONFIG = {
-  plugins: [],
+  plugins: [
+    extend(),
+    prefixer(),
+    fallbackValue(),
+    unit(),
+  ],
 }
 
 export type CreateRendererParams = {

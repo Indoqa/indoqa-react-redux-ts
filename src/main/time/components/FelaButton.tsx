@@ -1,10 +1,12 @@
 import * as React from 'react'
-import {createComponentWithProxy, FelaInjectedProps} from 'react-fela'
+import {createComponentWithProxy} from 'react-fela'
 
 const FelaButton = ({}) => ({
-  color: 'blue',
+  color: 'red',
+  width: 400,
 })
 
 export {React}
 export default createComponentWithProxy(FelaButton, 'button')
+
 
