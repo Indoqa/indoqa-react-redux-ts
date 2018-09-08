@@ -24,7 +24,6 @@
     "history": "^4.7.2",
     "i18next": "^11.3.2",
     "i18next-browser-languagedetector": "^2.2.0",
-    "ramda": "^0.25.0",
     "react": "^16.4.2",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.4.2",
