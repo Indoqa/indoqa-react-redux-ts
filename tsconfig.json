@@ -1,23 +1,25 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "es2015",
-    "lib": ["es6", "dom"],
+    "target": "es5",
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "allowJs": false,
     "module": "esnext",
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
-    "strict": true,
+    "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "strictFunctionTypes": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react"
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
   },
   "compileOnSave": true
 }
