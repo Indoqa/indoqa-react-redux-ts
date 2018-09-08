@@ -15,16 +15,16 @@ import fela from './app/fela'
 // see https://github.com/innFactory/create-react-app-material-typescript-redux
 
 // TODO
-// * introduce react-router (switch)
-// * check react component reload
+// - introduce react-router (switch)
+// - check react component reload
 // * check indoqa-webpack artifact if it is runnable with indoqa-boot
 // * revisit middleware setup
 
 // * review Action typing
-// * review React re-exports
-// ** see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/25321
-// ** see https://github.com/Microsoft/TypeScript/issues/24666
-// ** see https://stackoverflow.com/questions/43900035/ts4023-exported-variable-x-has-or-is-using-name-y-from-external-module-but
+// - review React re-exports
+// -- see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/25321
+// -- see https://github.com/Microsoft/TypeScript/issues/24666
+// -- see https://stackoverflow.com/questions/43900035/ts4023-exported-variable-x-has-or-is-using-name-y-from-external-module-but
 
 // * introduce reselect
 
@@ -34,9 +34,10 @@ import fela from './app/fela'
 // * introduce epic dependencies
 // * general types export
 
-// * introduce fela
-// ** https://github.com/cdmbase/fullstack-pro/search?q=fela&unscoped_q=fela
-// ** https://github.com/Yelmuf/Typescript-React-Redux-Fela-Happypack-Webpack4/blob/f86656c60e8529159c49c3e8049cadb37e4cbf8a/src/Main.tsx
+// - introduce fela
+// -- https://github.com/cdmbase/fullstack-pro/search?q=fela&unscoped_q=fela
+// -- https://github.com/Yelmuf/Typescript-React-Redux-Fela-Happypack-Webpack4/blob/f86656c60e8529159c49c3e8049cadb37e4cbf8a/src/Main.tsx
+// ** introduce Theming <------------------------------
 
 // * introduce i18n
 // * forms sample
