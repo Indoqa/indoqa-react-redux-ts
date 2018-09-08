@@ -7,9 +7,11 @@ import App from "./app/App"
 import createStore from "./app/createStore"
 
 // Learn about React with Typescript
+// see https://github.com/sw-yx/react-typescript-cheatsheet
+// see https://github.com/piotrwitek/react-redux-typescript-guide
+// see https://github.com/piotrwitek/typesafe-actions
 // see https://github.com/mitsuruog/react-redux-observable-typescript-sample
 // see https://github.com/innFactory/create-react-app-material-typescript-redux
-// see https://github.com/piotrwitek/react-redux-typescript-guide
 
 // TODO
 // * introduce react-router (switch)
@@ -31,11 +33,11 @@ import createStore from "./app/createStore"
 // * general types export
 
 // * introduce fela
+
 // * introduce i18n
 // * forms sample
 // * all other samples
 // * Jest tests
-
 // * linting
 // * IntelliJ typescript formatting and linting
 
