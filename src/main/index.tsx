@@ -5,6 +5,7 @@ import createHistory from 'history/createBrowserHistory'
 import IndoqaApplication from './idq/IndoqaApplication'
 import App from "./app/App"
 import createStore from "./app/createStore"
+import fela from './app/fela'
 
 // Learn about React with Typescript
 // see https://github.com/sw-yx/react-typescript-cheatsheet
@@ -34,6 +35,8 @@ import createStore from "./app/createStore"
 // * general types export
 
 // * introduce fela
+// ** https://github.com/cdmbase/fullstack-pro/search?q=fela&unscoped_q=fela
+// ** https://github.com/Yelmuf/Typescript-React-Redux-Fela-Happypack-Webpack4/blob/f86656c60e8529159c49c3e8049cadb37e4cbf8a/src/Main.tsx
 
 // * introduce i18n
 // * forms sample
@@ -50,7 +53,7 @@ const rootEl =  document.getElementById('app')
 
 ReactDOM.render(
   <IndoqaApplication history={history} store={store}>
-    <App/>
+    <App fela={fela} />
   </IndoqaApplication>,
   rootEl
 )
@@ -58,9 +61,10 @@ ReactDOM.render(
 if (module.hot) {
   module.hot.accept('./app/App', () => {
     const NextApp = require('./app/App.tsx').default
+    const nextFela = require('./app/fela.ts').default
     ReactDOM.render(
       <IndoqaApplication history={history} store={store}>
-        <NextApp/>
+        <NextApp fela={nextFela}/>
       </IndoqaApplication>,
       rootEl
     )

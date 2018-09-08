@@ -1,4 +1,3 @@
-import presetWeb from "fela-preset-web"
 import namedMediaQuery from "fela-plugin-named-media-query"
 import monolithic from "fela-monolithic"
 
@@ -15,14 +14,13 @@ const namedMediaQueryPlugin = namedMediaQuery({
 
 const config:any = {
   plugins: [
-    ...presetWeb,
     namedMediaQueryPlugin,
   ],
   enhancers: [],
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  config.enhancers = [monolithic()]
+  config.enhancers = [monolithic({})]
 }
 
 export default {

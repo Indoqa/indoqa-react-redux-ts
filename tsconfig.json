@@ -19,7 +19,10 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "fela-preset-web" : ["./node_modules/fela"]
+    }
   },
   "compileOnSave": true
 }
