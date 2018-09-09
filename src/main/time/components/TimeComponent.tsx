@@ -1,21 +1,28 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
 
-export type Props = {
-today: number,
-onToggle: any,
+type StyleButtonProps = {
+  onClick: () => any,
+  theme?: any,
+  someProperty: boolean,
 }
 
-const StyledButton = createComponentWithProxy(({}) => ({
-  color: 'green',
-  width: 210,
+const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}) => ({
+  color: theme.colors.text,
+  width: someProperty ? 500 : 200,
+  fontSize: theme.fontSizes.big,
 }), 'button')
+
+type Props = {
+  today: number,
+  onToggle: any,
+}
 
 export default class TimeComponent extends React.Component<Props> {
 
   render() {
     return (
-      <div>TimeComponent: {this.props.today} <StyledButton onClick={() => this.props.onToggle()}>Toggle</StyledButton></div>
+      <div>TimeComponent: {this.props.today} <StyledButton onClick={() => this.props.onToggle()} someProperty={false}>Toggle</StyledButton></div>
     )
   }
 }

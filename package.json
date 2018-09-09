@@ -16,6 +16,7 @@
     "start": "indoqa-dev-server ./indoqa-webpack-options.js"
   },
   "dependencies": {
+    "deepmerge": "^2.1.1",
     "fela": "^6.1.8",
     "fela-monolithic": "^5.0.22",
     "fela-plugin-named-media-query": "^5.0.13",
@@ -44,6 +45,7 @@
     "yup": "0.24.1"
   },
   "devDependencies": {
+    "@types/deepmerge": "^2.1.0",
     "@types/history": "^4.7.0",
     "@types/node": "^10.9.4",
     "@types/react": "^16.4.13",

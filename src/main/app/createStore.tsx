@@ -1,4 +1,4 @@
-import createIndoqaStore from '../idq/createIndoqaStore'
+import createIndoqaStore from '../idqApp/createIndoqaStore'
 import {History} from 'history'
 import {Store} from "redux"
 

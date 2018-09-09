@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
 
-import IndoqaApplication from './idq/IndoqaApplication'
+import IndoqaApplication from './idqApp/IndoqaApplication'
 import App from "./app/App"
 import createStore from "./app/createStore"
 import fela from './app/fela'

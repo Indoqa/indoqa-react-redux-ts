@@ -16,7 +16,7 @@ const namedMediaQueryPlugin = namedMediaQuery({
   tablet: `@media (min-width: ${BREAKPOINT_TABLET}px)`,
 })
 
-const config:any = {
+const config: any = {
   plugins: [
     extend(),
     prefixer(),
