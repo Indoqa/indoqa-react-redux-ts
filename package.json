@@ -8,7 +8,7 @@
     "url": "git@github.com:Indoqa/indoqa-react-redux.git"
   },
   "scripts": {
-    "analyze": "source-map-explorer ./target/assets/app-*",
+    "analyze": "source-map-explorer ./target/assets/vendors-*",
     "build": "indoqa-webpack ./indoqa-webpack-options.js",
     "clean": "rimraf ./target",
     "compile": "tsc --outdir ./target/js",
