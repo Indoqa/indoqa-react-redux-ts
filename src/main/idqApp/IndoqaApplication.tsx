@@ -1,3 +1,4 @@
+import {IRenderer} from 'fela'
 import * as React from 'react'
 import {Store} from 'redux'
 import {Provider as Redux} from 'react-redux'
@@ -9,7 +10,7 @@ export type Props = {
   store: Store<any>,
   history: History,
   children: React.ReactNode,
-  fela: any,
+  renderer: IRenderer,
 }
 
 export default class IndoqaApplication extends React.Component<Props> {
@@ -17,7 +18,7 @@ export default class IndoqaApplication extends React.Component<Props> {
   public render() {
     return (
       <Redux store={this.props.store}>
-        <IndoqaFela fela={this.props.fela}>
+        <IndoqaFela renderer={this.props.renderer}>
           <ConnectedRouter history={this.props.history}>
             {this.props.children}
           </ConnectedRouter>
