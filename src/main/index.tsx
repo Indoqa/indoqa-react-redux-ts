@@ -45,8 +45,8 @@ import fela from './app/fela'
 // * forms sample
 // * all other samples
 // * Jest tests
-// * linting
-// * IntelliJ typescript formatting and linting
+// - linting
+// - IntelliJ typescript formatting and linting
 
 declare var module: any
 
