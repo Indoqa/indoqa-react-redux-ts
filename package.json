@@ -10,10 +10,11 @@
   "scripts": {
     "analyze": "source-map-explorer ./target/assets/app-*",
     "build": "indoqa-webpack ./indoqa-webpack-options.js",
+    "clean": "rimraf ./target",
+    "compile": "tsc --outdir ./target/js",
     "docs": "indoqa-webpack ./indoqa-webpack-docs.js",
     "lint": "tslint --project .",
-    "compile": "tsc",
-    "package": "yarn lint && yarn build",
+    "package": "yarn clean && yarn compile && yarn lint && yarn build",
     "postinstall": "yarn run package",
     "start": "indoqa-dev-server ./indoqa-webpack-options.js"
   },
@@ -60,6 +61,7 @@
     "@types/webpack-env": "^1.13.6",
     "indoqa-webpack": "next",
     "redux-devtools-extension": "^2.13.5",
+    "rimraf": "^2.6.2",
     "source-map-explorer": "1.5.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
