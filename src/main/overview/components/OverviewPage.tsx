@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {Link} from "react-router-dom"
+import {Link} from 'react-router-dom'
 
 export default class OverviewPage extends React.Component<{}> {
 
-  render() {
+  public render() {
     return (
       <div>
         <h1>OverviewPage</h1>

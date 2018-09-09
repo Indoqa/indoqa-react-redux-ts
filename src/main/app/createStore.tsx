@@ -1,10 +1,10 @@
 import createIndoqaStore from '../idqApp/createIndoqaStore'
 import {History} from 'history'
-import {Store} from "redux"
+import {Store} from 'redux'
 
 declare var module: any
 
-const createStore = (history: History):Store<any> => {
+const createStore = (history: History): Store<any> => {
   const indoqaStore = createIndoqaStore({
     rootReducer: require('./rootReducer.ts').default,
     rootEpic: require('./rootEpic.ts').default,

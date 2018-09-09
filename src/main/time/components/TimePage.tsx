@@ -1,10 +1,10 @@
 import * as React from 'react'
-import TimeComponent from "./TimeComponent.redux"
-import {Link} from "react-router-dom"
+import TimeComponent from './TimeComponent.redux'
+import {Link} from 'react-router-dom'
 
 export default class TimePage extends React.Component<{}> {
 
-  render() {
+  public render() {
     return (
       <div>
         <h1>TimePage</h1>

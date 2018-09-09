@@ -20,9 +20,14 @@ type Props = {
 
 export default class TimeComponent extends React.Component<Props> {
 
-  render() {
+  public render() {
     return (
-      <div>TimeComponent: {this.props.today} <StyledButton onClick={() => this.props.onToggle()} someProperty={false}>Toggle</StyledButton></div>
+      <div>
+        TimeComponent: {this.props.today}
+        <StyledButton onClick={() => this.props.onToggle()} someProperty={false}>
+          Toggle
+        </StyledButton>
+      </div>
     )
   }
 }

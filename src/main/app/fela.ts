@@ -2,8 +2,8 @@ import extend from 'fela-plugin-extend'
 import prefixer from 'fela-plugin-prefixer'
 import fallbackValue from 'fela-plugin-fallback-value'
 import unit from 'fela-plugin-unit'
-import namedMediaQuery from "fela-plugin-named-media-query"
-import monolithic from "fela-monolithic"
+import namedMediaQuery from 'fela-plugin-named-media-query'
+import monolithic from 'fela-monolithic'
 
 import {BREAKPOINT_DESKTOP, BREAKPOINT_TABLET} from './breakpoints'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Store} from "redux"
+import {Store} from 'redux'
 import {Provider as Redux} from 'react-redux'
 import {ConnectedRouter} from 'react-router-redux'
 import {History} from 'history'
@@ -12,7 +12,7 @@ export type Props = {
 
 export default class IndoqaApplication extends React.Component<Props> {
 
-  render() {
+  public render() {
     return (
       <Redux store={this.props.store}>
         <ConnectedRouter history={this.props.history}>

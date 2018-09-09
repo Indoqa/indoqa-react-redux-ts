@@ -1,15 +1,16 @@
 import {ignoreElements, filter, tap} from 'rxjs/operators'
-import {Epic} from "redux-observable"
-import {isOfType} from "typesafe-actions"
+import {Epic} from 'redux-observable'
+import {isOfType} from 'typesafe-actions'
 
-import {TimeAction, TimeState} from "./time.reducer"
-import {TOGGLE} from "./time.constants"
+import {TimeAction, TimeState} from './time.reducer'
+import {TOGGLE} from './time.constants'
 
+/* tslint:disable:no-console */
 const timeEpic$: Epic<TimeAction, TimeState> = (action$) =>
   action$.pipe(
     filter(isOfType(TOGGLE)),
-    tap(x => console.log('xxxxyz', x)),
-    ignoreElements()
+    tap((x) => console.log('xxxxyz', x)),
+    ignoreElements(),
   )
 
 export default timeEpic$

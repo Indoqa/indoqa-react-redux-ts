@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
 
 import IndoqaApplication from './idqApp/IndoqaApplication'
-import App from "./app/App"
-import createStore from "./app/createStore"
+import App from './app/App'
+import createStore from './app/createStore'
 import fela from './app/fela'
 
 // Learn about React with Typescript
@@ -24,7 +24,8 @@ import fela from './app/fela'
 // - review React re-exports
 // -- see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/25321
 // -- see https://github.com/Microsoft/TypeScript/issues/24666
-// -- see https://stackoverflow.com/questions/43900035/ts4023-exported-variable-x-has-or-is-using-name-y-from-external-module-but
+// -- see https://stackoverflow.com/questions/43900035/
+//        ts4023-exported-variable-x-has-or-is-using-name-y-from-external-module-but
 
 // * introduce reselect
 
@@ -36,8 +37,9 @@ import fela from './app/fela'
 
 // - introduce fela
 // -- https://github.com/cdmbase/fullstack-pro/search?q=fela&unscoped_q=fela
-// -- https://github.com/Yelmuf/Typescript-React-Redux-Fela-Happypack-Webpack4/blob/f86656c60e8529159c49c3e8049cadb37e4cbf8a/src/Main.tsx
-// ** introduce Theming <------------------------------
+// -- https://github.com/Yelmuf/Typescript-React-Redux-Fela-Happypack-Webpack4/
+//    blob/f86656c60e8529159c49c3e8049cadb37e4cbf8a/src/Main.tsx
+// -- introduce Theming
 
 // * introduce i18n
 // * forms sample
@@ -56,7 +58,7 @@ ReactDOM.render(
   <IndoqaApplication history={history} store={store}>
     <App fela={fela} />
   </IndoqaApplication>,
-  rootEl
+  rootEl,
 )
 
 if (module.hot) {
@@ -67,7 +69,7 @@ if (module.hot) {
       <IndoqaApplication history={history} store={store}>
         <NextApp fela={nextFela}/>
       </IndoqaApplication>,
-      rootEl
+      rootEl,
     )
   })
 }

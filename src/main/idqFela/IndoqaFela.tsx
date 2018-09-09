@@ -11,7 +11,7 @@ export type Props = {
 
 export default class IndoqaFela extends React.Component<Props> {
 
-  render() {
+  public render() {
     return (
       <FelaProvider renderer={createRenderer(this.props.fela)} mountNode={createMountNode()}>
         {this.props.children}
