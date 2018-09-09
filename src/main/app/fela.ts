@@ -35,6 +35,4 @@ if (process.env.NODE_ENV !== 'production') {
 export default {
   init,
   config,
-  BREAKPOINT_DESKTOP,
-  BREAKPOINT_TABLET,
 }

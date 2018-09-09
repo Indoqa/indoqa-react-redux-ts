@@ -16,9 +16,9 @@ const DEFAULT_CONFIG = {
 }
 
 export type CreateRendererParams = {
-  init: any,
-  config: any,
-  resetCss: boolean,
+  init?: any,
+  config?: any,
+  resetCss?: boolean,
 }
 
 const createRenderer = ({init = () => ({}), config = DEFAULT_CONFIG, resetCss = true}: CreateRendererParams) => {
