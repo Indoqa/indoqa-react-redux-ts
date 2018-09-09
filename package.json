@@ -11,7 +11,8 @@
     "analyze": "source-map-explorer ./target/assets/app-*",
     "build": "indoqa-webpack ./indoqa-webpack-options.js",
     "docs": "indoqa-webpack ./indoqa-webpack-docs.js",
-    "lint": "tslint ./src/**/*.ts ./src/**/*.tsx",
+    "lint": "tslint --project .",
+    "compile": "tsc",
     "package": "yarn lint && yarn build",
     "postinstall": "yarn run package",
     "start": "indoqa-dev-server ./indoqa-webpack-options.js"
