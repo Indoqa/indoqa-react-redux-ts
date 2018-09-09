@@ -18,7 +18,7 @@ import createRenderer from './idqFela/createRenderer'
 // TODO
 // - introduce react-router (switch)
 // - check react component reload
-// * check indoqa-webpack artifact if it is runnable with indoqa-boot
+// - check indoqa-webpack artifact if it is runnable with indoqa-boot
 // * revisit middleware setup
 
 // * review Action typing

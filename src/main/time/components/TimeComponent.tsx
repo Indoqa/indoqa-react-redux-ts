@@ -8,7 +8,7 @@ type StyleButtonProps = {
 }
 
 const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}) => ({
-  color: '#000',
+  color: theme.colors.text,
   width: someProperty ? 500 : 400,
   fontSize: theme.fontSizes.small,
 }), 'button')
