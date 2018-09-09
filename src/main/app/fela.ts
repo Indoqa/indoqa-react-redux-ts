@@ -27,11 +27,10 @@ const config: any = {
   enhancers: [],
 }
 
-/*
+
 if (process.env.NODE_ENV !== 'production') {
-  config.enhancers = [monolithic({})]
+  config.enhancers = [monolithic({prettySelectors: true})]
 }
-*/
 
 export default {
   init,

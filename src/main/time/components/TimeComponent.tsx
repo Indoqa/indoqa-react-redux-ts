@@ -8,9 +8,9 @@ type StyleButtonProps = {
 }
 
 const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}) => ({
-  color: theme.colors.text,
-  width: someProperty ? 500 : 200,
-  fontSize: theme.fontSizes.big,
+  color: 'blue',
+  width: someProperty ? 500 : 400,
+  fontSize: theme.fontSizes.small,
 }), 'button')
 
 type Props = {
@@ -25,7 +25,7 @@ export default class TimeComponent extends React.Component<Props> {
       <div>
         TimeComponent: {this.props.today}
         <StyledButton onClick={() => this.props.onToggle()} someProperty={false}>
-          Toggle
+          Toggle3
         </StyledButton>
       </div>
     )

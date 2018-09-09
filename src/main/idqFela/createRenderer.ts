@@ -21,7 +21,7 @@ export type CreateRendererParams = {
   resetCss: boolean,
 }
 
-export const createRenderer = ({init = () => ({}), config = DEFAULT_CONFIG, resetCss = true}: CreateRendererParams) => {
+const createRenderer = ({init = () => ({}), config = DEFAULT_CONFIG, resetCss = true}: CreateRendererParams) => {
   const felaRenderer = createFelaRenderer(config)
 
   if (resetCss) {
@@ -32,3 +32,5 @@ export const createRenderer = ({init = () => ({}), config = DEFAULT_CONFIG, rese
 
   return felaRenderer
 }
+
+export default createRenderer

@@ -1,10 +1,10 @@
 import {createStore, Store, applyMiddleware, compose} from 'redux'
-import {createEpicMiddleware, Epic} from 'redux-observable'
+import {createEpicMiddleware} from 'redux-observable'
 import {History} from 'history'
 
 export declare interface IndoqaStoreParams {
   rootReducer: any,
-  rootEpic: Epic<any, any, any, any>,
+  rootEpic: any,
   initialState?: any,
   enableLogging: boolean,
   history: History,
@@ -17,10 +17,10 @@ export declare interface IndoqaStore {
 
 const createIndoqaStore = ({rootReducer, rootEpic, initialState = {}, enableLogging, history}: IndoqaStoreParams):
 IndoqaStore => {
-  const epicMiddleware = createEpicMiddleware(rootEpic)
+  const epicMiddleware: any = createEpicMiddleware()
   const middleware = [epicMiddleware]
 
-  return {
+  const indoqaStore = {
     reduxStore: createStore(
       rootReducer,
       initialState,
@@ -30,6 +30,10 @@ IndoqaStore => {
     ),
     epicMiddleware,
   }
+
+  epicMiddleware.run(rootEpic)
+
+  return indoqaStore
 }
 
 export default createIndoqaStore
