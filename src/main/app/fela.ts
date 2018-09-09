@@ -27,9 +27,11 @@ const config: any = {
   enhancers: [],
 }
 
+/*
 if (process.env.NODE_ENV !== 'production') {
   config.enhancers = [monolithic({})]
 }
+*/
 
 export default {
   init,

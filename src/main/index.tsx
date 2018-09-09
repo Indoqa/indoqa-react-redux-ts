@@ -55,8 +55,8 @@ const store = createStore(history)
 const rootEl =  document.getElementById('app')
 
 ReactDOM.render(
-  <IndoqaApplication history={history} store={store}>
-    <App fela={fela} />
+  <IndoqaApplication history={history} store={store} fela={fela}>
+    <App />
   </IndoqaApplication>,
   rootEl,
 )
@@ -64,13 +64,11 @@ ReactDOM.render(
 if (module.hot) {
   module.hot.accept('./app/App', () => {
     const NextApp = require('./app/App.tsx').default
-    const nextFela = require('./app/fela.ts').default
     ReactDOM.render(
-      <IndoqaApplication history={history} store={store}>
-        <NextApp fela={nextFela}/>
+      <IndoqaApplication history={history} store={store} fela={fela}>
+        <NextApp />
       </IndoqaApplication>,
       rootEl,
     )
   })
 }
-
