@@ -42,6 +42,13 @@ import createRenderer from './idqFela/createRenderer'
 //    blob/f86656c60e8529159c49c3e8049cadb37e4cbf8a/src/Main.tsx
 // -- introduce Theming
 
+// * introduce immer
+// ** https://www.netlify.com/blog/2018/09/12/the-rise-of-immer-in-react/
+
+// * CSS extraction
+// ** https://github.com/marharyta/webpack-boilerplate/
+//      blob/master/webpack-basic-setup/webpack.config.js
+
 // * introduce i18n
 // * forms sample
 // * all other samples
