@@ -25,7 +25,7 @@ export default class TimeComponent extends React.Component<Props> {
       <div>
         TimeComponent: {this.props.today}
         <StyledButton onClick={() => this.props.onToggle()} someProperty={false}>
-          Toggle2
+          Toggle
         </StyledButton>
       </div>
     )

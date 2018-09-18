@@ -24,5 +24,7 @@
       "fela-preset-web" : ["./node_modules/fela"]
     }
   },
-  "compileOnSave": true
+  "compileOnSave": true,
+  "include": ["src/main/**/*", "src/typings/*"],
+  "exclude": ["node_modules", "src/**/*.spec.*"]
 }
