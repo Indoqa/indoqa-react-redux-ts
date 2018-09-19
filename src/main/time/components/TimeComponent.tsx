@@ -15,7 +15,7 @@ const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, somePro
 
 type Props = {
   today: number,
-  onToggle: any,
+  onIncrement: (id?: number) => any,
 }
 
 export default class TimeComponent extends React.Component<Props> {
@@ -24,8 +24,11 @@ export default class TimeComponent extends React.Component<Props> {
     return (
       <div>
         TimeComponent: {this.props.today}
-        <StyledButton onClick={() => this.props.onToggle()} someProperty={false}>
-          Toggle
+        <StyledButton onClick={() => this.props.onIncrement()} someProperty={false}>
+          Increment by 2
+        </StyledButton>
+        <StyledButton onClick={() => this.props.onIncrement(3)} someProperty={false}>
+          Increment by 3
         </StyledButton>
       </div>
     )

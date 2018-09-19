@@ -21,20 +21,24 @@ import createRenderer from './idqFela/createRenderer'
 // - check indoqa-webpack artifact if it is runnable with indoqa-boot
 // * revisit middleware setup
 
-// * review Action typing
+// - general types export
+// - review Action typing
 // - review React re-exports
 // -- see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/25321
 // -- see https://github.com/Microsoft/TypeScript/issues/24666
 // -- see https://stackoverflow.com/questions/43900035/
 //        ts4023-exported-variable-x-has-or-is-using-name-y-from-external-module-but
+// ME: types in mapDispatchToProps
+// ME: what variant of action typing do we want to support?
+//     see https://github.com/piotrwitek/typesafe-actions#behold-the-mighty-tutorial
+
 
 // * introduce reselect
 
-// * upgrade rxjs and redux-observable
-// * upgrade react
-// * switchMap (load time info via ajax)
+// - upgrade rxjs and redux-observable
+// - upgrade react
 // * introduce epic dependencies
-// * general types export
+// * switchMap (load time info via ajax)
 
 // - introduce fela
 // -- https://github.com/cdmbase/fullstack-pro/search?q=fela&unscoped_q=fela

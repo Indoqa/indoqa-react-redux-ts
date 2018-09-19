@@ -1,1 +1,1 @@
-export const TOGGLE = 'time/TOGGLE'
+export const INCREMENT = 'time/INCREMENT'

@@ -1,5 +1,5 @@
 import {action} from 'typesafe-actions'
 
-import {TOGGLE} from './time.constants'
+import {INCREMENT} from './time.constants'
 
-export const toggle = (id: string) => action(TOGGLE, id)
+export const increment = (payload: number) => action(INCREMENT, payload)
