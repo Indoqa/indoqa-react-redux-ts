@@ -37,8 +37,7 @@ import createRenderer from './idqFela/createRenderer'
 
 // - upgrade rxjs and redux-observable
 // - upgrade react
-// * introduce epic dependencies
-// * switchMap (load time info via ajax)
+// * introduce epic services
 
 // - introduce fela
 // -- https://github.com/cdmbase/fullstack-pro/search?q=fela&unscoped_q=fela
@@ -49,16 +48,25 @@ import createRenderer from './idqFela/createRenderer'
 // * introduce immer
 // ** https://www.netlify.com/blog/2018/09/12/the-rise-of-immer-in-react/
 
-// * CSS extraction
-// ** https://github.com/marharyta/webpack-boilerplate/
+// - CSS extraction
+// -- https://github.com/marharyta/webpack-boilerplate/
 //      blob/master/webpack-basic-setup/webpack.config.js
 
+// - Tooling
+// -- linting
+// -- IntelliJ typescript formatting and linting
+
+// Finish phase 1
+// * indoqa-react-app / indoqa-react-fela
+// * time sample (with immer)
+// * MainMenuTemplate
+// * Overview page
 // * introduce i18n
+
+// Phase 2
 // * forms sample
 // * all other samples
 // * Jest tests
-// - linting
-// - IntelliJ typescript formatting and linting
 
 const history = createHistory()
 const store = createStore(history)
