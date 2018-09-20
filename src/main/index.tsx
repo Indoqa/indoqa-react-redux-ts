@@ -60,8 +60,6 @@ import createRenderer from './idqFela/createRenderer'
 // - linting
 // - IntelliJ typescript formatting and linting
 
-declare var module: any
-
 const history = createHistory()
 const store = createStore(history)
 const rootEl =  document.getElementById('app')
