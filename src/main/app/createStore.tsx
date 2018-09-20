@@ -20,8 +20,9 @@ const createStore = (history: History): Store<any> => {
 
     if (indoqaStore.epicMiddleware) {
       module.hot.accept('./rootEpic', () => {
+        indoqaStore.reduxStore.dispatch({ type: 'END' })
         const nextRootEpic = require('./rootEpic.ts').default
-        indoqaStore.epicMiddleware.replaceEpic(nextRootEpic)
+        indoqaStore.epicMiddleware.run(nextRootEpic)
       })
     }
   }

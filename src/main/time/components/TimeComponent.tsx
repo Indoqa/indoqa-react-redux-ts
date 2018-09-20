@@ -1,6 +1,8 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
 
+import './test.css'
+
 type StyleButtonProps = {
   onClick: () => any,
   theme?: any,
@@ -30,6 +32,7 @@ export default class TimeComponent extends React.Component<Props> {
         <StyledButton onClick={() => this.props.onIncrement(3)} someProperty={false}>
           Increment by 3
         </StyledButton>
+        <div className="testClass">testClass</div>
       </div>
     )
   }

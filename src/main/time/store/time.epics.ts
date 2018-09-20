@@ -9,7 +9,7 @@ import {INCREMENT} from './time.constants'
 const timeEpic$: Epic<Types.RootAction, Types.RootAction, Types.RootState, any> = (action$) =>
   action$.pipe(
     filter(isOfType(INCREMENT)),
-    tap((x) => console.log('xxxxyz', x)),
+    tap((x) => console.log('xxxxyz1', x)),
     ignoreElements(),
   )
 
