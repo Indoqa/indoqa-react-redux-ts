@@ -62,6 +62,9 @@ import createRenderer from './idqFela/createRenderer'
 // * MainMenuTemplate
 // * Overview page
 // * introduce i18n
+// * typed theme
+// * redux files typing
+// * target/js as input for webpack
 
 // Phase 2
 // * forms sample
