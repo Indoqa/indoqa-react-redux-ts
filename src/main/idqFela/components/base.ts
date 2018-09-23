@@ -1,4 +1,6 @@
-const spacing = (theme: any, propValue: number) => {
+import {BaseTheme} from '../baseTheme'
+
+const spacing = (theme: BaseTheme, propValue: number) => {
   if (!propValue) {
     throw new Error('A spacing value must not be null.')
   }
@@ -18,13 +20,10 @@ const spacing = (theme: any, propValue: number) => {
 }
 
 export declare interface Themeable {
-  theme?: any,
+  theme?: BaseTheme,
 }
 
 export declare interface MarginProps extends Themeable {
-  /**
-   * some description
-   */
   m?: number,
   mt?: number,
   mb?: number,
@@ -32,7 +31,13 @@ export declare interface MarginProps extends Themeable {
   mr?: number,
 }
 
+const THEME_NOT_AVAILABLE_ERR_MSG = 'There is no theme available. Check if the Fela ' +
+  'ThemeProvider is in the React context.'
+
 export const margins = ({theme, m, mt, mb, ml, mr}: MarginProps) => {
+  if (theme === undefined) {
+    throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
+  }
   const styles = {}
   if (m) {
     Object.assign(styles, {margin: spacing(theme, m)})
@@ -61,6 +66,9 @@ export declare interface PaddingProps extends Themeable {
 }
 
 export const paddings = ({theme, p, pt, pb, pl, pr}: PaddingProps) => {
+  if (theme === undefined) {
+    throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
+  }
   const styles = {}
   if (p) {
     Object.assign(styles, {padding: spacing(theme, p)})
@@ -101,7 +109,7 @@ export const flexChild = ({grow, shrink, order, align}: FlexChildProps) => {
   return styles
 }
 
-export declare interface FontProps extends Themeable{
+export declare interface FontProps extends Themeable {
   font?: string,
   size?: number | string,
   color?: string,
@@ -109,20 +117,25 @@ export declare interface FontProps extends Themeable{
   ellipsis?: boolean,
 }
 
-export const fonts = ({theme, font, size, color, bold, ellipsis}: FontProps) => ({
-  fontFamily: (font) ? theme.fonts[font] : theme.fonts.text,
-  fontSize: (size) ? theme.fontSizes[size] : theme.fontSizes.text,
-  color: (color) ? theme.colors[color] : theme.colors.text,
-  fontWeight: (bold) ? 700 : 500,
-  extend: [{
-    condition: ellipsis,
-    style: {
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-    },
-  }],
-})
+export const fonts = ({theme, font, size, color, bold, ellipsis}: FontProps) => {
+  if (theme === undefined) {
+    throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
+  }
+  return ({
+    fontFamily: (font) ? theme.fonts[font] : theme.fonts.text,
+    fontSize: (size) ? theme.fontSizes[size] : theme.fontSizes.text,
+    color: (color) ? theme.colors[color] : theme.colors.text,
+    fontWeight: (bold) ? 700 : 500,
+    extend: [{
+      condition: ellipsis,
+      style: {
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+      },
+    }],
+  })
+}
 
 export declare interface BoxModelProps {
   inline?: boolean,
@@ -142,9 +155,14 @@ export declare interface StylingProps extends Themeable {
   bg?: string,
 }
 
-export const styling = ({theme, bg}: StylingProps) => ({
-  backgroundColor: (bg) ? theme.colors[bg] : 'transparent',
-})
+export const styling = ({theme, bg}: StylingProps) => {
+  if (theme === undefined) {
+    throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
+  }
+  return ({
+    backgroundColor: (bg) ? theme.colors[bg] : 'transparent',
+  })
+}
 
 export declare interface BoxStyleProps extends
   MarginProps,

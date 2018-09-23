@@ -3,7 +3,33 @@ const typeScaleBase = 14
 const typeScale = (level: number) => typeScaleBase + (typeScaleFactor * level)
 const standardFont = 'sans-serif'
 
-const baseTheme = {
+export declare interface FontSizesThemeProps {
+  verySmall: number | string,
+  small: number | string,
+  text: number | string,
+  big: number | string,
+  veryBig: number | string,
+}
+
+export declare interface BaseTheme {
+  fontSizes: FontSizesThemeProps,
+  fonts: {
+    text: string,
+  },
+  colors: {
+    text: string,
+  },
+  spacing: {
+    space0: number | string,
+    space1: number | string,
+    space2: number | string,
+    space3: number | string,
+    space4: number | string,
+  }
+  layout: {}
+}
+
+const baseTheme: BaseTheme = {
   fontSizes: {
     text: typeScale(0),
     big: typeScale(1),

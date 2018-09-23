@@ -1,4 +1,18 @@
-export default {
+import {BaseTheme, FontSizesThemeProps} from '../idqFela/baseTheme'
+
+interface AppFontSizeThemeProps extends FontSizesThemeProps {
+  extraBig: number | string,
+}
+
+export declare interface Themeable {
+  theme: Theme,
+}
+
+export declare interface Theme extends BaseTheme {
+  fontSizes: AppFontSizeThemeProps
+}
+
+const appTheme = {
   colors: {
     text: 'blue',
     disabled: '#727272',
@@ -13,3 +27,5 @@ export default {
     menuWidth: 300,
   },
 }
+
+export default appTheme

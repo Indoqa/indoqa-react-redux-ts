@@ -1,19 +1,21 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
+import {Themeable} from '../../app/theme'
 import Box from '../../idqFela/components/Box'
 
 import './test.css'
 
-type StyleButtonProps = {
+interface StyleButtonProps {
   onClick: () => any,
-  theme?: any,
   someProperty: boolean,
 }
 
-const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}) => ({
+interface ThemedStyleButtonProps extends Themeable, StyleButtonProps {}
+
+const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}: ThemedStyleButtonProps) => ({
   color: theme.colors.text,
   width: someProperty ? 500 : 200,
-  fontSize: theme.fontSizes.small,
+  fontSize: theme.fontSizes.extraBig,
 }), 'button')
 
 type Props = {
@@ -30,7 +32,7 @@ export default class TimeComponent extends React.Component<Props> {
         <StyledButton onClick={() => this.props.onIncrement()} someProperty={false}>
           Increment by 2
         </StyledButton>
-        <StyledButton onClick={() => this.props.onIncrement(3)} someProperty={false}>
+        <StyledButton onClick={() => this.props.onIncrement(3)} someProperty={true}>
           Increment by 3
         </StyledButton>
         <div className="testClass">testClass</div>
