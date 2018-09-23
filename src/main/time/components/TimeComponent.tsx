@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
+import Box from '../../idqFela/components/Box'
 
 import './test.css'
 
@@ -33,6 +34,7 @@ export default class TimeComponent extends React.Component<Props> {
           Increment by 3
         </StyledButton>
         <div className="testClass">testClass</div>
+        <Box />
       </div>
     )
   }

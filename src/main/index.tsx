@@ -19,7 +19,7 @@ import createRenderer from './idqFela/createRenderer'
 // - introduce react-router (switch)
 // - check react component reload
 // - check indoqa-webpack artifact if it is runnable with indoqa-boot
-// * revisit middleware setup
+// - revisit middleware setup
 
 // - general types export
 // - review Action typing
@@ -65,6 +65,7 @@ import createRenderer from './idqFela/createRenderer'
 // * typed theme
 // * redux files typing
 // * target/js as input for webpack
+// * code splitting for routes
 
 // Phase 2
 // * forms sample
