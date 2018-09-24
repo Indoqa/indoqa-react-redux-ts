@@ -36,8 +36,8 @@ export declare interface MarginProps {
 
 interface MarginPropsWithTheme extends MarginProps, WithTheme {}
 
-const THEME_NOT_AVAILABLE_ERR_MSG = 'There is no theme available or one of its properties is missing. Check if the Fela ' +
-  '<ThemeProvider> is configured correctly.'
+const THEME_NOT_AVAILABLE_ERR_MSG = 'There is no theme available or one of its properties is missing. ' +
+  'Check if the Fela ThemeProvider is configured correctly.'
 
 export const margins = ({theme, m, mt, mb, ml, mr}: MarginPropsWithTheme) => {
   if (theme === undefined) {
@@ -180,7 +180,7 @@ export const styling = ({theme, bg}: StylingPropsWithTheme) => {
       backgroundColor: (bg) ? theme.colors[bg] : 'transparent',
     })
   }
-  if(process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     console.warn(`The bg color ${bg} is not available in theme.colors.`)
   }
   return {}

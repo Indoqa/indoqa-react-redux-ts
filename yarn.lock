@@ -106,6 +106,14 @@
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.0.tgz#2fac51050c68f7d6f96c5aafc631132522f4aa3f"
 
+"@types/i18next-browser-languagedetector@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/i18next-browser-languagedetector/-/i18next-browser-languagedetector-2.0.1.tgz#35490253884b15311c54108697d5a7147a75df95"
+
+"@types/i18next@*", "@types/i18next@^11.9.0":
+  version "11.9.0"
+  resolved "https://registry.yarnpkg.com/@types/i18next/-/i18next-11.9.0.tgz#e3781b5b6a923902c63e61d09b98881999a4eb88"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -125,6 +133,13 @@
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.7.tgz#54d0f867a76b90597e8432030d297982f25c20ba"
   dependencies:
     "@types/node" "*"
+    "@types/react" "*"
+
+"@types/react-i18next@^7.8.2":
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react-i18next/-/react-i18next-7.8.2.tgz#a388e3a2b97da361761000cdcd23b9a621f81472"
+  dependencies:
+    "@types/i18next" "*"
     "@types/react" "*"
 
 "@types/react-redux@^6.0.7":
