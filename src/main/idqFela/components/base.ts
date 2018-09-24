@@ -170,9 +170,20 @@ export const styling = ({theme, bg}: StylingPropsWithTheme) => {
   if (theme === undefined || theme.colors === undefined) {
     throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
   }
-  return ({
-    backgroundColor: (bg) ? theme.colors[bg] : 'transparent',
-  })
+
+  if (bg === undefined) {
+    return {}
+  }
+
+  if (bg in theme.colors) {
+    return ({
+      backgroundColor: (bg) ? theme.colors[bg] : 'transparent',
+    })
+  }
+  if(process.env.NODE_ENV !== 'production') {
+    console.warn(`The bg color ${bg} is not available in theme.colors.`)
+  }
+  return {}
 }
 
 export declare interface BoxStyleProps extends

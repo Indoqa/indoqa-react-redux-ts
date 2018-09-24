@@ -38,7 +38,7 @@ export default class TimeComponent extends React.Component<Props> {
         </StyledButton>
         <div className="testClass">testClass</div>
         <Flex direction="column">
-          <Box>1</Box>
+          <Box bg="disabled1">1</Box>
           <Box>2</Box>
           <Box>3</Box>
         </Flex>
