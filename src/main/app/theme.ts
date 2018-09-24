@@ -30,18 +30,19 @@ export declare interface Theme extends BaseTheme {
 }
 
 const theme: Theme = {
-  colors: {
-    text: 'blue',
-    disabled: '#727272',
-    bgLight: '#d5d5d5',
+  fontSizes: {
+    extraBig: typeScale(3),
   },
   fonts: {
     text: 'sans-serif',
     special: 'serif',
   },
-  fontSizes: {
-    extraBig: typeScale(3),
+  colors: {
+    text: 'blue',
+    disabled: '#727272',
+    bgLight: '#d5d5d5',
   },
+  spacing: {},
   layout: {
     actionBarHeight: 50,
     menuWidth: 300,

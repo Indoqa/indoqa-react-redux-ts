@@ -28,11 +28,11 @@ export declare interface BaseSpacing {
 }
 
 export declare interface BaseTheme {
-  readonly fontSizes?: Partial<BaseFontSizes>,
-  readonly fonts?: Partial<BaseFonts>,
-  readonly colors?: Partial<BaseColors>,
-  readonly spacing?: Partial<BaseSpacing>,
-  readonly layout?: {},
+  readonly fontSizes: Partial<BaseFontSizes>,
+  readonly fonts: Partial<BaseFonts>,
+  readonly colors: Partial<BaseColors>,
+  readonly spacing: Partial<BaseSpacing>,
+  readonly layout: {},
 }
 
 const baseTheme: BaseTheme = {
