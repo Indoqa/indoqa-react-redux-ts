@@ -1,18 +1,35 @@
-import {BaseTheme, FontSizesThemeProps} from '../idqFela/baseTheme'
+import {BaseTheme, BaseFontSizes, BaseColors, BaseFonts, typeScale} from '../idqFela/baseTheme'
 
-interface AppFontSizeThemeProps extends FontSizesThemeProps {
-  extraBig: number | string,
+interface FontSizes extends Partial<BaseFontSizes> {
+  readonly extraBig: number | string,
 }
 
-export declare interface Themeable {
-  theme: Theme,
+interface Colors extends Partial<BaseColors> {
+  readonly disabled: string,
+  readonly bgLight: string,
+}
+
+interface Fonts extends Partial<BaseFonts> {
+  readonly special: string,
+}
+
+interface Layout {
+  readonly actionBarHeight: number,
+  readonly menuWidth: number,
+}
+
+export declare interface WithTheme {
+  readonly theme: Theme,
 }
 
 export declare interface Theme extends BaseTheme {
-  fontSizes: AppFontSizeThemeProps
+  readonly fontSizes: FontSizes,
+  readonly colors: Colors,
+  readonly fonts: Fonts,
+  readonly layout: Layout,
 }
 
-const appTheme = {
+const theme: Theme = {
   colors: {
     text: 'blue',
     disabled: '#727272',
@@ -22,10 +39,13 @@ const appTheme = {
     text: 'sans-serif',
     special: 'serif',
   },
+  fontSizes: {
+    extraBig: typeScale(3),
+  },
   layout: {
     actionBarHeight: 50,
     menuWidth: 300,
   },
 }
 
-export default appTheme
+export default theme

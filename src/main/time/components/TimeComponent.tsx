@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
-import {Themeable} from '../../app/theme'
+import {WithTheme} from '../../app/theme'
 import Box from '../../idqFela/components/Box'
+import Flex from '../../idqFela/components/Flex'
 
 import './test.css'
 
@@ -10,12 +11,12 @@ interface StyleButtonProps {
   someProperty: boolean,
 }
 
-interface ThemedStyleButtonProps extends Themeable, StyleButtonProps {}
+interface ThemedStyleButtonProps extends WithTheme, StyleButtonProps {}
 
 const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}: ThemedStyleButtonProps) => ({
   color: theme.colors.text,
   width: someProperty ? 500 : 200,
-  fontSize: theme.fontSizes.extraBig,
+  fontSize: theme.fontSizes.text,
 }), 'button')
 
 type Props = {
@@ -27,7 +28,7 @@ export default class TimeComponent extends React.Component<Props> {
 
   public render() {
     return (
-      <div>
+      <Box>
         TimeComponent: {this.props.today}
         <StyledButton onClick={() => this.props.onIncrement()} someProperty={false}>
           Increment by 2
@@ -36,8 +37,12 @@ export default class TimeComponent extends React.Component<Props> {
           Increment by 3
         </StyledButton>
         <div className="testClass">testClass</div>
-        <Box />
-      </div>
+        <Flex direction="column">
+          <Box>1</Box>
+          <Box>2</Box>
+          <Box>3</Box>
+        </Flex>
+      </Box>
     )
   }
 }

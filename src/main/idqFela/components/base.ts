@@ -4,6 +4,9 @@ const spacing = (theme: BaseTheme, propValue: number) => {
   if (!propValue) {
     throw new Error('A spacing value must not be null.')
   }
+  if (theme === undefined || theme.spacing === undefined) {
+    throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
+  }
 
   switch (propValue) {
     case 1:
@@ -19,11 +22,11 @@ const spacing = (theme: BaseTheme, propValue: number) => {
   }
 }
 
-export declare interface Themeable {
+interface WithTheme {
   theme?: BaseTheme,
 }
 
-export declare interface MarginProps extends Themeable {
+export declare interface MarginProps {
   m?: number,
   mt?: number,
   mb?: number,
@@ -31,10 +34,12 @@ export declare interface MarginProps extends Themeable {
   mr?: number,
 }
 
-const THEME_NOT_AVAILABLE_ERR_MSG = 'There is no theme available. Check if the Fela ' +
-  'ThemeProvider is in the React context.'
+interface MarginPropsWithTheme extends MarginProps, WithTheme {}
 
-export const margins = ({theme, m, mt, mb, ml, mr}: MarginProps) => {
+const THEME_NOT_AVAILABLE_ERR_MSG = 'There is no theme available or one of its properties is missing. Check if the Fela ' +
+  '<ThemeProvider> is configured correctly.'
+
+export const margins = ({theme, m, mt, mb, ml, mr}: MarginPropsWithTheme) => {
   if (theme === undefined) {
     throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
   }
@@ -57,7 +62,7 @@ export const margins = ({theme, m, mt, mb, ml, mr}: MarginProps) => {
   return styles
 }
 
-export declare interface PaddingProps extends Themeable {
+export declare interface PaddingProps {
   p?: number,
   pt?: number,
   pb?: number,
@@ -65,7 +70,9 @@ export declare interface PaddingProps extends Themeable {
   pr?: number,
 }
 
-export const paddings = ({theme, p, pt, pb, pl, pr}: PaddingProps) => {
+interface PaddingPropsWithTheme extends PaddingProps, WithTheme {}
+
+export const paddings = ({theme, p, pt, pb, pl, pr}: PaddingPropsWithTheme) => {
   if (theme === undefined) {
     throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
   }
@@ -109,7 +116,7 @@ export const flexChild = ({grow, shrink, order, align}: FlexChildProps) => {
   return styles
 }
 
-export declare interface FontProps extends Themeable {
+export declare interface FontProps {
   font?: string,
   size?: number | string,
   color?: string,
@@ -117,15 +124,17 @@ export declare interface FontProps extends Themeable {
   ellipsis?: boolean,
 }
 
-export const fonts = ({theme, font, size, color, bold, ellipsis}: FontProps) => {
-  if (theme === undefined) {
+interface FontPropsWithTheme extends FontProps, WithTheme {}
+
+export const fonts = ({theme, font, size, color, bold, ellipsis}: FontPropsWithTheme) => {
+  if (theme === undefined || theme.fonts === undefined || theme.fontSizes === undefined || theme.colors === undefined) {
     throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
   }
   return ({
     fontFamily: (font) ? theme.fonts[font] : theme.fonts.text,
     fontSize: (size) ? theme.fontSizes[size] : theme.fontSizes.text,
     color: (color) ? theme.colors[color] : theme.colors.text,
-    fontWeight: (bold) ? 700 : 500,
+    fontWeight: (bold) ? 700 : 400,
     extend: [{
       condition: ellipsis,
       style: {
@@ -151,12 +160,14 @@ export const boxModel = ({inline, width, height, fullWidth, fullHeight}: BoxMode
   height: (fullHeight) ? '100%' : height || 'auto',
 })
 
-export declare interface StylingProps extends Themeable {
+export declare interface StylingProps {
   bg?: string,
 }
 
-export const styling = ({theme, bg}: StylingProps) => {
-  if (theme === undefined) {
+interface StylingPropsWithTheme extends StylingProps, WithTheme {}
+
+export const styling = ({theme, bg}: StylingPropsWithTheme) => {
+  if (theme === undefined || theme.colors === undefined) {
     throw Error(THEME_NOT_AVAILABLE_ERR_MSG)
   }
   return ({

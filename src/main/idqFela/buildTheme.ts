@@ -1,8 +1,8 @@
 import merge from 'deepmerge'
-import baseTheme from './baseTheme'
+import baseTheme, {BaseTheme} from './baseTheme'
 
-const buildTheme = (customTheme: any) => {
-  return merge(baseTheme, customTheme)
+function buildTheme<T extends BaseTheme>(customTheme: T): T {
+  return (merge(baseTheme, customTheme) as T)
 }
 
 export default buildTheme

@@ -13,9 +13,11 @@ const centerProp = (center: string | undefined, stretch: boolean | undefined, va
   return (stretch) ? 'stretch' : 'flex-start'
 }
 
+type Direction = 'column' | 'row'
+
 export declare interface FlexProps extends BoxStyleProps {
   inline?: boolean,
-  direction?: string,
+  direction?: Direction,
   nowrap?: boolean,
   center?: string,
   justifyContent?: string,
@@ -24,11 +26,11 @@ export declare interface FlexProps extends BoxStyleProps {
 }
 
 const Flex = (props: FlexProps): any => {
-  const {inline, direction, nowrap, center, justifyContent, alignItems, stretch} = props
+  const {inline, direction = 'row', nowrap, center, justifyContent, alignItems, stretch} = props
   return ({
     ...boxStyles(props),
     display: (inline) ? 'inline-flex' : 'flex',
-    flexDirection: direction || 'row',
+    flexDirection: direction,
     flexWrap: (nowrap) ? 'nowrap' : 'wrap',
     justifyContent: centerProp(center, stretch, justifyContent),
     alignItems: centerProp(center, stretch, alignItems),

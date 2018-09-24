@@ -1,32 +1,38 @@
 const typeScaleFactor = 1.333
 const typeScaleBase = 14
-const typeScale = (level: number) => typeScaleBase + (typeScaleFactor * level)
 const standardFont = 'sans-serif'
+export const typeScale = (level: number) => typeScaleBase + (typeScaleFactor * level)
 
-export declare interface FontSizesThemeProps {
-  verySmall: number | string,
-  small: number | string,
-  text: number | string,
-  big: number | string,
-  veryBig: number | string,
+export declare interface BaseFontSizes {
+  readonly verySmall: number | string,
+  readonly small: number | string,
+  readonly text: number | string,
+  readonly big: number | string,
+  readonly veryBig: number | string,
+}
+
+export declare interface BaseFonts {
+  readonly text: string,
+}
+
+export declare interface BaseColors {
+  readonly text: string,
+}
+
+export declare interface BaseSpacing {
+  readonly space0: number | string,
+  readonly space1: number | string,
+  readonly space2: number | string,
+  readonly space3: number | string,
+  readonly space4: number | string,
 }
 
 export declare interface BaseTheme {
-  fontSizes: FontSizesThemeProps,
-  fonts: {
-    text: string,
-  },
-  colors: {
-    text: string,
-  },
-  spacing: {
-    space0: number | string,
-    space1: number | string,
-    space2: number | string,
-    space3: number | string,
-    space4: number | string,
-  }
-  layout: {}
+  readonly fontSizes?: Partial<BaseFontSizes>,
+  readonly fonts?: Partial<BaseFonts>,
+  readonly colors?: Partial<BaseColors>,
+  readonly spacing?: Partial<BaseSpacing>,
+  readonly layout?: {},
 }
 
 const baseTheme: BaseTheme = {
@@ -50,9 +56,7 @@ const baseTheme: BaseTheme = {
     space3: '2rem',
     space4: '4rem',
   },
-  layout: {
-
-  },
+  layout: {},
 }
 
 export default baseTheme
