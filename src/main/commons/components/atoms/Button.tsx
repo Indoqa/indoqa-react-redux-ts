@@ -1,8 +1,9 @@
+import {CSSProperties} from 'react'
 import {createComponentWithProxy} from 'react-fela'
-import {WithTheme} from '../../../app/theme'
+import Types from 'Types'
 
-const Button = ({theme}: WithTheme) => ({
+const Button = ({theme}: Types.WithTheme): CSSProperties => ({
   color: theme.colors.text,
 })
 
-export default createComponentWithProxy(Button, 'button')
+export default createComponentWithProxy(Button, 'button') as any

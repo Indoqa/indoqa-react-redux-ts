@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
-import {WithTheme} from '../../app/theme'
+import Types from 'Types'
 import Box from '../../idqFela/components/Box'
 import Flex from '../../idqFela/components/Flex'
 
@@ -11,7 +11,7 @@ interface StyleButtonProps {
   someProperty: boolean,
 }
 
-interface ThemedStyleButtonProps extends WithTheme, StyleButtonProps {}
+interface ThemedStyleButtonProps extends Types.WithTheme, StyleButtonProps {}
 
 const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}: ThemedStyleButtonProps) => ({
   color: theme.colors.text,

@@ -26,7 +26,7 @@ const BASE_TITLE = 'Indoqa React-Redux samples'
 
 const renderHeaderContent = (title?: string, header?: string) => (
   <React.Fragment>
-    <Logo mr={1}>
+    <Logo mr={1} customHeight={50}>
       <Link to="/">INDOQA React-Redux samples</Link>
     </Logo>
     <Box>{title}</Box>

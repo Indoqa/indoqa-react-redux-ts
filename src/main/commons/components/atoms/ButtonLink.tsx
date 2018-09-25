@@ -1,7 +1,12 @@
+import {CSSProperties} from 'react'
 import {createComponentWithProxy} from 'react-fela'
-import {WithTheme} from '../../../app/theme'
+import Types from 'Types'
 
-const ButtonLink = ({theme}: WithTheme): any => ({
+interface Props extends CSSProperties {
+  '& > a': CSSProperties,
+}
+
+const ButtonLink = ({theme}: Types.WithTheme): Props => ({
   '& > a': {
     color: theme.colors.text,
     display: 'block',
@@ -10,4 +15,4 @@ const ButtonLink = ({theme}: WithTheme): any => ({
   },
 })
 
-export default createComponentWithProxy(ButtonLink, 'button')
+export default createComponentWithProxy(ButtonLink, 'button') as any

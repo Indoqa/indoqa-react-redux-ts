@@ -1,6 +1,12 @@
+import {CSSProperties} from 'react'
 import {createComponentWithProxy} from 'react-fela'
+import Types from 'Types'
 
-const MenuLink = ({theme}: any): any => ({
+interface Props extends CSSProperties {
+  '> .active': CSSProperties,
+}
+
+const MenuLink = ({theme}: Types.WithTheme): Props => ({
   textTransform: 'uppercase',
   cursor: 'pointer',
   borderBottom: '1px solid #f5f5f5',
@@ -14,4 +20,4 @@ const MenuLink = ({theme}: any): any => ({
   },
 })
 
-export default createComponentWithProxy(MenuLink, 'div')
+export default createComponentWithProxy(MenuLink, 'div') as any

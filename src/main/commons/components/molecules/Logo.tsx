@@ -1,12 +1,24 @@
-import {createComponentWithProxy} from 'react-fela'
+import {CSSProperties} from 'react'
+import {createComponentWithProxy, FelaHtmlComponent} from 'react-fela'
+import Types from 'Types'
+import {BoxStyleProps} from '../../../idqFela/components/base'
+
 import Box from '../../../idqFela/components/Box'
 
-const Logo = ({theme}: any): any => {
+interface Props extends CSSProperties {
+  '> a': CSSProperties,
+}
+
+export declare interface MyProps {
+  customHeight: number,
+}
+
+const Logo = ({theme, customHeight}: Types.WithTheme & MyProps): Props => {
   return ({
     cursor: 'pointer',
     display: 'inline-flex',
     alignItems: 'center',
-    height: 50,
+    height: customHeight,
     fontWeight: 'bold',
     '> a': {
       textDecoration: 'none',
@@ -15,4 +27,4 @@ const Logo = ({theme}: any): any => {
   })
 }
 
-export default createComponentWithProxy(Logo, Box)
+export default createComponentWithProxy(Logo, Box) as FelaHtmlComponent<BoxStyleProps & MyProps, HTMLElement>

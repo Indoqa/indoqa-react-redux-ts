@@ -1,7 +1,10 @@
+import {CSSProperties} from 'react'
 import {createComponent} from 'react-fela'
+import Types from 'Types'
+
 import Flex from '../../../idqFela/components/Flex'
 
-const Bar = ({theme}: any): any => ({
+const Bar = ({theme}: Types.WithTheme): CSSProperties => ({
   height: theme.layout.actionBarHeight,
   backgroundColor: theme.colors.bgLight,
   width: 'auto',
@@ -9,4 +12,4 @@ const Bar = ({theme}: any): any => ({
   justifyContent: 'flex-start',
 })
 
-export default createComponent(Bar, Flex)
+export default createComponent(Bar, Flex) as any

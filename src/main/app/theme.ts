@@ -18,10 +18,6 @@ interface Layout {
   readonly menuWidth: number,
 }
 
-export declare interface WithTheme {
-  readonly theme: Theme,
-}
-
 export declare interface Theme extends BaseTheme {
   readonly fontSizes: FontSizes,
   readonly colors: Colors,
@@ -38,7 +34,7 @@ const theme: Theme = {
     special: 'serif',
   },
   colors: {
-    text: 'blue',
+    text: '#121',
     disabled: '#727272',
     bgLight: '#d5d5d5',
   },
