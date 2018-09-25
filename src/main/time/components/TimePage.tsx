@@ -9,9 +9,7 @@ export default class TimePage extends React.Component<{}> {
     return (
       <MainMenuTemplate title="Time">
         <div>
-          <h1>TimePage</h1>
           <TimeComponent />
-          <hr />
           <Link to="/">OverviewPage</Link>
         </div>
       </MainMenuTemplate>

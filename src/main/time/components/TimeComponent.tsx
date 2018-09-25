@@ -29,7 +29,9 @@ export default class TimeComponent extends React.Component<Props> {
   public render() {
     return (
       <Box>
-        TimeComponent: {this.props.today}
+        <Box>
+          TimeComponent: {this.props.today}
+        </Box>
         <StyledButton onClick={() => this.props.onIncrement()} someProperty={false}>
           Increment by 2
         </StyledButton>
@@ -38,7 +40,7 @@ export default class TimeComponent extends React.Component<Props> {
         </StyledButton>
         <div className="testClass">testClass</div>
         <Flex direction="column">
-          <Box bg="disabled">1</Box>
+          <Box>1</Box>
           <Box>2</Box>
           <Box>3</Box>
         </Flex>

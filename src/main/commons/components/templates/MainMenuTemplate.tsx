@@ -22,12 +22,12 @@ type State = {
   showMobileMenu: boolean,
 }
 
-const BASE_TITLE = 'Indoqa React-Redux samples'
+const BASE_TITLE = 'Indoqa React-Redux Typescript samples'
 
 const renderHeaderContent = (title?: string, header?: string) => (
   <React.Fragment>
     <Logo mr={1} customHeight={50}>
-      <Link to="/">INDOQA React-Redux samples</Link>
+      <Link to="/">{BASE_TITLE}</Link>
     </Logo>
     <Box>{title}</Box>
     <Box grow={1} />
