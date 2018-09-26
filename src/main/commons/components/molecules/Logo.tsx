@@ -10,15 +10,15 @@ interface Props extends CSSProperties {
 }
 
 export declare interface MyProps {
-  customHeight: number,
+  'data-logo-height': number,
 }
 
-const Logo = ({theme, customHeight}: Types.WithTheme & MyProps): Props => {
+const Logo = ({theme, 'data-logo-height': logoHeight}: Types.WithTheme & MyProps): Props => {
   return ({
     cursor: 'pointer',
     display: 'inline-flex',
     alignItems: 'center',
-    height: customHeight,
+    height: logoHeight,
     fontWeight: 'bold',
     '> a': {
       textDecoration: 'none',

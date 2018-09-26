@@ -26,7 +26,7 @@ const BASE_TITLE = 'Indoqa React-Redux Typescript samples'
 
 const renderHeaderContent = (title?: string, header?: string) => (
   <React.Fragment>
-    <Logo mr={1} customHeight={50}>
+    <Logo mr={1} data-logo-height={50}>
       <Link to="/">{BASE_TITLE}</Link>
     </Logo>
     <Box>{title}</Box>
@@ -61,7 +61,7 @@ const MOBILE_ONLY = {
   },
 }
 
-const Main = createComponentWithProxy(({theme, menuOpen}: any): any => ({
+const Main = createComponentWithProxy(({theme, 'data-menu-open': menuOpen}: any): any => ({
   paddingTop: theme.layout.actionBarHeight,
   height: `calc(100% - ${theme.layout.actionBarHeight}px)`,
   width: '100%',
@@ -78,7 +78,7 @@ const FixedBar = createComponentWithProxy(() => ({
   width: '100%',
 }), Box)
 
-const MobileMenu = createComponentWithProxy(({theme, show}: any): any => ({
+const MobileMenu = createComponentWithProxy(({theme, 'data-show': show}: any): any => ({
   position: 'absolute',
   zIndex: 10,
   top: theme.layout.actionBarHeight,
@@ -103,7 +103,7 @@ const TabletDesktopMenu = createComponentWithProxy(() => ({
   },
 }), Box)
 
-const ContentOverlay = createComponentWithProxy(({show}) => ({
+const ContentOverlay = createComponentWithProxy(({'data-show': show}) => ({
   visibility: show ? 'visible' : 'hidden',
   position: 'absolute',
   backgroundColor: 'black',
@@ -136,10 +136,10 @@ class MainMenuTemplate extends React.Component<Props, State> {
     return (
       <Flex stretch height="100%">
         <DocumentTitle title={documentTitle} />
-        <MobileMenu show={this.state.showMobileMenu}>
+        <MobileMenu data-show={this.state.showMobileMenu}>
           <MainMenu />
         </MobileMenu>
-        <ContentOverlay show={this.state.showMobileMenu} onClick={() => this.toggleMenu()} />
+        <ContentOverlay data-show={this.state.showMobileMenu} onClick={() => this.toggleMenu()} />
         <Box grow={1}>
           <FixedBar>
             <Bar pl={2} pr={2}>
@@ -148,7 +148,7 @@ class MainMenuTemplate extends React.Component<Props, State> {
               {renderLanguageSwitcher()}
             </Bar>
           </FixedBar>
-          <Main menuOpen={this.state.showMobileMenu}>
+          <Main data-menu-open={this.state.showMobileMenu}>
             <TabletDesktopMenu>
               <MainMenu />
             </TabletDesktopMenu>
