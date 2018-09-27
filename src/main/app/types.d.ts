@@ -4,7 +4,7 @@ import {StateType} from 'typesafe-actions'
 import {RouterAction, LocationChangeAction} from 'react-router-redux'
 type ReactRouterAction = RouterAction | LocationChangeAction
 
-import {TimeAction} from '../time/store/time.reducer'
+import {TimeAction} from '../time/store/time.types'
 import rootReducer from './rootReducer'
 import {Theme} from './theme'
 

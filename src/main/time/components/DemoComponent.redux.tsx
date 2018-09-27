@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 // import {Dispatch} from 'redux'
 import Types from 'Types'
 
-import TimeComponent from './TimeComponent'
+import DemoComponent from './DemoComponent'
 import {increment} from '../store/time.actions'
 
 const mapStateToProps = (state: Types.RootState) => ({
@@ -19,4 +19,4 @@ const mapStateToProps = (state: Types.RootState) => ({
 // })
 
 export {React}
-export default connect(mapStateToProps, {onIncrement: increment})(TimeComponent)
+export default connect(mapStateToProps, {onIncrement: increment})(DemoComponent)

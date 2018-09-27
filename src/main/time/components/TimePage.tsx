@@ -1,7 +1,8 @@
 import * as React from 'react'
 import MainMenuTemplate from '../../commons/components/templates/MainMenuTemplate'
-import TimeComponent from './TimeComponent.redux'
-import {Link} from 'react-router-dom'
+import Buttons from './Buttons'
+import TimeComponent from './DemoComponent.redux'
+import Result from './Result.redux'
 
 export default class TimePage extends React.Component<{}> {
 
@@ -9,8 +10,10 @@ export default class TimePage extends React.Component<{}> {
     return (
       <MainMenuTemplate title="Time">
         <div>
+          <Buttons />
+          <Result />
+          <hr />
           <TimeComponent />
-          <Link to="/">OverviewPage</Link>
         </div>
       </MainMenuTemplate>
     )

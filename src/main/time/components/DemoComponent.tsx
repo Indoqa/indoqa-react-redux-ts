@@ -28,7 +28,7 @@ type Props = {
   onIncrement: (id?: number) => any,
 }
 
-export default class TimeComponent extends React.Component<Props> {
+export default class DemoComponent extends React.Component<Props> {
 
   public render() {
     return (
