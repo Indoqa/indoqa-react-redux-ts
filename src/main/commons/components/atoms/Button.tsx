@@ -7,3 +7,4 @@ const Button = ({theme}: Types.FelaProps): CSSProperties => ({
 })
 
 export default createComponentWithProxy<Types.WithChildren>(Button, 'button')
+

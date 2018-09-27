@@ -126,10 +126,6 @@ export default class MainMenuTemplate extends React.Component<Props, State> {
     showMobileMenu: false,
   }
 
-  public toggleMenu() {
-    this.setState({showMobileMenu: !this.state.showMobileMenu})
-  }
-
   public render() {
     const {title, header, children} = this.props
     const documentTitle = title === undefined ? BASE_TITLE : `${BASE_TITLE} | ${title}`
@@ -159,5 +155,9 @@ export default class MainMenuTemplate extends React.Component<Props, State> {
         </Box>
       </Flex>
     )
+  }
+
+  private toggleMenu() {
+    this.setState({showMobileMenu: !this.state.showMobileMenu})
   }
 }
