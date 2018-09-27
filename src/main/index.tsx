@@ -57,14 +57,14 @@ import createRenderer from './idqFela/createRenderer'
 // -- IntelliJ typescript formatting and linting
 
 // Finish phase 1
+// - TS lib sample with rollup
 // * indoqa-react-app / indoqa-react-fela
 // * time sample (with immer)
-// * MainMenuTemplate
-// * Overview page
-// * introduce i18n
-// * typed theme
+// - MainMenuTemplate
+// - Overview page
+// - introduce i18n
+// - typed theme
 // * redux files typing
-// * target/js as input for webpack
 // * code splitting for routes
 
 // Phase 2

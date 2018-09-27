@@ -1,19 +1,19 @@
 import {CSSProperties} from 'react'
-import {createComponentWithProxy, FelaHtmlComponent} from 'react-fela'
+import {createComponentWithProxy} from 'react-fela'
 import Types from 'Types'
 import {BoxStyleProps} from '../../../idqFela/components/base'
 
 import Box from '../../../idqFela/components/Box'
 
-interface Props extends CSSProperties {
+interface LogoStyleProps extends CSSProperties {
   '> a': CSSProperties,
 }
 
-export declare interface MyProps {
+export declare interface Props extends Types.WithChildren {
   'data-logo-height': number,
 }
 
-const Logo = ({theme, 'data-logo-height': logoHeight}: Types.WithTheme & MyProps): Props => {
+const Logo = ({theme, 'data-logo-height': logoHeight}: Props & Types.FelaProps): LogoStyleProps => {
   return ({
     cursor: 'pointer',
     display: 'inline-flex',
@@ -27,4 +27,4 @@ const Logo = ({theme, 'data-logo-height': logoHeight}: Types.WithTheme & MyProps
   })
 }
 
-export default createComponentWithProxy(Logo, Box) as FelaHtmlComponent<BoxStyleProps & MyProps, HTMLElement>
+export default createComponentWithProxy<Props, BoxStyleProps, HTMLDivElement>(Logo, Box)

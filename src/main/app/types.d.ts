@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {CSSProperties} from 'react'
 import {StateType} from 'typesafe-actions'
 import {RouterAction, LocationChangeAction} from 'react-router-redux'
@@ -17,4 +18,8 @@ declare module 'Types' {
   export interface WithTheme {
     readonly theme: Theme,
   }
+  export interface WithChildren {
+    readonly children?: React.ReactNode,
+  }
+  export interface FelaProps extends WithTheme, WithChildren {}
 }

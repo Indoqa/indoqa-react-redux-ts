@@ -1,8 +1,9 @@
 import {createComponent} from 'react-fela'
+import {BoxStyleProps} from '../../../idqFela/components/base'
 import Box from '../../../idqFela/components/Box'
 import Types from 'Types'
 
-const Content = ({theme}: Types.WithTheme): Types.CSSPropertiesWithBreakpointExtensions => ({
+const Content = ({theme}: Types.FelaProps): Types.CSSPropertiesWithBreakpointExtensions => ({
   display: 'table-cell',
   padding: theme.spacing.space2,
   width: '100%',
@@ -14,4 +15,4 @@ const Content = ({theme}: Types.WithTheme): Types.CSSPropertiesWithBreakpointExt
   },
 })
 
-export default createComponent(Content, Box) as any
+export default createComponent<Types.WithChildren, BoxStyleProps, HTMLDivElement>(Content, Box)

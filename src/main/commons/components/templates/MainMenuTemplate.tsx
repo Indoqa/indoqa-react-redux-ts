@@ -12,45 +12,7 @@ import Logo from '../molecules/Logo'
 import Content from '../molecules/Content'
 import MainMenu from '../organisms/MainMenu'
 
-type Props = {
-  children?: React.ReactNode,
-  header?: string,
-  title?: string,
-}
-
-type State = {
-  showMobileMenu: boolean,
-}
-
 const BASE_TITLE = 'Indoqa React-Redux Typescript samples'
-
-const renderHeaderContent = (title?: string, header?: string) => (
-  <React.Fragment>
-    <Logo mr={1} data-logo-height={50}>
-      <Link to="/">{BASE_TITLE}</Link>
-    </Logo>
-    <Box>{title}</Box>
-    <Box grow={1} />
-    <Box mr={3}>{header}</Box>
-  </React.Fragment>
-)
-
-const changeLanguage = (lang: string) => i18n.changeLanguage(lang)
-
-const renderLanguage = (lang: string) => {
-  if (lang === i18n.language) {
-    return <Text>{lang}</Text>
-  }
-  return (
-    <a href="#" onClick={() => changeLanguage(lang)}>{lang}</a>
-  )
-}
-
-const renderLanguageSwitcher = () => (
-  <Box>
-    {renderLanguage('en')} | {renderLanguage('de')}
-  </Box>
-)
 
 const MOBILE_ONLY = {
   desktop: {
@@ -114,7 +76,45 @@ const ContentOverlay = createComponentWithProxy(({'data-show': show}) => ({
   ...MOBILE_ONLY,
 }), Box)
 
-class MainMenuTemplate extends React.Component<Props, State> {
+const renderHeaderContent = (title?: string, header?: string) => (
+  <React.Fragment>
+    <Logo mr={1} data-logo-height={50}>
+      <Link to="/">{BASE_TITLE}</Link>
+    </Logo>
+    <Box>{title}</Box>
+    <Box grow={1} />
+    <Box mr={3}>{header}</Box>
+  </React.Fragment>
+)
+
+const changeLanguage = (lang: string) => i18n.changeLanguage(lang)
+
+const renderLanguage = (lang: string) => {
+  if (lang === i18n.language) {
+    return <Text>{lang}</Text>
+  }
+  return (
+    <a href="#" onClick={() => changeLanguage(lang)}>{lang}</a>
+  )
+}
+
+const renderLanguageSwitcher = () => (
+  <Box>
+    {renderLanguage('en')} | {renderLanguage('de')}
+  </Box>
+)
+
+interface Props {
+  children?: React.ReactNode,
+  header?: string,
+  title?: string,
+}
+
+interface State {
+  showMobileMenu: boolean,
+}
+
+export default class MainMenuTemplate extends React.Component<Props, State> {
 
   public static defaultProps = {
     title: '',
@@ -161,5 +161,3 @@ class MainMenuTemplate extends React.Component<Props, State> {
     )
   }
 }
-
-export default MainMenuTemplate

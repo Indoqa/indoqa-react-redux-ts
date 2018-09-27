@@ -1,17 +1,21 @@
 import * as React from 'react'
 import {createComponentWithProxy} from 'react-fela'
+import {Link} from 'react-router-dom'
 import Types from 'Types'
 import Box from '../../idqFela/components/Box'
 import Flex from '../../idqFela/components/Flex'
 
 import './test.css'
+import Button from '../../commons/components/atoms/Button'
+import ButtonLink from '../../commons/components/atoms/ButtonLink'
 
 interface StyleButtonProps {
   onClick: () => any,
   someProperty: boolean,
 }
 
-interface ThemedStyleButtonProps extends Types.WithTheme, StyleButtonProps {}
+interface ThemedStyleButtonProps extends Types.WithTheme, StyleButtonProps {
+}
 
 const StyledButton = createComponentWithProxy<StyleButtonProps>(({theme, someProperty}: ThemedStyleButtonProps) => ({
   color: theme.colors.text,
@@ -32,6 +36,8 @@ export default class TimeComponent extends React.Component<Props> {
         <Box>
           TimeComponent: {this.props.today}
         </Box>
+        <Button>some button</Button>
+        <ButtonLink><Link to="/">OverviewPage</Link></ButtonLink>
         <StyledButton onClick={() => this.props.onIncrement()} someProperty={false}>
           Increment by 2
         </StyledButton>

@@ -2,9 +2,9 @@ import {CSSProperties} from 'react'
 import {createComponent} from 'react-fela'
 import Types from 'Types'
 
-import Flex from '../../../idqFela/components/Flex'
+import Flex, {FlexProps} from '../../../idqFela/components/Flex'
 
-const Bar = ({theme}: Types.WithTheme): CSSProperties => ({
+const Bar = ({theme}: Types.FelaProps): CSSProperties => ({
   height: theme.layout.actionBarHeight,
   backgroundColor: theme.colors.bgLight,
   width: 'auto',
@@ -12,4 +12,4 @@ const Bar = ({theme}: Types.WithTheme): CSSProperties => ({
   justifyContent: 'flex-start',
 })
 
-export default createComponent(Bar, Flex) as any
+export default createComponent<Types.WithChildren, FlexProps, HTMLDivElement>(Bar, Flex)

@@ -6,7 +6,7 @@ interface Props extends CSSProperties {
   '& > a': CSSProperties,
 }
 
-const ButtonLink = ({theme}: Types.WithTheme): Props => ({
+const ButtonLink = ({theme}: Types.FelaProps): Props => ({
   '& > a': {
     color: theme.colors.text,
     display: 'block',
@@ -15,4 +15,4 @@ const ButtonLink = ({theme}: Types.WithTheme): Props => ({
   },
 })
 
-export default createComponentWithProxy(ButtonLink, 'button') as any
+export default createComponentWithProxy<Types.WithChildren>(ButtonLink)
