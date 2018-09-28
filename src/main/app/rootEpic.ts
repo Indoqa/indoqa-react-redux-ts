@@ -9,7 +9,7 @@ export const services = {
 }
 
 export const combinedEpics = combineEpics(
-  time,
+    ...time,
 )
 
 const rootEpic = (action$: ActionsObservable<Types.RootAction>, state$: Types.RootState) => {
