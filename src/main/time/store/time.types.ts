@@ -30,5 +30,3 @@ export type Result = {
   readonly countryName: string,
   readonly timezoneId: string,
 }
-
-
