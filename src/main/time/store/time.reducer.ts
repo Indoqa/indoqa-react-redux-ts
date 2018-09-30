@@ -1,7 +1,4 @@
-import {getType} from 'typesafe-actions'
-
-import * as timeActions from './time.actions'
-import {TimeAction, TimeState} from './time.types'
+import {TimeAction, TimeActionKeys, TimeState} from './time.types'
 
 const initialTime: TimeState = {
   today: 0,
@@ -12,16 +9,16 @@ const initialTime: TimeState = {
 
 const timeReducer = (state: TimeState = initialTime, action: TimeAction): TimeState => {
   switch (action.type) {
-    case getType(timeActions.increment):
+    case TimeActionKeys.INCREMENT:
       return {
         ...state,
-        today: state.today + (action.payload === undefined ? 2 : action.payload),
+        today: state.today + (action.value === undefined ? 2 : action.value),
       }
-    case getType(timeActions.fetchTimeSuccess): {
+    case TimeActionKeys.FETCH_TIME_SUCCESS: {
       return {
         ...state,
         isLoading: false,
-        results: action.payload,
+        results: action.results,
         error: null,
       }
     }

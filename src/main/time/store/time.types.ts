@@ -1,8 +1,22 @@
-import {ActionType} from 'typesafe-actions'
+import {FetchTime, FetchTimeError, FetchTimeSuccess, IncrementAction} from './time.actions'
 
-import * as timeActions from './time.actions'
+export type TimeAction =
+  IncrementAction
+  | FetchTime
+  | FetchTimeSuccess
+  | FetchTimeError
 
-export type TimeAction = ActionType<typeof timeActions>
+export enum TimeActionKeys {
+  INCREMENT = 'time/INCREMENT',
+  FETCH_TIME = 'time/FETCH_TIME',
+  FETCH_TIME_SUCCESS = 'time/FETCH_TIME_SUCCESS',
+  FETCH_TIME_ERROR = 'time/FETCH_TIME_ERROR',
+}
+
+export interface Coordinates {
+  lon: number,
+  lat: number,
+}
 
 export type Result = {
   time: string,

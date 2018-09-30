@@ -14,6 +14,7 @@ import createRenderer from './idqFela/createRenderer'
 // see https://github.com/piotrwitek/typesafe-actions
 // see https://github.com/mitsuruog/react-redux-observable-typescript-sample
 // see https://github.com/innFactory/create-react-app-material-typescript-redux
+// see https://spin.atomicobject.com/2017/07/24/redux-action-pattern-typescript/
 
 // TODO
 // - introduce react-router (switch)

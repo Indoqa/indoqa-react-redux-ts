@@ -1,24 +1,49 @@
-import {createAction} from 'typesafe-actions'
+import {Action} from 'redux'
 
-import {Result} from './time.types'
+import {Result, Coordinates, TimeActionKeys} from './time.types'
 
-export interface Coordinates {
-  lon: number,
-  lat: number,
+export interface IncrementAction extends Action {
+  type: TimeActionKeys.INCREMENT,
+  value: number,
 }
 
-export const increment = createAction('time/INCREMENT', (resolve) => {
-  return (value: number) => resolve(value)
+export const increment = (value: number): IncrementAction => ({
+  type: TimeActionKeys.INCREMENT,
+  value,
 })
 
-export const fetchTime = createAction('time/FETCH_TIME', (resolve) => {
-  return (coordinates: Coordinates) => resolve(coordinates)
+// ----------------------------------------------------------------------------
+
+export interface FetchTime extends Action {
+  type: TimeActionKeys.FETCH_TIME,
+  coordinates: Coordinates,
+}
+
+export const fetchTime = (coordinates: Coordinates): FetchTime => ({
+  type: TimeActionKeys.FETCH_TIME,
+  coordinates,
 })
 
-export const fetchTimeSuccess = createAction('time/FETCH_TIME_SUCCESS', (resolve) => {
-  return (results: Result[]) => resolve(results)
+// ----------------------------------------------------------------------------
+
+export interface FetchTimeSuccess extends Action {
+  type: TimeActionKeys.FETCH_TIME_SUCCESS,
+  results: Result[],
+}
+
+export const fetchTimeSuccess = (results: Result[]): FetchTimeSuccess => ({
+  type: TimeActionKeys.FETCH_TIME_SUCCESS,
+  results,
 })
 
-export const fetchTimeError = createAction('time/FETCH_TIME_ERROR', (resolve) => {
-  return (error: string) => resolve(error)
+// ----------------------------------------------------------------------------
+
+export interface FetchTimeError extends Action {
+  type: TimeActionKeys.FETCH_TIME_ERROR,
+  error: string,
+}
+
+export const fetchTimeError = (error: string): FetchTimeError => ({
+  type: TimeActionKeys.FETCH_TIME_ERROR,
+  error,
 })
