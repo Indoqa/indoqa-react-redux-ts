@@ -13,15 +13,15 @@ export enum TimeActionKeys {
   FETCH_TIME_ERROR = 'time/FETCH_TIME_ERROR',
 }
 
-export interface Coordinates {
-  lon: number,
-  lat: number,
+export type Coordinates = {
+  readonly lon: number,
+  readonly lat: number,
 }
 
 export type Result = {
-  time: string,
-  countryName: string,
-  timezoneId: string,
+  readonly time: string,
+  readonly countryName: string,
+  readonly timezoneId: string,
 }
 
 export type TimeState = {
