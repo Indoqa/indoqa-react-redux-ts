@@ -13,6 +13,13 @@ export enum TimeActionKeys {
   FETCH_TIME_ERROR = 'time/FETCH_TIME_ERROR',
 }
 
+export type TimeState = {
+  readonly today: number,
+  readonly results: Result[],
+  readonly error: any,
+  readonly isLoading: boolean,
+}
+
 export type Coordinates = {
   readonly lon: number,
   readonly lat: number,
@@ -24,9 +31,4 @@ export type Result = {
   readonly timezoneId: string,
 }
 
-export type TimeState = {
-  readonly today: number,
-  readonly results: Result[],
-  readonly error: any,
-  readonly isLoading: boolean,
-}
+
