@@ -2,18 +2,6 @@ import {Action} from 'redux'
 
 import {Result, Coordinates, TimeActionKeys} from './time.types'
 
-export interface IncrementAction extends Action {
-  type: TimeActionKeys.INCREMENT,
-  value: number,
-}
-
-export const increment = (value: number): IncrementAction => ({
-  type: TimeActionKeys.INCREMENT,
-  value,
-})
-
-// ----------------------------------------------------------------------------
-
 export interface FetchTime extends Action {
   type: TimeActionKeys.FETCH_TIME,
   coordinates: Coordinates,
@@ -46,4 +34,14 @@ export interface FetchTimeError extends Action {
 export const fetchTimeError = (error: string): FetchTimeError => ({
   type: TimeActionKeys.FETCH_TIME_ERROR,
   error,
+})
+
+// ----------------------------------------------------------------------------
+
+export interface Clear extends Action {
+  type: TimeActionKeys.CLEAR,
+}
+
+export const clear = (): Clear => ({
+  type: TimeActionKeys.CLEAR,
 })

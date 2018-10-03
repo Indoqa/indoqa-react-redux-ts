@@ -5,16 +5,19 @@ import Button from '../../commons/components/atoms/Button'
 import Box from '../../idqFela/components/Box'
 
 interface Props {
-  t: any
+  t: any,
+  loadVienna: () => any,
+  loadNewYork: () => any,
+  clear: () => any,
 }
 
-const Buttons = ({t}: Props) => (
+const Buttons = ({t, loadVienna, loadNewYork, clear}: Props) => (
   <Box mb={2}>
-    <Button>{t('Vienna')}</Button>
-    <Button>{t('New York')}</Button>
+    <Button onClick={loadVienna}>{t('Vienna')}</Button>
+    <Button onClick={loadNewYork}>{t('New York')}</Button>
     <Button>{t('Vienna')} {t('and')} {t('New York')}</Button>
     <Button>{t('Invalid Location')}</Button>
-    <Button>{t('Clear')}</Button>
+    <Button onClick={clear}>{t('Clear')}</Button>
   </Box>
 )
 

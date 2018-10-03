@@ -1,20 +1,19 @@
-import {FetchTime, FetchTimeError, FetchTimeSuccess, IncrementAction} from './time.actions'
+import {Clear, FetchTime, FetchTimeError, FetchTimeSuccess} from './time.actions'
 
 export type TimeAction =
-  IncrementAction
-  | FetchTime
+  FetchTime
   | FetchTimeSuccess
   | FetchTimeError
+  | Clear
 
 export enum TimeActionKeys {
-  INCREMENT = 'time/INCREMENT',
   FETCH_TIME = 'time/FETCH_TIME',
   FETCH_TIME_SUCCESS = 'time/FETCH_TIME_SUCCESS',
   FETCH_TIME_ERROR = 'time/FETCH_TIME_ERROR',
+  CLEAR = 'time/CLEAR',
 }
 
 export type TimeState = {
-  readonly today: number,
   readonly results: Result[],
   readonly error: any,
   readonly isLoading: boolean,
