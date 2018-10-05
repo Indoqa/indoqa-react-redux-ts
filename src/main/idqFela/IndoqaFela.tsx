@@ -11,7 +11,7 @@ export default class IndoqaFela extends React.Component<Props> {
 
   public render() {
     return (
-      <FelaProvider renderer={this.props.renderer}>
+      <FelaProvider renderer={this.props.renderer} rehydrate={false}>
         {this.props.children}
       </FelaProvider>
     )

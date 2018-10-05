@@ -1,5 +1,7 @@
 import * as React from 'react'
-import {translate} from 'react-i18next'
+// TODO: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-i18next
+// is not up to date -> withNamespaces is not supported yet (2018-10-05)
+import {translate as withNamespaces} from 'react-i18next'
 
 import Button from '../../commons/components/atoms/Button'
 import Box from '../../idqFela/components/Box'
@@ -21,4 +23,4 @@ const Buttons = ({t, loadVienna, loadNewYork, clear}: Props) => (
   </Box>
 )
 
-export default translate('translations')(Buttons)
+export default withNamespaces('translations')(Buttons)

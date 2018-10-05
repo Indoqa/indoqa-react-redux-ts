@@ -9,6 +9,10 @@ import {TimeAction, TimeActionKeys} from './time.types'
 
 interface TimeEpic extends Epic<Types.RootAction, TimeAction, Types.RootState, Types.Services> {}
 
+/*
+ * Learn more about piping observables:
+ * https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44
+ */
 const fetchTimeEpic$: TimeEpic = (action$, state, {ajax}) =>
   action$.pipe(
     ofType<FetchTime>(TimeActionKeys.FETCH_TIME),
