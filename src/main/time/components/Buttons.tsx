@@ -1,7 +1,6 @@
 import * as React from 'react'
-// TODO: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-i18next
-// is not up to date -> withNamespaces is not supported yet (2018-10-05)
-import {InjectedTranslateProps, translate as withNamespaces} from 'react-i18next'
+// TODO: withNamespaces is not supported yet (2018-10-05) --> see ./src/main/typings
+import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
 
 import Button from '../../commons/components/atoms/Button'
 import Box from '../../idqFela/components/Box'
