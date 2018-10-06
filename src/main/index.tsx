@@ -1,3 +1,4 @@
+import {createRenderer} from 'indoqa-react-fela'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
@@ -6,7 +7,6 @@ import IndoqaApplication from './idqApp/IndoqaApplication'
 import App from './app/App'
 import createStore from './app/createStore'
 import fela from './app/fela'
-import createRenderer from './idqFela/createRenderer'
 
 // Learn about React with Typescript
 // see https://github.com/sw-yx/react-typescript-cheatsheet

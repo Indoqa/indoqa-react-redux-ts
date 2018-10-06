@@ -1,8 +1,7 @@
+import {Flex, FlexProps} from 'indoqa-react-fela'
 import {CSSProperties} from 'react'
 import {createComponent} from 'react-fela'
 import Types from 'Types'
-
-import Flex, {FlexProps} from '../../../idqFela/components/Flex'
 
 const Bar = ({theme}: Types.FelaProps): CSSProperties => ({
   height: theme.layout.actionBarHeight,

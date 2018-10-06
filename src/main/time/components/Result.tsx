@@ -1,7 +1,7 @@
+import {Box, Text} from 'indoqa-react-fela'
+
 // @flow
 import * as React from 'react'
-import Box from '../../idqFela/components/Box'
-import Text from '../../idqFela/components/Text'
 import {Result} from '../store/time.types'
 
 interface Props {

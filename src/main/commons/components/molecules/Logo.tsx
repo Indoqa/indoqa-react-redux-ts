@@ -1,9 +1,8 @@
+import {Box} from 'indoqa-react-fela'
+import {BoxStyleProps} from 'indoqa-react-fela/dist/components/base'
 import {CSSProperties} from 'react'
 import {createComponentWithProxy} from 'react-fela'
 import Types from 'Types'
-import {BoxStyleProps} from '../../../idqFela/components/base'
-
-import Box from '../../../idqFela/components/Box'
 
 interface LogoStyleProps extends CSSProperties {
   '> a': CSSProperties,

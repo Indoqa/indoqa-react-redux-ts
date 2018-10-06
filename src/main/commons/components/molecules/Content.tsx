@@ -1,6 +1,6 @@
+import {Box} from 'indoqa-react-fela'
+import {BoxStyleProps} from 'indoqa-react-fela/dist/components/base'
 import {createComponent} from 'react-fela'
-import {BoxStyleProps} from '../../../idqFela/components/base'
-import Box from '../../../idqFela/components/Box'
 import Types from 'Types'
 
 const Content = ({theme}: Types.FelaProps): Types.CSSPropertiesWithBreakpointExtensions => ({

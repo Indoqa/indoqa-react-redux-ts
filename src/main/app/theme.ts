@@ -1,4 +1,4 @@
-import {BaseTheme, BaseFontSizes, BaseColors, BaseFonts, typeScale} from '../idqFela/baseTheme'
+import {BaseColors, BaseFonts, BaseFontSizes, BaseTheme, typeScale} from 'indoqa-react-fela'
 
 interface FontSizes extends Partial<BaseFontSizes> {
   readonly extraBig: number | string,

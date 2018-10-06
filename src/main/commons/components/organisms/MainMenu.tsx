@@ -1,6 +1,6 @@
+import {Box} from 'indoqa-react-fela'
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import Box from '../../../idqFela/components/Box'
 
 import Menu from '../molecules/Menu'
 import MenuLink from '../molecules/MenuLink'
