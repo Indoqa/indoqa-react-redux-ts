@@ -117,11 +117,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@types/deepmerge@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/deepmerge/-/deepmerge-2.1.0.tgz#22f175e5cb55874fe818caa6fd50a1d98fc3d748"
-  integrity sha512-/0Ct/q5g+SgaACZ+A0ylY3071nEBN7QDnTWiCtaB3fx24UpoAQXf25yNVloOYVUis7jytM1F1WC78+EOwXkQJQ==
-
 "@types/history@*", "@types/history@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.0.tgz#2fac51050c68f7d6f96c5aafc631132522f4aa3f"
@@ -4690,15 +4685,31 @@ indexof@0.0.1:
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
   integrity sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10=
 
+indoqa-react-app@next:
+  version "4.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/indoqa-react-app/-/indoqa-react-app-4.0.0-alpha.1.tgz#4764e545dbd228070ee1f289908cd457b22363a4"
+  integrity sha512-mID1RqDAQee9u+TPEiUtlLqlG1/5DSe1KT3tpF00TaT30b8ufNIyk225Ds5yQ6cDUNao6562he6oE3hY2xVeeQ==
+  dependencies:
+    fela "^6.2.2"
+    indoqa-react-fela next
+    react "16.5.2"
+    react-fela "^7.3.1"
+    react-redux "5.0.7"
+    react-router-redux next
+    redux "^4.0.0"
+    redux-logger "^3.0.6"
+    redux-observable "^1.0.0"
+    rxjs "^6.3.3"
+    tslib "^1.9.3"
+
 indoqa-react-fela@next:
-  version "0.7.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/indoqa-react-fela/-/indoqa-react-fela-0.7.0-alpha.5.tgz#dbca1e33159f177c146bcd27653f63a55ac0546a"
-  integrity sha512-c3sSsUpH49YziXDxPww7TmsiafCco18x3vxe7vjp8q5kyIQ9aCnpMeWFqAUAd/BSuwFgT56c0XAY2/XNtb9ptg==
+  version "0.7.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/indoqa-react-fela/-/indoqa-react-fela-0.7.0-alpha.6.tgz#4e7149071abae1bcaf703d50bc42f867cdee63e4"
+  integrity sha512-tFvjI3sH29n88G9oM6+fjjGd+y5Keqy0czV3sHDRs+GEvyX/uRHwWI2R5CFYkEBNwrjyj7/g5HkWFIswWERP+A==
   dependencies:
     deepmerge "^2.2.1"
     fela "^6.2.2"
     react "16.5.2"
-    react-dom "16.5.2"
     react-fela "^7.3.1"
     tslib "^1.9.3"
 
@@ -7609,7 +7620,7 @@ react-document-title@^2.0.3:
     prop-types "^15.5.6"
     react-side-effect "^1.0.2"
 
-react-dom@16.5.2, react-dom@^16.5.2:
+react-dom@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.5.2.tgz#b69ee47aa20bab5327b2b9d7c1fe2a30f2cfa9d7"
   integrity sha512-RC8LDw8feuZOHVgzEf7f+cxBr/DnKdqp56VU0lAs1f4UfKc4cU8wU4fTq/mgnvynLQo8OtlPC19NUFh/zjZPuA==
@@ -7661,7 +7672,7 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-redux@^5.0.7:
+react-redux@5.0.7, react-redux@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
   integrity sha512-5VI8EV5hdgNgyjfmWzBbdrqUkrVRKlyTKk1sGH3jzM2M2Mhj/seQgPXaz6gVAj2lz/nz688AdTqMO18Lr24Zhg==
@@ -7685,7 +7696,7 @@ react-router-dom@^4.3.1:
     react-router "^4.3.1"
     warning "^4.0.1"
 
-react-router-redux@^5.0.0-alpha.9:
+react-router-redux@^5.0.0-alpha.9, react-router-redux@next:
   version "5.0.0-alpha.9"
   resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.9.tgz#825431516e0e6f1fd93b8807f6bd595e23ec3d10"
   integrity sha512-euSgNIANnRXr4GydIuwA7RZCefrLQzIw5WdXspS8NPYbV+FxrKSS9MKG7U9vb6vsKHONnA4VxrVNWfnMUnUQAw==

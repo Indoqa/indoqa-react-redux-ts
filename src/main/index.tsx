@@ -1,9 +1,9 @@
-import {createRenderer} from 'indoqa-react-fela'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import {IndoqaApplication} from 'indoqa-react-app'
+import {createRenderer} from 'indoqa-react-fela'
 import createHistory from 'history/createBrowserHistory'
 
-import IndoqaApplication from './idqApp/IndoqaApplication'
 import App from './app/App'
 import createStore from './app/createStore'
 import fela from './app/fela'

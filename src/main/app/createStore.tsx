@@ -1,5 +1,5 @@
-import createIndoqaStore from '../idqApp/createIndoqaStore'
 import {History} from 'history'
+import {createIndoqaStore} from 'indoqa-react-app'
 import {Store} from 'redux'
 
 const createStore = (history: History): Store<any> => {
