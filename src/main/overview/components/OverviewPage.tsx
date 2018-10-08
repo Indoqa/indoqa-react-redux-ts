@@ -90,13 +90,19 @@ export default class OverviewPage extends React.Component<{}> {
             Configuration of <a href="https://github.com/Indoqa/indoqa-webpack" target="new">indoqa-webpack</a>
           </ListItem>
           <ListItem>
+            Setup of&nbsp;
+            <a href="https://reacttraining.com/react-router/web/guides/philosophy" target="new">
+              React-Router
+            </a>
+          </ListItem>
+          <ListItem>
             Hot-reload of React components, epics, actions and reducers.
           </ListItem>
         </List>
 
         <Headline2>Samples</Headline2>
         <Para>
-          Each of the following samples demonstrates particular technologies from the React-Redux ecosystem:
+          Each of the following samples focuses on particular technologies:
         </Para>
         <Headline3>
           <Link to="/">Overview</Link>

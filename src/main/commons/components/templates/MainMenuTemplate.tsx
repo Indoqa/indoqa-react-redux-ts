@@ -10,7 +10,7 @@ import Logo from '../molecules/Logo'
 import Content from '../molecules/Content'
 import MainMenu from '../organisms/MainMenu'
 
-const BASE_TITLE = 'Indoqa React-Redux Typescript samples'
+const BASE_TITLE = 'Indoqa React-Redux Typescript'
 
 const MOBILE_ONLY = {
   desktop: {
