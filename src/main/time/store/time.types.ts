@@ -14,9 +14,9 @@ export enum TimeActionKeys {
 }
 
 export type TimeState = {
-  readonly results: Result[],
-  readonly error: any,
-  readonly isLoading: boolean,
+  results: Result[],
+  error: any,
+  isLoading: boolean,
 }
 
 export type Coordinates = {

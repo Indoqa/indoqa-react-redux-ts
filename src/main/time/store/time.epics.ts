@@ -1,5 +1,5 @@
 import {of} from 'rxjs/internal/observable/of'
-import {switchMap, map, catchError} from 'rxjs/operators'
+import {switchMap, map, catchError, retry} from 'rxjs/operators'
 import {Epic, ofType} from 'redux-observable'
 
 import Types from 'Types'
@@ -19,7 +19,7 @@ const fetchTimeEpic$: TimeEpic = (action$, state, {ajax}) =>
     switchMap((action) => {
       const {lon, lat} = action.coordinates
       return geonamesService$(ajax, lon, lat).pipe(
-          // retry(3),
+          retry(3),
           map((result) => fetchTimeSuccess([result])),
           catchError((error) => of(fetchTimeError(error.message))),
       )
