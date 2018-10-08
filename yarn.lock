@@ -206,9 +206,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.4.14":
-  version "16.4.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.15.tgz#1f24f1d03b1fc682d92f8485be99d59bf7981191"
-  integrity sha512-EFQyVZhZCrRjwYDVziTEUGri/ygArIi/ES+JAI0j+3FR0LZ0uRfq2Ed7YnZ1CCn9CM3malSWwTKw5Jo0gVV82A==
+  version "16.4.16"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.16.tgz#99f91b1200ae8c2062030402006d3b3c3a177043"
+  integrity sha512-lxyoipLWweAnLnSsV4Ho2NAZTKKmxeYgkTQ6PaDiPDU9JJBUY2zJVVGiK1smzYv8+ZgbqEmcm5xM74GCpunSEA==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -2042,9 +2042,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000884, caniuse-lite@^1.0.30000889:
-  version "1.0.30000889"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000889.tgz#53e266c83e725ad3bd2e4a3ea76d5031a8aa4c3e"
-  integrity sha512-MFxcQ6x/LEEoaIhO7Zdb7Eg8YyNONN+WBnS5ERJ0li2yRw51+i4xXUNxnLaveTb/4ZoJqsWKEmlomhG2pYzlQA==
+  version "1.0.30000890"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000890.tgz#86a18ffcc65d79ec6a437e985761b8bf1c4efeaf"
+  integrity sha512-4NI3s4Y6ROm+SgZN5sLUG4k7nVWQnedis3c/RWkynV5G6cHSY7+a8fwFyn2yoBDE3E6VswhTNNwR3PvzGqlTkg==
 
 capture-exit@^1.2.0:
   version "1.2.0"
@@ -3092,9 +3092,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.73:
-  version "1.3.74"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.74.tgz#443f60655e0de630491ca4e48e4436bc375debd1"
-  integrity sha512-MJm7r64Kt1jQCLEiyfgfcu9lbO6/7jjfpH8x2FrutQ4Cb93aS+6dlfW+G65rPhVTjlTmwCfjQGCKZVEaaltOwQ==
+  version "1.3.75"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.75.tgz#dd04551739e7371862b0ac7f4ddaa9f3f95b7e68"
+  integrity sha512-nLo03Qpw++8R6BxDZL/B1c8SQvUe/htdgc5LWYHe5YotV2jVvRUMP5AlOmxOsyeOzgMiXrNln2mC05Ixz6vuUQ==
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -4685,13 +4685,13 @@ indexof@0.0.1:
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
   integrity sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10=
 
-indoqa-react-app@next:
-  version "4.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/indoqa-react-app/-/indoqa-react-app-4.0.0-alpha.1.tgz#4764e545dbd228070ee1f289908cd457b22363a4"
-  integrity sha512-mID1RqDAQee9u+TPEiUtlLqlG1/5DSe1KT3tpF00TaT30b8ufNIyk225Ds5yQ6cDUNao6562he6oE3hY2xVeeQ==
+indoqa-react-app@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/indoqa-react-app/-/indoqa-react-app-4.0.0.tgz#f95b9bd30abb5cf82be3ad85ef10e9f6dd4b5ab8"
+  integrity sha512-K9AVFWT8i7GzQV8UZuVnGXOAdHqsr/uTWRyNp2LK1rX9dA5/FBkNSpJlI5trVpdIlIOT5hBIu/xfbJz2jJg27A==
   dependencies:
     fela "^6.2.2"
-    indoqa-react-fela next
+    indoqa-react-fela "0.7.0"
     react "16.5.2"
     react-fela "^7.3.1"
     react-redux "5.0.7"
@@ -4702,10 +4702,10 @@ indoqa-react-app@next:
     rxjs "^6.3.3"
     tslib "^1.9.3"
 
-indoqa-react-fela@next:
-  version "0.7.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/indoqa-react-fela/-/indoqa-react-fela-0.7.0-alpha.6.tgz#4e7149071abae1bcaf703d50bc42f867cdee63e4"
-  integrity sha512-tFvjI3sH29n88G9oM6+fjjGd+y5Keqy0czV3sHDRs+GEvyX/uRHwWI2R5CFYkEBNwrjyj7/g5HkWFIswWERP+A==
+indoqa-react-fela@0.7.0, indoqa-react-fela@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/indoqa-react-fela/-/indoqa-react-fela-0.7.0.tgz#e23663fd26e6503af4a441380f54b5e2920ba97c"
+  integrity sha512-C1dFK8b3JR39VVDUmGkYcYUu6c0IfPbAU1Ljo+rV+MiaB23HHfH1h5wwsaCTvxtM940ZL8N2xSj6ZBHQs2cXcw==
   dependencies:
     deepmerge "^2.2.1"
     fela "^6.2.2"
@@ -4713,10 +4713,10 @@ indoqa-react-fela@next:
     react-fela "^7.3.1"
     tslib "^1.9.3"
 
-indoqa-webpack@next:
-  version "1.4.0-alpha.10"
-  resolved "https://registry.yarnpkg.com/indoqa-webpack/-/indoqa-webpack-1.4.0-alpha.10.tgz#f7b052397c09a17a088fbceea2b6e3050946c2d8"
-  integrity sha512-EKsrfo6S7YaaouKvLRMyy1xZMF1XuCY39qqWbwUgdpkfAVj3o5lmKd+hehtxIyMs4OY+oGbBx/CqHsXGDOjJow==
+indoqa-webpack@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/indoqa-webpack/-/indoqa-webpack-2.0.0.tgz#4a515d0cc44ea4ba0c3d0ca89ca60b60b5db1802"
+  integrity sha512-gnPQOR1IlwYb+EHomn7FPfr4vhJiePhDh1s3owjIPZcAVrOGylbbqc2LMo5gKcLwccNECV0CpMuqQ3oIuroH/g==
   dependencies:
     autoprefixer "^9.1.5"
     babel-core "^6.26.3"
@@ -4766,7 +4766,7 @@ indoqa-webpack@next:
     webpack "^4.19.1"
     webpack-dev-server "^3.1.8"
     webpack-manifest-plugin "^2.0.4"
-    whatwg-fetch "^3.0.0"
+    whatwg-fetch "^2.0.4"
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -9587,10 +9587,15 @@ whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3:
   dependencies:
     iconv-lite "0.4.24"
 
-whatwg-fetch@>=0.10.0, whatwg-fetch@^3.0.0:
+whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
   integrity sha512-9GSJUgz1D4MfyKU7KRqwOjXCXTqWdFNvEr7eUBYchQiVc744mqK/MzXPNR2WsPkmkOa4ywfg8C2n8h+13Bey1Q==
+
+whatwg-fetch@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+  integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
 
 whatwg-mimetype@^2.1.0:
   version "2.2.0"

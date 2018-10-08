@@ -59,13 +59,12 @@ import fela from './app/fela'
 
 // Finish phase 1
 // - TS lib sample with rollup
-// * indoqa-react-app / indoqa-react-fela
-// * time sample (with immer)
+// - indoqa-react-app / indoqa-react-fela
 // - MainMenuTemplate
 // - Overview page
 // - introduce i18n
 // - typed theme
-// * redux files typing
+// - redux files typing
 // * code splitting for routes
 
 // Phase 2
