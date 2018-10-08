@@ -46,21 +46,22 @@ We invent nothing new, this archetype is just a composition of useful libraries,
     │   │   │   └── templates               // compositions of organisms, molecules and atoms
     │   │   ├── store                       // reusable epics, reducers and actions
     │   │   └── types                       // Flow types available for all features
-    │   ├── feature1
+    │   ├── [feature1]
     │   │   ├── components
-    │   │   │   ├── FeaturePage.tsx         // based on a template available via an URL
+    │   │   │   ├── [Feature1]Page.tsx      // based on a template available via an URL
     │   │   │   └── SomeComponent.tsx       // feature-specific molecule or organism
     │   │   ├── store
-    │   │   │   ├── feature1.actions.ts     // actions and action types
-    │   │   │   ├── feature1.epics.ts       // side effects using rxjs observables
-    │   │   │   ├── feature1.reducer.ts     // Redux reducers
-    │   │   │   ├── feature1.selectors.ts   // Reselect selectors to access state
-    │   │   │   ├── feature1.services.ts    // Services used in side-effects (epics)
-    │   │   │   └── feature1.types.ts       // Typescript types
-    │   ├── feature2
+    │   │   │   ├── [feature1].actions.ts   // actions and action types
+    │   │   │   ├── [feature1].epics.ts     // side effects using rxjs observables
+    │   │   │   ├── [feature1].reducer.ts   // Redux reducers
+    │   │   │   ├── [feature1].selectors.ts // Reselect selectors to access state
+    │   │   │   ├── [feature1].services.ts  // Services used in side-effects (epics)
+    │   │   │   └── [feature1].types.ts     // Typescript types
+    │   ├── [feature2]
     │   └── ...
+    │── typings                             // Global type information for typescript
     └── test                                // Jest tests
-        └── feature1
+        └── [feature1]
             ├── actions
             ├── components
             └── reducers
