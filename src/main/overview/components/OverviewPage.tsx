@@ -37,7 +37,6 @@ const List = createComponent(({theme}) => ({
 
 const ListItem = createComponent(({theme}) => ({
   lineHeight: '125%',
-  marginBottom: theme.spacing.space1,
 }), 'li') as any
 
 export default class OverviewPage extends React.Component<{}> {
@@ -94,6 +93,9 @@ export default class OverviewPage extends React.Component<{}> {
             <a href="https://reacttraining.com/react-router/web/guides/philosophy" target="new">
               React-Router
             </a>
+            &nbsp;with&nbsp;
+            <a href="https://github.com/jamiebuilds/react-loadable" target="new">react-loadable</a>
+            &nbsp; demonstrating route-based code splitting.
           </ListItem>
           <ListItem>
             Hot-reload of React components, epics, actions and reducers.

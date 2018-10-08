@@ -2,12 +2,28 @@ import * as React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import {ThemeProvider} from 'react-fela'
 import {I18nextProvider} from 'react-i18next'
-import {buildTheme} from 'indoqa-react-fela'
+import {Box, buildTheme} from 'indoqa-react-fela'
+import Loadable from 'react-loadable'
+import MainMenuTemplate from '../commons/components/templates/MainMenuTemplate'
 
-import OverviewPage from '../overview/components/OverviewPage'
-import TimePage from '../time/components/TimePage'
 import theme from './theme'
 import i18n from './i18n'
+
+const Loading = () => (
+  <MainMenuTemplate title="Overview">
+    <Box m={2}>Loading ...</Box>
+  </MainMenuTemplate>
+)
+
+const OverviewPage = Loadable({
+  loader: () => import('../overview/components/OverviewPage'),
+  loading: Loading,
+})
+
+const TimePage = Loadable({
+  loader: () => import('../time/components/TimePage'),
+  loading: Loading,
+})
 
 export default class App extends React.Component<{}> {
 
