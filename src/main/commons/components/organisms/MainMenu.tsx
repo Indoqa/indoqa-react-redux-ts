@@ -9,6 +9,9 @@ const MainMenu = () => (
   <Menu>
     <Box pb={2} />
     <MenuLink>
+      <NavLink to="/" exact>Overview</NavLink>
+    </MenuLink>
+    <MenuLink>
       <NavLink to="/time">Time</NavLink>
     </MenuLink>
   </Menu>
