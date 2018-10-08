@@ -13,13 +13,13 @@ We invent nothing new, this archetype is just a composition of useful libraries,
     * [react-router](https://github.com/reactjs/react-router) to support multiple pages and history management
     * [Fela](http://fela.ts.org/docs/Introduction.html) as our css-in-js library and theming
     * dev tools for [logging](https://github.com/fcomb/redux-logger) and debugging
+  * [Typescript](https://www.typescriptlang.org) for static typing
   * [Immer.ts](https://github.com/mweststrate/immer) for immutable state transformation
   * [Reselect](https://github.com/reactjs/reselect) to access Redux state
-  * [Typescript](https://www.typescriptlang.org) for static typing
   * [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) as test framework
   * [indoqa-webpack](https://github.com/Indoqa/indoqa-webpack) build system
     * [hot reloading](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) of React components, Fela themes, epics, actions and reducers
-  * serveral demos
+  * several demos
   * a simple and clean application layout separating application setup, features and common components and following the [atomic design](http://atomicdesign.bradfrost.com/) methodology by Brad Frost.
     ```
     src
@@ -27,13 +27,17 @@ We invent nothing new, this archetype is just a composition of useful libraries,
     │   ├── index.ts                        // entry point to the Javascript application
     │   ├── app
     │   │   ├── App.tsx                     // Theming, HTML header
+    │   │   ├── breakpoints.ts              // Defintions of breakpoints
+    │   │   ├── createStore.tsx             // Redux store setup with hot reloading support
     │   │   ├── fela.ts                     // Fela renderer configuration
+    │   │   ├── i18n.ts                     // Setup of i18next
     │   │   ├── rootEpic.ts                 // collect all epics and combine them into a root epic
     │   │   ├── rootReducer.ts              // collect all reducers and combine them into a root reducer
     │   │   ├── routes.tsx                  // link components to routes (URL paths)
     │   │   ├── selectors.ts                // collect all selectors
     │   │   ├── store.ts                    // Redux store setup with hot reloading support
-    │   │   └── theme.ts                    // application theme
+    │   │   ├── theme.ts                    // application theme
+    │   │   └── types.ts                    // root Typescript types
     │   ├── commons
     │   │   ├── components
     │   │   │   ├── atoms                   // basic building blocks (e.g. boxes, links, etc.)
@@ -47,11 +51,12 @@ We invent nothing new, this archetype is just a composition of useful libraries,
     │   │   │   ├── FeaturePage.tsx         // based on a template available via an URL
     │   │   │   └── SomeComponent.tsx       // feature-specific molecule or organism
     │   │   ├── store
-    │   │   │   ├── feature1.actions.ts     // action types
+    │   │   │   ├── feature1.actions.ts     // actions and action types
     │   │   │   ├── feature1.epics.ts       // side effects using rxjs observables
     │   │   │   ├── feature1.reducer.ts     // Redux reducers
-    │   │   │   └── feature1.selectors.ts   // Reselect selectors to access state
-    │   │   └── types                       // Flow types
+    │   │   │   ├── feature1.selectors.ts   // Reselect selectors to access state
+    │   │   │   ├── feature1.services.ts    // Services used in side-effects (epics)
+    │   │   │   └── feature1.types.ts       // Typescript types
     │   ├── feature2
     │   └── ...
     └── test                                // Jest tests
