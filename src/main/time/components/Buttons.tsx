@@ -5,18 +5,22 @@ import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
 
 import Button from '../../commons/components/atoms/Button'
 
-interface Props extends InjectedTranslateProps {
-  loadVienna: () => any,
-  loadNewYork: () => any,
-  clear: () => any,
+export interface ButtonDispatchProps {
+  loadVienna: () => void,
+  loadNewYork: () => void,
+  loadViennaAndNewYork: () => void,
+  loadInvalidLocation: () => void,
+  clear: () => void,
 }
 
-const Buttons = ({t, loadVienna, loadNewYork, clear}: Props) => (
+interface Props extends ButtonDispatchProps, InjectedTranslateProps {}
+
+const Buttons = ({t, loadVienna, loadNewYork, loadViennaAndNewYork, loadInvalidLocation, clear}: Props) => (
   <Box mb={2}>
     <Button onClick={loadVienna}>{t('Vienna')}</Button>
     <Button onClick={loadNewYork}>{t('New York')}</Button>
-    <Button>{t('Vienna')} {t('and')} {t('New York')}</Button>
-    <Button>{t('Invalid Location')}</Button>
+    <Button onClick={loadViennaAndNewYork}>{t('Vienna')} {t('and')} {t('New York')}</Button>
+    <Button onClick={loadInvalidLocation}>{t('Invalid Location')}</Button>
     <Button onClick={clear}>{t('Clear')}</Button>
   </Box>
 )

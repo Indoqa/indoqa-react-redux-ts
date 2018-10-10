@@ -14,6 +14,18 @@ export const fetchTime = (coordinates: Coordinates): FetchTime => ({
 
 // ----------------------------------------------------------------------------
 
+export interface FetchTimes extends Action {
+  type: TimeActionKeys.FETCH_TIMES,
+  coordinates: Coordinates[],
+}
+
+export const fetchTimes = (coordinates: Coordinates[]): FetchTimes => ({
+  type: TimeActionKeys.FETCH_TIMES,
+  coordinates,
+})
+
+// ----------------------------------------------------------------------------
+
 export interface FetchTimeSuccess extends Action {
   type: TimeActionKeys.FETCH_TIME_SUCCESS,
   results: Result[],

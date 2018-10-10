@@ -11,6 +11,7 @@ const timeReducer = (state: TimeState = initialTime, action: TimeAction) => {
   return produce(state, (draft: TimeState) => {
     switch (action.type) {
       case TimeActionKeys.FETCH_TIME:
+      case TimeActionKeys.FETCH_TIMES:
         draft.isLoading = true
         return
       case TimeActionKeys.FETCH_TIME_SUCCESS: {

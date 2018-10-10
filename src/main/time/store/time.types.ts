@@ -1,13 +1,15 @@
-import {Clear, FetchTime, FetchTimeError, FetchTimeSuccess} from './time.actions'
+import {Clear, FetchTime, FetchTimeError, FetchTimeSuccess, FetchTimes} from './time.actions'
 
 export type TimeAction =
   FetchTime
+  | FetchTimes
   | FetchTimeSuccess
   | FetchTimeError
   | Clear
 
 export enum TimeActionKeys {
   FETCH_TIME = 'time/FETCH_TIME',
+  FETCH_TIMES = 'time/FETCH_TIMES',
   FETCH_TIME_SUCCESS = 'time/FETCH_TIME_SUCCESS',
   FETCH_TIME_ERROR = 'time/FETCH_TIME_ERROR',
   CLEAR = 'time/CLEAR',
