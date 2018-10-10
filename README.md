@@ -14,7 +14,7 @@ We invent nothing new, this archetype is just a composition of useful libraries,
     * [Fela](http://fela.ts.org/docs/Introduction.html) as our css-in-js library and theming
     * dev tools for [logging](https://github.com/fcomb/redux-logger) and debugging
   * [Typescript](https://www.typescriptlang.org) for static typing
-  * [Immer.ts](https://github.com/mweststrate/immer) for immutable state transformation
+  * [Immer.js](https://github.com/mweststrate/immer) for immutable state transformation
   * [Reselect](https://github.com/reactjs/reselect) to access Redux state
   * [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) as test framework
   * [indoqa-webpack](https://github.com/Indoqa/indoqa-webpack) build system
