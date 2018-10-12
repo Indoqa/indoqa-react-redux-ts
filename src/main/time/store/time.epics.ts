@@ -1,6 +1,6 @@
 import {forkJoin} from 'rxjs/internal/observable/forkJoin'
 import {of} from 'rxjs/internal/observable/of'
-import {switchMap, map, catchError, retry, mergeMap} from 'rxjs/operators'
+import {switchMap, map, catchError, retry, mergeMap, timeout} from 'rxjs/operators'
 import {Epic, ofType} from 'redux-observable'
 
 import Types from 'Types'
@@ -21,6 +21,7 @@ const fetchTimeEpic$: TimeEpic = (action$, state, {ajax}) =>
       const {lon, lat} = action.coordinates
       return geonamesService$(ajax, lon, lat).pipe(
           retry(3),
+          timeout(5000),
           map((result) => fetchTimeSuccess([result])),
           catchError((error) => of(fetchTimeError(error.message))),
       )
@@ -34,7 +35,10 @@ const fetchTimesEpic$: TimeEpic = (action$, state, {ajax}) =>
     map((action) => {
       return action.coordinates.map((coordinates) => {
         const {lon, lat} = coordinates
-        return geonamesService$(ajax, lon, lat).pipe(retry(3))
+        return geonamesService$(ajax, lon, lat).pipe(
+          retry(3),
+          timeout(5000),
+        )
       })
     }),
     // execute multiple requests
