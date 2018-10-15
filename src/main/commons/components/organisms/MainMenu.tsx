@@ -14,6 +14,9 @@ const MainMenu = () => (
     <MenuLink>
       <NavLink to="/time">Time</NavLink>
     </MenuLink>
+    <MenuLink>
+      <NavLink to="/words">Words</NavLink>
+    </MenuLink>
   </Menu>
 )
 

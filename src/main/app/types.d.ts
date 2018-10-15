@@ -3,15 +3,18 @@ import {CSSProperties} from 'react'
 import {StateType} from 'typesafe-actions'
 import {RouterAction, LocationChangeAction} from 'react-router-redux'
 import {services} from './rootEpic'
-type ReactRouterAction = RouterAction | LocationChangeAction
-
+import {WordsAction} from '../words/store/words.types'
 import {TimeAction} from '../time/store/time.types'
 import rootReducer from './rootReducer'
 import {Theme} from './theme'
 
+type ReactRouterAction = RouterAction | LocationChangeAction
+
 declare module 'Types' {
   export type RootState = StateType<typeof rootReducer>
-  export type RootAction = ReactRouterAction | TimeAction
+  export type RootAction = ReactRouterAction
+    | TimeAction
+    | WordsAction
   export type Services = typeof services
 
   export interface CSSPropertiesWithBreakpointExtensions extends CSSProperties {

@@ -3,13 +3,16 @@ import {ajax} from 'rxjs/ajax'
 import {takeUntil} from 'rxjs/operators'
 import * as Types from 'Types'
 import time from '../time/store/time.epics'
+import words from '../words/store/words.epics'
 
 export const services = {
   ajax,
+  scheduler: undefined,
 }
 
-export const combinedEpics = combineEpics(
-    ...time,
+const combinedEpics = combineEpics(
+  ...time,
+  ...words,
 )
 
 const rootEpic = (action$: ActionsObservable<Types.RootAction>, state$: Types.RootState) => {
