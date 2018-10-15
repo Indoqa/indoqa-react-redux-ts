@@ -18,7 +18,6 @@ const inputFieldStyles = ({theme}: Types.FelaProps) => ({
 })
 const InputField = createComponentWithProxy<Types.WithChildren>(inputFieldStyles, 'input')
 
-
 const WordsSearch = ({fetchWords, cancelFetchWords, prefix, isLoadingFlag, error}: Props) => {
   return (
     <Box>
