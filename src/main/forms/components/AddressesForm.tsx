@@ -8,8 +8,8 @@ import FormRow from './FormRow'
 
 export interface Props {
   values: User,
-  errors: FormikErrors<User>,
-  touched: FormikTouched<User>,
+  errors: FormikErrors<any>,
+  touched: FormikTouched<any>,
 }
 
 const renderAddressHeader = (arrayHelpers: ArrayHelpers, count: number, index: number) => {
@@ -30,10 +30,10 @@ const renderAddressHeader = (arrayHelpers: ArrayHelpers, count: number, index: n
 }
 
 const renderAddressForm = (
-  arrayHelpers: ArrayHelpers,
+  arrayHelpers: any,
   values: User,
-  errors: FormikErrors<User>,
-  touched: FormikTouched<User>,
+  errors: FormikErrors<any>,
+  touched: FormikTouched<any>,
   address: Address,
   index: number) => {
   const addressesCount = values.addresses === undefined ? 0 : values.addresses.length
@@ -51,7 +51,7 @@ const renderAddressForm = (
   )
 }
 
-const renderAddressesHeader = (arrayHelpers: ArrayHelpers) => {
+const renderAddressesHeader = (arrayHelpers: any) => {
   return (
     <Box>
       <Box>
@@ -63,10 +63,10 @@ const renderAddressesHeader = (arrayHelpers: ArrayHelpers) => {
 }
 
 const renderForms = (
-  arrayHelpers: ArrayHelpers,
+  arrayHelpers: any,
   values: User,
-  errors: FormikErrors<User>,
-  touched: FormikTouched<User>) => {
+  errors: FormikErrors<any>,
+  touched: FormikTouched<any>) => {
 
   const {addresses} = values
 

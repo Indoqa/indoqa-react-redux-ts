@@ -1,6 +1,6 @@
 export interface Address {
-  street: string,
-  city: string,
+  street?: string,
+  city?: string,
   zipCode: string,
   country: string,
 }
@@ -10,5 +10,5 @@ export interface User {
   name: string,
   email: string,
   lastModified: Date,
-  addresses?: Address[],
+  addresses: Address[],
 }

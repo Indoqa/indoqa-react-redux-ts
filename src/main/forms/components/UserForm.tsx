@@ -34,7 +34,7 @@ const UserForm = ({user, onSubmit}: Props) => {
       initialValues={user}
       validateOnChange={false}
       validationSchema={validationSchema}
-      render={({values, errors, touched}: FormikProps<User>) => {
+      render={({values, errors, touched}: FormikProps<any>) => {
         return (
           <Form>
             <FormRow name="name" label="Name" errors={errors} touched={touched} />
