@@ -340,6 +340,11 @@
     "@types/webpack-dev-server" "*"
     source-map "^0.6.0"
 
+"@types/yup@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.0.tgz#7d3d8a4dd61875dfd3a7fc76ec8d1aa8722d6131"
+  integrity sha512-k2ltPRG4ajyrwlsi5P7QmPInRVPwlETCO9SnfT/NqYxzJLpI6w96xjXUWgA6iwkq1kI7s1DmE0gXyikHJpUBDw==
+
 "@webassemblyjs/ast@1.7.8":
   version "1.7.8"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.8.tgz#f31f480debeef957f01b623f27eabc695fa4fe8f"

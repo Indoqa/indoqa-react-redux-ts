@@ -12,7 +12,6 @@ const renderWords = (results: string[]) => {
 }
 
 const WordsResults = ({results}: Props) => {
-  console.log('results', results)
   const poweredBy = (
     <Box mt={3}>
       <a href="http://wordnik.com/" target="_blank">

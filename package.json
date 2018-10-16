@@ -18,6 +18,7 @@
     "start": "indoqa-dev-server ./indoqa-webpack-options.js"
   },
   "dependencies": {
+    "@types/yup": "^0.26.0",
     "fela": "^6.2.2",
     "fela-monolithic": "^5.0.26",
     "fela-plugin-named-media-query": "^5.0.13",

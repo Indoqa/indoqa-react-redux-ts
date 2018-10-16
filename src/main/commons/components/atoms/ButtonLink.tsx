@@ -15,4 +15,4 @@ const ButtonLink = ({theme}: Types.FelaProps): Props => ({
   },
 })
 
-export default createComponentWithProxy<Types.WithChildren>(ButtonLink)
+export default createComponentWithProxy<Types.WithChildren>(ButtonLink, 'button')
