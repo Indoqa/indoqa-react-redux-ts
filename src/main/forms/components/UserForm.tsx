@@ -10,8 +10,10 @@ import FormRow from './FormRow'
 import {User} from '../store/forms.types'
 
 export interface Props {
+  match: any,
+  loadUser: (id: string) => void,
+  saveUser: (user: User) => void
   user: User,
-  onSubmit: (values: any, errors: any) => any,
 }
 
 const validationSchema = () => {
@@ -25,32 +27,43 @@ const validationSchema = () => {
   })
 }
 
-const UserForm = ({user, onSubmit}: Props) => {
-  return (
-    <Formik
-      key={user.id + user.lastModified.toString()}
-      displayName="UserForm"
-      onSubmit={(values, {setErrors}) => onSubmit(values, setErrors)}
-      initialValues={user}
-      validateOnChange={false}
-      validationSchema={validationSchema}
-      render={({values, errors, touched}: FormikProps<any>) => {
-        return (
-          <Form>
-            <FormRow name="name" label="Name" errors={errors} touched={touched}/>
-            <FormRow name="email" label="E-Mail" errors={errors} touched={touched}/>
-            <AddressesForm values={values} errors={errors} touched={touched}/>
-            <Box mt={2}>
-              <ButtonLink>
-                <Link to="/forms">Cancel</Link>
-              </ButtonLink>
-              <button type="submit">Save</button>
-            </Box>
-          </Form>
-        )
-      }}
-    />
-  )
-}
+export default class UserForm extends React.Component<Props> {
 
-export default UserForm
+  public componentWillMount() {
+    const {match, loadUser} = this.props
+    const {id} = match.params
+    loadUser(id)
+  }
+
+  public render() {
+    const {user, saveUser} = this.props
+    if (user === null) {
+      return null
+    }
+    return (
+      <Formik
+        key={user.id + user.lastModified.toString()}
+        displayName="UserForm"
+        onSubmit={(values, {setErrors}) => saveUser(values)}
+        initialValues={user}
+        validateOnChange={false}
+        validationSchema={validationSchema}
+        render={({values, errors, touched}: FormikProps<any>) => {
+          return (
+            <Form>
+              <FormRow name="name" label="Name" errors={errors} touched={touched}/>
+              <FormRow name="email" label="E-Mail" errors={errors} touched={touched}/>
+              <AddressesForm values={values} errors={errors} touched={touched}/>
+              <Box mt={2}>
+                <ButtonLink>
+                  <Link to="/forms/users">Cancel</Link>
+                </ButtonLink>
+                <button type="submit">Save</button>
+              </Box>
+            </Form>
+          )
+        }}
+      />
+    )
+  }
+}

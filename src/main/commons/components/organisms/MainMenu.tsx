@@ -12,7 +12,7 @@ const MainMenu = () => (
       <NavLink to="/" exact>Overview</NavLink>
     </MenuLink>
     <MenuLink>
-      <NavLink to="/forms">Forms</NavLink>
+      <NavLink to="/forms/users/">Forms</NavLink>
     </MenuLink>
     <MenuLink>
       <NavLink to="/time">Time</NavLink>

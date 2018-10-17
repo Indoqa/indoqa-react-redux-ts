@@ -1,18 +1,18 @@
 import * as React from 'react'
 import {CSSProperties} from 'react'
 import {StateType} from 'typesafe-actions'
-import {RouterAction, LocationChangeAction} from 'react-router-redux'
+
 import {services} from './rootEpic'
-import {WordsAction} from '../words/store/words.types'
-import {TimeAction} from '../time/store/time.types'
 import rootReducer from './rootReducer'
 import {Theme} from './theme'
 
-type ReactRouterAction = RouterAction | LocationChangeAction
+import {WordsAction} from '../words/store/words.types'
+import {TimeAction} from '../time/store/time.types'
+import {FormsAction} from '../forms/store/forms.types'
 
 declare module 'Types' {
   export type RootState = StateType<typeof rootReducer>
-  export type RootAction = ReactRouterAction
+  export type RootAction = FormsAction
     | TimeAction
     | WordsAction
   export type Services = typeof services
