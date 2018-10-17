@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, RouteComponentProps} from 'react-router-dom'
 import {Form, Formik, FormikProps} from 'formik'
 import {Box} from 'indoqa-react-fela'
 import * as Yup from 'yup'
@@ -9,8 +9,11 @@ import AddressesForm from './AddressesForm'
 import FormRow from './FormRow'
 import {User} from '../store/forms.types'
 
-export interface Props {
-  match: any,
+interface TemplateParams {
+  id: string,
+}
+
+export interface Props extends RouteComponentProps<TemplateParams> {
   loadUser: (id: string) => void,
   saveUser: (user: User, setErrors: any) => void
   user: User,
@@ -31,8 +34,7 @@ export default class UserForm extends React.Component<Props> {
 
   public componentWillMount() {
     const {match, loadUser} = this.props
-    const {id} = match.params
-    loadUser(id)
+    loadUser(match.params.id)
   }
 
   public render() {
