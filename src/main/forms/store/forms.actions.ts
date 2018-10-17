@@ -16,23 +16,33 @@ export const loadUser = (id: string): LoadUser => ({
 export interface SaveUser extends Action {
   type: FormsActionKeys.SAVE_USER
   user: User,
+  setErrors: any,
 }
 
-export const saveUser = (user: User): SaveUser => ({
+export const saveUser = (user: User, setErrors: any): SaveUser => ({
   type: FormsActionKeys.SAVE_USER,
+  user,
+  setErrors,
+})
+
+// ----------------------------------------------------------------------------
+
+export interface SaveUserSuccess extends Action {
+  type: FormsActionKeys.SAVE_USER_SUCCESS
+  user: User,
+}
+
+export const saveUserSuccess = (user: User): SaveUserSuccess => ({
+  type: FormsActionKeys.SAVE_USER_SUCCESS,
   user,
 })
 
 // ----------------------------------------------------------------------------
 
-export interface PostUser extends Action {
-  type: FormsActionKeys.POST_USER
-  user: User,
-  setErrors: any,
+export interface SaveUserError extends Action {
+  type: FormsActionKeys.SAVE_USER_ERROR
 }
 
-export const postUser = (user: User, setErrors: any): PostUser => ({
-  type: FormsActionKeys.POST_USER,
-  user,
-  setErrors,
+export const saveUserError = (): SaveUserError => ({
+  type: FormsActionKeys.SAVE_USER_ERROR,
 })

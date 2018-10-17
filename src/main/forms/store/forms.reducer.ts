@@ -12,7 +12,7 @@ const user1: User = {
       country: 'Austria',
     },
     {
-      street: 'Heinrichstrasse 7',
+      street: 'Schönaugürtel 7',
       city: 'Graz',
       zipCode: '8010',
       country: 'Austria',
@@ -39,9 +39,8 @@ const initialState: FormsState = {
 
 export default (state: FormsState = initialState, action: FormsAction): FormsState => {
   switch (action.type) {
-    case FormsActionKeys.SAVE_USER:
+    case FormsActionKeys.SAVE_USER_SUCCESS:
       return {
-        ...state,
         users: {
           ...state.users,
           [action.user.id]: {
@@ -52,6 +51,7 @@ export default (state: FormsState = initialState, action: FormsAction): FormsSta
             lastModified: new Date(),
           },
         },
+        currentUser: null,
       }
 
     case FormsActionKeys.LOAD_USER:

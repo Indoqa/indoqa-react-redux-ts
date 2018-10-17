@@ -12,7 +12,7 @@ import {User} from '../store/forms.types'
 export interface Props {
   match: any,
   loadUser: (id: string) => void,
-  saveUser: (user: User) => void
+  saveUser: (user: User, setErrors: any) => void
   user: User,
 }
 
@@ -44,7 +44,7 @@ export default class UserForm extends React.Component<Props> {
       <Formik
         key={user.id + user.lastModified.toString()}
         displayName="UserForm"
-        onSubmit={(values, {setErrors}) => saveUser(values)}
+        onSubmit={(values, {setErrors}) => saveUser(values, setErrors)}
         initialValues={user}
         validateOnChange={false}
         validationSchema={validationSchema}

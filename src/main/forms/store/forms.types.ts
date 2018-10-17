@@ -1,14 +1,16 @@
-import {LoadUser, PostUser, SaveUser} from './forms.actions'
+import {LoadUser, SaveUser, SaveUserError, SaveUserSuccess} from './forms.actions'
 
 export type FormsAction =
   LoadUser
   | SaveUser
-  | PostUser
+  | SaveUserSuccess
+  | SaveUserError
 
 export enum FormsActionKeys {
   LOAD_USER = 'forms/LOAD_USER',
   SAVE_USER = 'forms/SAVE_USER',
-  POST_USER = 'forms/POST_USER',
+  SAVE_USER_SUCCESS = 'forms/SAVE_USER_SUCCESS',
+  SAVE_USER_ERROR = 'forms/SAVE_USER_ERROR',
 }
 
 export type FormsState = {
