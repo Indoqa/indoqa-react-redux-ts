@@ -38,7 +38,7 @@ const InputField = createComponentWithProxy(({hasError}) => ({
 
 const ErrorMessage = createComponent(() => ({
   color: 'red',
-}), Text)
+}), Text) as any
 
 const renderLabel = (label: string) => {
   return <Label>{label}</Label>
