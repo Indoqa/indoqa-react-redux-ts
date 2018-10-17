@@ -1,13 +1,11 @@
-import {History} from 'history'
 import {createIndoqaStore} from 'indoqa-react-app'
 import {Store} from 'redux'
 
-const createStore = (history: History): Store<any> => {
+const createStore = (): Store<any> => {
   const indoqaStore = createIndoqaStore({
     rootReducer: require('./rootReducer.ts').default,
     rootEpic: require('./rootEpic.ts').default,
     enableLogging: process.env.NODE_ENV !== 'production',
-    history,
   })
 
   if (module.hot) {

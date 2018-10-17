@@ -8,7 +8,7 @@ import createStore from './app/createStore'
 import fela from './app/fela'
 import history from './app/history'
 
-const store = createStore(history)
+const store = createStore()
 const rootEl =  document.getElementById('app')
 const renderer = createRenderer(fela)
 

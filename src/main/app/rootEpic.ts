@@ -1,9 +1,8 @@
 import {ActionsObservable, combineEpics, ofType} from 'redux-observable'
 import {ajax} from 'rxjs/ajax'
 import {takeUntil} from 'rxjs/operators'
-
 import * as Types from 'Types'
-import history from '../app/history'
+import history from './history'
 
 import time from '../time/store/time.epics'
 import words from '../words/store/words.epics'
