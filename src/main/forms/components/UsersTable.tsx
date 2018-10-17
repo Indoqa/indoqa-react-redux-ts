@@ -1,7 +1,7 @@
 import {Box} from 'indoqa-react-fela'
 import * as React from 'react'
 import {createComponent} from 'react-fela'
-import {Link} from 'react-router-dom'
+import {Link, RouteComponentProps} from 'react-router-dom'
 
 import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
@@ -24,14 +24,14 @@ const renderUserRow = (user: User) => {
   )
 }
 
-export interface Props {
+export interface Props extends RouteComponentProps {
   users: {[key: string]: User},
 }
 
 export default class UsersTable extends React.Component<Props> {
 
   public render() {
-    const {users} = this.props
+    const {users, match} = this.props
     return (
       <Box>
         <table>
@@ -41,7 +41,7 @@ export default class UsersTable extends React.Component<Props> {
         </table>
         <Box p={1}>
           <ButtonLink>
-            <Link to="/forms/users/">Add user</Link>
+            <Link to={`${match.url}add`}>Add user (not implemented yet)</Link>
           </ButtonLink>
         </Box>
       </Box>

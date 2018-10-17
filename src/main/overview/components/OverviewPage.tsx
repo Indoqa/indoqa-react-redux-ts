@@ -122,7 +122,7 @@ export default class OverviewPage extends React.Component<{}> {
             Create forms with Formik
           </ListItem>
           <ListItem>
-            (Non)-integration with Redux
+            Usage with Redux
           </ListItem>
           <ListItem>
             Validation with yup
@@ -131,7 +131,7 @@ export default class OverviewPage extends React.Component<{}> {
             Subforms
           </ListItem>
           <ListItem>
-            Server-side validation
+            Server-side validation - propagating errors to the form
           </ListItem>
           <ListItem>
             Changing the history (URL path) as a side-effect (redux-observable)

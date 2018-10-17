@@ -38,7 +38,7 @@ export default class UserForm extends React.Component<Props> {
   }
 
   public render() {
-    const {user, saveUser} = this.props
+    const {user, saveUser, match} = this.props
     if (user === null) {
       return null
     }
@@ -58,7 +58,7 @@ export default class UserForm extends React.Component<Props> {
               <AddressesForm values={values} errors={errors} touched={touched}/>
               <Box mt={2}>
                 <ButtonLink>
-                  <Link to="/forms/users">Cancel</Link>
+                  <Link to={`${match.url}/users`}>Cancel</Link>
                 </ButtonLink>
                 <button type="submit">Save</button>
               </Box>
