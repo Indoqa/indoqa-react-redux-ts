@@ -37,9 +37,9 @@ const UserForm = ({user, onSubmit}: Props) => {
       render={({values, errors, touched}: FormikProps<any>) => {
         return (
           <Form>
-            <FormRow name="name" label="Name" errors={errors} touched={touched} />
-            <FormRow name="email" label="E-Mail" errors={errors} touched={touched} />
-            <AddressesForm values={values} errors={errors} touched={touched} />
+            <FormRow name="name" label="Name" errors={errors} touched={touched}/>
+            <FormRow name="email" label="E-Mail" errors={errors} touched={touched}/>
+            <AddressesForm values={values} errors={errors} touched={touched}/>
             <Box mt={2}>
               <ButtonLink>
                 <Link to="/forms">Cancel</Link>

@@ -22,7 +22,7 @@ export default class FormsPage extends React.Component<{}> {
     }
     return (
       <MainMenuTemplate title="Forms">
-        <UserForm user={user} onSubmit={(savedUser: User) => console.log('user', savedUser)} />
+        <UserForm user={user} onSubmit={(savedUser: User) => console.log('user', savedUser)}/>
       </MainMenuTemplate>
     )
   }

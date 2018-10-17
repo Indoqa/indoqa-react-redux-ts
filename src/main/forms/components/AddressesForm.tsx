@@ -35,17 +35,18 @@ const renderAddressForm = (
   errors: FormikErrors<any>,
   touched: FormikTouched<any>,
   address: Address,
-  index: number) => {
+  index: number,
+) => {
   const addressesCount = values.addresses === undefined ? 0 : values.addresses.length
   return (
     <Flex key={index} mt={2}>
       <Box>
         {renderAddressHeader(arrayHelpers, addressesCount, index)}
 
-        <FormRow name={`addresses.${index}.street`} label="Street" errors={errors} touched={touched} />
-        <FormRow name={`addresses.${index}.city`} label="City" errors={errors} touched={touched} />
-        <FormRow name={`addresses.${index}.zipCode`} label="Zip code" errors={errors} touched={touched} />
-        <FormRow name={`addresses.${index}.country`} label="Country" errors={errors} touched={touched} />
+        <FormRow name={`addresses.${index}.street`} label="Street" errors={errors} touched={touched}/>
+        <FormRow name={`addresses.${index}.city`} label="City" errors={errors} touched={touched}/>
+        <FormRow name={`addresses.${index}.zipCode`} label="Zip code" errors={errors} touched={touched}/>
+        <FormRow name={`addresses.${index}.country`} label="Country" errors={errors} touched={touched}/>
       </Box>
     </Flex>
   )
@@ -66,8 +67,8 @@ const renderForms = (
   arrayHelpers: any,
   values: User,
   errors: FormikErrors<any>,
-  touched: FormikTouched<any>) => {
-
+  touched: FormikTouched<any>,
+) => {
   const {addresses} = values
 
   if (!(addresses && addresses.length > 0)) {

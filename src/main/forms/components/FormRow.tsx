@@ -10,7 +10,7 @@ export interface Props {
   touched: FormikTouched<any>,
 }
 
-const RowContainer = createComponent(() => ({
+const Row = createComponent(() => ({
   marginTop: 3,
   marginBottom: 3,
 }))
@@ -69,11 +69,11 @@ const renderError = (name: string, hasError: boolean, errors: FormikErrors<any>)
 const FormRow = ({name, label, errors, touched}: Props) => {
   const hasError = getIn(touched, name) && getIn(errors, name)
   return (
-    <RowContainer>
+    <Row>
       {renderLabel(label)}
       {renderField(name, hasError)}
       {renderError(name, hasError, errors)}
-    </RowContainer>
+    </Row>
   )
 }
 
