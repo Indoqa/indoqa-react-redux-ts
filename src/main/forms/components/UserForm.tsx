@@ -13,7 +13,7 @@ interface TemplateParams {
   id: string,
 }
 
-export interface Props extends RouteComponentProps<TemplateParams> {
+export interface UserFormProps extends RouteComponentProps<TemplateParams> {
   loadUser: (id: string) => void,
   saveUser: (user: User, setErrors: any) => void
   user: User,
@@ -30,7 +30,7 @@ const validationSchema = () => {
   })
 }
 
-export default class UserForm extends React.Component<Props> {
+export default class UserForm extends React.Component<UserFormProps> {
 
   public componentWillMount() {
     const {match, loadUser} = this.props

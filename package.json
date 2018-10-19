@@ -63,6 +63,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-router-redux": "^5.0.16",
     "@types/redux-logger": "^3.0.6",
+    "@types/shortid": "^0.0.29",
     "@types/webpack-env": "^1.13.6",
     "@types/yup": "^0.26.0",
     "indoqa-webpack": "2.0.1",

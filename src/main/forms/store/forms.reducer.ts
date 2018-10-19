@@ -1,3 +1,4 @@
+import produce from 'immer'
 import {FormsAction, FormsActionKeys, FormsState, User} from './forms.types'
 
 const user1: User = {
@@ -38,29 +39,18 @@ const initialState: FormsState = {
 }
 
 export default (state: FormsState = initialState, action: FormsAction): FormsState => {
-  switch (action.type) {
-    case FormsActionKeys.SAVE_USER_SUCCESS:
-      return {
-        users: {
-          ...state.users,
-          [action.user.id]: {
-            ...action.user,
-            addresses: [
-              ...action.user.addresses,
-            ],
-            lastModified: new Date(),
-          },
-        },
-        currentUser: null,
-      }
-
-    case FormsActionKeys.LOAD_USER:
-      return {
-        ...state,
-        currentUser: state.users[action.id],
-      }
-
-    default:
-      return state
-  }
+  return produce(state, (draft: FormsState) => {
+    switch (action.type) {
+      case FormsActionKeys.SAVE_USER_SUCCESS:
+        const {user} = action
+        const userId = user.id
+        draft.users[userId] = user
+        draft.users[userId].lastModified = new Date()
+        draft.currentUser = null
+        return
+      case FormsActionKeys.LOAD_USER:
+        draft.currentUser = state.users[action.id]
+        return
+    }
+  })
 }

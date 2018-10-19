@@ -41,7 +41,7 @@ export default class UsersTable extends React.Component<Props> {
         </table>
         <Box p={1}>
           <ButtonLink>
-            <Link to={`${match.url}add`}>Add user (not implemented yet)</Link>
+            <Link to={`${match.url}add`}>Add user</Link>
           </ButtonLink>
         </Box>
       </Box>
