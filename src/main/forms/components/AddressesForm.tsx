@@ -3,14 +3,8 @@ import {ArrayHelpers, FieldArray, FormikErrors, FormikTouched} from 'formik'
 import {Box, Flex, Text} from 'indoqa-react-fela'
 import {createNewAddress} from '../store/forms.factory'
 
-import {Address, User} from '../store/forms.types'
+import {Address} from '../store/forms.types'
 import FormRow from './FormRow'
-
-export interface Props {
-  values: User,
-  errors: FormikErrors<any>,
-  touched: FormikTouched<any>,
-}
 
 const renderAddressHeader = (arrayHelpers: ArrayHelpers, count: number, index: number) => {
   return (
@@ -30,18 +24,17 @@ const renderAddressHeader = (arrayHelpers: ArrayHelpers, count: number, index: n
 }
 
 const renderAddressForm = (
-  arrayHelpers: any,
-  values: User,
-  errors: FormikErrors<any>,
-  touched: FormikTouched<any>,
+  arrayHelpers: ArrayHelpers,
+  addresses: Address[],
+  errors: FormikErrors<{}>,
+  touched: FormikTouched<{}>,
   address: Address,
   index: number,
 ) => {
-  const addressesCount = values.addresses === undefined ? 0 : values.addresses.length
   return (
     <Flex key={index} mt={2}>
       <Box>
-        {renderAddressHeader(arrayHelpers, addressesCount, index)}
+        {renderAddressHeader(arrayHelpers, addresses.length, index)}
 
         <FormRow name={`addresses.${index}.street`} label="Street" errors={errors} touched={touched}/>
         <FormRow name={`addresses.${index}.city`} label="City" errors={errors} touched={touched}/>
@@ -64,29 +57,33 @@ const renderAddressesHeader = (arrayHelpers: any) => {
 }
 
 const renderForms = (
-  arrayHelpers: any,
-  values: User,
-  errors: FormikErrors<any>,
-  touched: FormikTouched<any>,
+  arrayHelpers: ArrayHelpers,
+  addresses: Address[],
+  errors: FormikErrors<{}>,
+  touched: FormikTouched<{}>,
 ) => {
-  const {addresses} = values
-
   if (!(addresses && addresses.length > 0)) {
     return null
   }
   return addresses.map((address, index) => (
-    renderAddressForm(arrayHelpers, values, errors, touched, address, index)
+    renderAddressForm(arrayHelpers, addresses, errors, touched, address, index)
   ))
 }
 
-const AddressesForm = ({values, errors, touched}: Props) => {
+export interface AddressFormProps {
+  addresses: Address[],
+  errors: FormikErrors<{}>,
+  touched: FormikTouched<{}>,
+}
+
+const AddressesForm = ({addresses, errors, touched}: AddressFormProps) => {
   return (
     <FieldArray
       name="addresses"
       render={(arrayHelpers) => (
         <Box mt={2}>
           {renderAddressesHeader(arrayHelpers)}
-          {renderForms(arrayHelpers, values, errors, touched)}
+          {renderForms(arrayHelpers, addresses, errors, touched)}
         </Box>
       )}
     />

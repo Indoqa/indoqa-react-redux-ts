@@ -10,14 +10,14 @@ const TableData = createComponent(({theme}) => ({
   padding: theme.spacing.space1,
 }), 'td') as any
 
-const renderUserRow = (user: User) => {
+const renderUserRow = (user: User, match: RouteComponentProps['match']) => {
   return (
     <tr key={user.id}>
       <TableData>{user.name}</TableData>
       <TableData>{user.email}</TableData>
       <TableData>
         <ButtonLink>
-          <Link to={`/forms/users/${user.id}`}>Edit</Link>
+          <Link to={`${match.url}${user.id}`}>Edit</Link>
         </ButtonLink>
       </TableData>
     </tr>
@@ -36,7 +36,7 @@ export default class UsersTable extends React.Component<Props> {
       <Box>
         <table>
           <tbody>
-          {Object.keys(users).map((key) => renderUserRow(users[key]))}
+          {Object.keys(users).map((key) => renderUserRow(users[key], match))}
           </tbody>
         </table>
         <Box p={1}>

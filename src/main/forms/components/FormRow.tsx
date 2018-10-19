@@ -6,8 +6,8 @@ import {Text} from 'indoqa-react-fela'
 export interface Props {
   name: string,
   label: string,
-  errors: FormikErrors<any>,
-  touched: FormikTouched<any>,
+  errors: FormikErrors<{}>,
+  touched: FormikTouched<{}>,
 }
 
 const Row = createComponent(() => ({

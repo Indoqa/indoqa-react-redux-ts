@@ -4,9 +4,9 @@ import {Form, Formik, FormikProps} from 'formik'
 import {Box} from 'indoqa-react-fela'
 import * as Yup from 'yup'
 
-import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import AddressesForm from './AddressesForm'
 import FormRow from './FormRow'
+import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
 
 interface TemplateParams {
@@ -50,12 +50,12 @@ export default class UserForm extends React.Component<UserFormProps> {
         initialValues={user}
         validateOnChange={false}
         validationSchema={validationSchema}
-        render={({values, errors, touched}: FormikProps<any>) => {
+        render={({values, errors, touched}: FormikProps<User>) => {
           return (
             <Form>
               <FormRow name="name" label="Name" errors={errors} touched={touched}/>
               <FormRow name="email" label="E-Mail" errors={errors} touched={touched}/>
-              <AddressesForm values={values} errors={errors} touched={touched}/>
+              <AddressesForm addresses={values.addresses} errors={errors} touched={touched}/>
               <Box mt={2}>
                 <ButtonLink>
                   <Link to="./">Cancel</Link>
