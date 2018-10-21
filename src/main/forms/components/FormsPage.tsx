@@ -1,9 +1,9 @@
 import * as React from 'react'
 
 import MainMenuTemplate from '../../commons/components/templates/MainMenuTemplate'
-import UserForm, {AddUserForm} from './UserForm.redux'
-import UsersTable from './UsersTable.redux'
+import UserPage, {AddUserPage} from './UserPage.redux'
 import {Route, RouteComponentProps, Switch} from 'react-router'
+import UsersPage from './UsersPage.redux'
 
 export default class FormsPage extends React.Component<RouteComponentProps> {
 
@@ -12,9 +12,9 @@ export default class FormsPage extends React.Component<RouteComponentProps> {
     return (
       <MainMenuTemplate title="Forms">
         <Switch>
-          <Route exact path={`${match.url}/users/`} component={UsersTable} />
-          <Route exact path={`${match.url}/users/add`} component={AddUserForm} />
-          <Route exact path={`${match.url}/users/:id`} component={UserForm} />
+          <Route exact path={`${match.url}/users/`} component={UsersPage} />
+          <Route exact path={`${match.url}/users/add`} component={AddUserPage} />
+          <Route exact path={`${match.url}/users/:id`} component={UserPage} />
         </Switch>
       </MainMenuTemplate>
     )

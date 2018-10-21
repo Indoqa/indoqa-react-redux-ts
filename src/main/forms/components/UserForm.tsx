@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Link, RouteComponentProps} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Form, Formik, FormikProps} from 'formik'
 import {Box} from 'indoqa-react-fela'
 import * as Yup from 'yup'
@@ -8,16 +8,6 @@ import AddressesForm from './AddressesForm'
 import FormRow from './FormRow'
 import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
-
-interface TemplateParams {
-  id: string,
-}
-
-export interface UserFormProps extends RouteComponentProps<TemplateParams> {
-  loadUser: (id: string) => void,
-  saveUser: (user: User, setErrors: any) => void
-  user: User,
-}
 
 const validationSchema = () => {
   return Yup.object().shape({
@@ -30,12 +20,13 @@ const validationSchema = () => {
   })
 }
 
-export default class UserForm extends React.Component<UserFormProps> {
+export interface UserFormProps {
+  loadUser: (id: string) => void,
+  saveUser: (user: User, setErrors: any) => void
+  user: User,
+}
 
-  public componentWillMount() {
-    const {match, loadUser} = this.props
-    loadUser(match.params.id)
-  }
+export default class UserForm extends React.Component<UserFormProps> {
 
   public render() {
     const {user, saveUser} = this.props
