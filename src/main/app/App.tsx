@@ -26,8 +26,8 @@ const TimePage = Loadable({
   loading: Loading,
 })
 
-const FormsPage = Loadable({
-  loader: () => import('../forms/components/FormsPage'),
+const FormsApp = Loadable({
+  loader: () => import('../forms/components/FormsApp'),
   loading: Loading,
 })
 
@@ -41,7 +41,7 @@ export default class App extends React.Component<{}> {
             <Route exact path="/" component={OverviewPage}/>
             <Route exact path="/time" component={TimePage}/>
             <Route exact path="/words" component={WordsPage} />
-            <Route path="/forms" component={FormsPage} />
+            <Route path="/forms" component={FormsApp} />
           </Switch>
         </I18nextProvider>
       </ThemeProvider>

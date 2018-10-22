@@ -21,18 +21,15 @@ const validationSchema = () => {
 }
 
 export interface UserFormProps {
-  loadUser: (id: string) => void,
-  saveUser: (user: User, setErrors: any) => void
   user: User,
+  cancelUrl: string,
+  saveUser: (user: User, setErrors: any) => void
 }
 
 export default class UserForm extends React.Component<UserFormProps> {
 
   public render() {
-    const {user, saveUser} = this.props
-    if (user === null) {
-      return null
-    }
+    const {user, cancelUrl, saveUser} = this.props
     return (
       <Formik
         key={user.id + user.lastModified.toString()}
@@ -49,7 +46,7 @@ export default class UserForm extends React.Component<UserFormProps> {
               <AddressesForm addresses={values.addresses} errors={errors} touched={touched}/>
               <Box mt={2}>
                 <ButtonLink>
-                  <Link to="./">Cancel</Link>
+                  <Link to={cancelUrl}>Cancel</Link>
                 </ButtonLink>
                 <button type="submit">Save</button>
               </Box>

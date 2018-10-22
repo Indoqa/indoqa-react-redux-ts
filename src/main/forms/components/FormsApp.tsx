@@ -1,11 +1,11 @@
 import * as React from 'react'
+import {Route, RouteComponentProps, Switch} from 'react-router'
 
 import MainMenuTemplate from '../../commons/components/templates/MainMenuTemplate'
 import UserPage, {AddUserPage} from './UserPage.redux'
-import {Route, RouteComponentProps, Switch} from 'react-router'
 import UsersPage from './UsersPage.redux'
 
-export default class FormsPage extends React.Component<RouteComponentProps> {
+export default class FormsApp extends React.Component<RouteComponentProps> {
 
   public render() {
     const {match} = this.props

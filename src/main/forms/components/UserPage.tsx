@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {RouteComponentProps} from 'react-router-dom'
+import Optional from '../../commons/components/utils/Optional'
 import {User} from '../store/forms.types'
 import UserForm from './UserForm'
 
@@ -21,6 +22,11 @@ export default class UserPage extends React.Component<UserFormProps> {
   }
 
   public render() {
-    return <UserForm {...this.props} />
+    const {user, saveUser} = this.props
+    return (
+      <Optional test={user}>
+        <UserForm user={user} saveUser={saveUser} cancelUrl="./" />
+      </Optional>
+    )
   }
 }
