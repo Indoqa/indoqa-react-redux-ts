@@ -5,7 +5,7 @@ import {Box} from 'indoqa-react-fela'
 import * as Yup from 'yup'
 
 import AddressesForm from './AddressesForm'
-import FormRow from './FormRow'
+import FormRow from '../../commons/components/molecules/FormRow'
 import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
 

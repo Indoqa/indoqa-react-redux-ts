@@ -1,24 +1,23 @@
 import * as React from 'react'
 import {ArrayHelpers, FieldArray, FormikErrors, FormikTouched} from 'formik'
 import {Box, Flex, Text} from 'indoqa-react-fela'
+import Optional from '../../commons/components/utils/Optional'
 import {createNewAddress} from '../store/forms.factory'
 
 import {Address} from '../store/forms.types'
-import FormRow from './FormRow'
+import FormRow from '../../commons/components/molecules/FormRow'
 
 const renderAddressHeader = (arrayHelpers: ArrayHelpers, count: number, index: number) => {
   return (
     <Box>
       <Text mr={1}>Address {index + 1}</Text>
       <button type="button" onClick={() => arrayHelpers.remove(index)}>-</button>
-      {index < count - 1 ?
+      <Optional test={index < count - 1}>
         <button type="button" onClick={() => arrayHelpers.move(index, index + 1)}>down</button>
-        : null
-      }
-      {index > 0 ?
+      </Optional>
+      <Optional test={index > 0}>
         <button type="button" onClick={() => arrayHelpers.move(index, index - 1)}>up</button>
-        : null
-      }
+      </Optional>
     </Box>
   )
 }
@@ -44,8 +43,24 @@ const renderAddressForm = (
     </Flex>
   )
 }
+const renderForms = (
+  arrayHelpers: ArrayHelpers,
+  addresses: Address[],
+  errors: FormikErrors<{}>,
+  touched: FormikTouched<{}>,
+) => {
+  return (
+    <Optional test={addresses && addresses.length > 0}>
+      {
+        addresses.map((address, index) => (
+          renderAddressForm(arrayHelpers, addresses, errors, touched, address, index)
+        ))
+      }
+    </Optional>
+  )
+}
 
-const renderAddressesHeader = (arrayHelpers: any) => {
+const renderHeader = (arrayHelpers: ArrayHelpers) => {
   return (
     <Box>
       <Box>
@@ -54,20 +69,6 @@ const renderAddressesHeader = (arrayHelpers: any) => {
       </Box>
     </Box>
   )
-}
-
-const renderForms = (
-  arrayHelpers: ArrayHelpers,
-  addresses: Address[],
-  errors: FormikErrors<{}>,
-  touched: FormikTouched<{}>,
-) => {
-  if (!(addresses && addresses.length > 0)) {
-    return null
-  }
-  return addresses.map((address, index) => (
-    renderAddressForm(arrayHelpers, addresses, errors, touched, address, index)
-  ))
 }
 
 export interface AddressFormProps {
@@ -82,7 +83,7 @@ const AddressesForm = ({addresses, errors, touched}: AddressFormProps) => {
       name="addresses"
       render={(arrayHelpers) => (
         <Box mt={2}>
-          {renderAddressesHeader(arrayHelpers)}
+          {renderHeader(arrayHelpers)}
           {renderForms(arrayHelpers, addresses, errors, touched)}
         </Box>
       )}
