@@ -1,35 +1,37 @@
 import * as React from 'react'
+import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
 import {Link} from 'react-router-dom'
 import {Form, Formik, FormikProps} from 'formik'
 import {Box} from 'indoqa-react-fela'
+import * as Types from 'Types'
 import * as Yup from 'yup'
 
-import AddressesForm from './AddressesForm'
+import AddressesSubForm from './AddressesSubForm'
 import FormRow from '../../commons/components/molecules/FormRow'
 import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
 
-const validationSchema = () => {
+const validationSchema = (t: Types.translate) => {
   return Yup.object().shape({
     name: Yup.string().required(),
-    email: Yup.string().required('E-mail is required'),
+    email: Yup.string().required(t('errorMissingEmail')),
     addresses: Yup.array().of(Yup.object().shape({
-      country: Yup.string().required('Country is required'),
-      zipCode: Yup.string().required('ZIP code is required'),
+      country: Yup.string().required(),
+      zipCode: Yup.string().required(),
     })),
   })
 }
 
-export interface UserFormProps {
+export interface UserFormProps extends InjectedTranslateProps {
   user: User,
   cancelUrl: string,
   saveUser: (user: User, setErrors: any) => void
 }
 
-export default class UserForm extends React.Component<UserFormProps> {
+class UserForm extends React.Component<UserFormProps> {
 
   public render() {
-    const {user, cancelUrl, saveUser} = this.props
+    const {user, cancelUrl, saveUser, t} = this.props
     return (
       <Formik
         key={user.id + user.lastModified.toString()}
@@ -37,18 +39,18 @@ export default class UserForm extends React.Component<UserFormProps> {
         onSubmit={(values, {setErrors}) => saveUser(values, setErrors)}
         initialValues={user}
         validateOnChange={false}
-        validationSchema={validationSchema}
+        validationSchema={validationSchema(t)}
         render={({values, errors, touched}: FormikProps<User>) => {
           return (
             <Form>
               <FormRow name="name" label="Name" errors={errors} touched={touched}/>
               <FormRow name="email" label="E-Mail" errors={errors} touched={touched}/>
-              <AddressesForm addresses={values.addresses} errors={errors} touched={touched}/>
+              <AddressesSubForm addresses={values.addresses} errors={errors} touched={touched}/>
               <Box mt={2}>
                 <ButtonLink>
-                  <Link to={cancelUrl}>Cancel</Link>
+                  <Link to={cancelUrl}>{t('cancel')}</Link>
                 </ButtonLink>
-                <button type="submit">Save</button>
+                <button type="submit">{t('save')}</button>
               </Box>
             </Form>
           )
@@ -57,3 +59,5 @@ export default class UserForm extends React.Component<UserFormProps> {
     )
   }
 }
+
+export default withNamespaces('forms')(UserForm)
