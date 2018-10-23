@@ -2,6 +2,7 @@ import * as React from 'react'
 import {ArrayHelpers, FieldArray, FormikErrors, FormikTouched} from 'formik'
 import {Box, Flex, Text} from 'indoqa-react-fela'
 import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
+import * as Types from 'Types'
 
 import Optional from '../../commons/components/utils/Optional'
 import FormRow from '../../commons/components/molecules/FormRow'
@@ -12,7 +13,7 @@ const renderAddressHeader = (
   arrayHelpers: ArrayHelpers,
   count: number,
   index: number,
-  t: InjectedTranslateProps['t'],
+  t: Types.translate,
 ) => {
   return (
     <Box>
@@ -35,7 +36,7 @@ const renderAddressForm = (
   touched: FormikTouched<{}>,
   address: Address,
   index: number,
-  t: InjectedTranslateProps['t'],
+  t: Types.translate,
 ) => {
   return (
     <Flex key={index} mt={2}>
@@ -55,7 +56,7 @@ const renderForms = (
   addresses: Address[],
   errors: FormikErrors<{}>,
   touched: FormikTouched<{}>,
-  t: InjectedTranslateProps['t'],
+  t: Types.translate,
 ) => {
   return (
     <Optional test={addresses && addresses.length > 0}>
@@ -68,7 +69,7 @@ const renderForms = (
   )
 }
 
-const renderHeader = (arrayHelpers: ArrayHelpers, t: InjectedTranslateProps['t']) => {
+const renderHeader = (arrayHelpers: ArrayHelpers, t: Types.translate) => {
   return (
     <Box>
       <Box>
