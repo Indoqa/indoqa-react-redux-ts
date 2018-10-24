@@ -21,7 +21,6 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "paths": {
-      "fela-preset-web" : ["./node_modules/fela"],
       "react-i18next": ["./src/typings/react-i18next"]
     }
   },
