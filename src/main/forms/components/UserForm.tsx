@@ -43,8 +43,8 @@ class UserForm extends React.Component<UserFormProps> {
         render={({values, errors, touched}: FormikProps<User>) => {
           return (
             <Form>
-              <FormRow name="name" label="Name" errors={errors} touched={touched}/>
-              <FormRow name="email" label="E-Mail" errors={errors} touched={touched}/>
+              <FormRow name="name" label={t('name')} errors={errors} touched={touched}/>
+              <FormRow name="email" label={t('email')} errors={errors} touched={touched}/>
               <AddressesSubForm addresses={values.addresses} errors={errors} touched={touched}/>
               <Box mt={2}>
                 <ButtonLink>
