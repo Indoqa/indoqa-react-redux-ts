@@ -65,16 +65,14 @@ export default class Uploader extends React.Component<{}, State> {
     if (!e.target.files) {
       return
     }
-    const self = this
     const file: File = e.target.files[0]
-    self.setState({filename: file.name})
-    self.setState({size: file.size})
-    self.setState({type: file.type})
+    this.setState({filename: file.name})
+    this.setState({size: file.size})
+    this.setState({type: file.type})
 
     const reader = new FileReader()
-    reader.onload = (upload: any) => {
-      const result = upload.target.result
-      self.setState({data_uri: result})
+    reader.onload = (upload: ProgressEvent & {target: {result: string}}) => {
+      this.setState({data_uri: upload.target.result})
     }
     reader.readAsDataURL(file)
   }
