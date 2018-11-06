@@ -6,7 +6,6 @@ interface State {
   size: number | null,
   type: string | null,
   data_uri: string | null,
-  data: string | null,
 }
 
 const INITIAL_STATE: State = {
@@ -14,10 +13,13 @@ const INITIAL_STATE: State = {
   size: null,
   type: null,
   data_uri: null,
-  data: null,
 }
 
 export default class Uploader extends React.Component<{}, State> {
+
+  private static handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+  }
 
   private inputRef = React.createRef<HTMLInputElement>()
 
@@ -32,8 +34,8 @@ export default class Uploader extends React.Component<{}, State> {
   public render() {
     return (
       <Box>
-        <form encType="multipart-formdata" onSubmit={this.handleSubmit}>
-          <input type="file" onChange={(e) => this.handleChange(e.target.files)} ref={this.inputRef}/>
+        <form encType="multipart-formdata" onSubmit={Uploader.handleSubmit}>
+          <input type="file" onChange={this.handleChange} ref={this.inputRef}/>
         </form>
         <br/>
         {this.renderFileInfo()}
@@ -59,16 +61,12 @@ export default class Uploader extends React.Component<{}, State> {
     )
   }
 
-  private handleSubmit(e: any) {
-    e.preventDefault()
-  }
-
-  private handleChange(files: FileList | null) {
-    if (!files) {
+  private handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files) {
       return
     }
     const self = this
-    const file: File = files[0]
+    const file: File = e.target.files[0]
     self.setState({filename: file.name})
     self.setState({size: file.size})
     self.setState({type: file.type})
@@ -77,7 +75,6 @@ export default class Uploader extends React.Component<{}, State> {
     reader.onload = (upload: any) => {
       const result = upload.target.result
       self.setState({data_uri: result})
-      self.setState({data: result.substring(result.indexOf(',') + 1)})
     }
     reader.readAsDataURL(file)
   }
