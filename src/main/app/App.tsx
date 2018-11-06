@@ -6,9 +6,10 @@ import {Box, buildTheme} from 'indoqa-react-fela'
 import Loadable from 'react-loadable'
 
 import MainMenuTemplate from '../commons/components/templates/MainMenuTemplate'
+import UploadPage from '../upload/components/UploadPage'
 import WordsPage from '../words/components/WordsPage'
-import theme from './theme'
 import i18n from './i18n'
+import theme from './theme'
 
 const Loading = () => (
   <MainMenuTemplate title="Overview">
@@ -42,6 +43,7 @@ export default class App extends React.Component<{}> {
             <Route exact path="/time" component={TimePage}/>
             <Route exact path="/words" component={WordsPage} />
             <Route path="/forms" component={FormsApp} />
+            <Route path="/upload" component={UploadPage} />
           </Switch>
         </I18nextProvider>
       </ThemeProvider>

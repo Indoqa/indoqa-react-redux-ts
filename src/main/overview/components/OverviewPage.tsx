@@ -159,6 +159,17 @@ export default class OverviewPage extends React.Component<{}> {
           </ListItem>
         </List>
         <Headline3>
+          <Link to="/">Upload</Link>
+        </Headline3>
+        <List>
+          <ListItem>
+            Upload a file with typed events
+          </ListItem>
+          <ListItem>
+            React component state
+          </ListItem>
+        </List>
+        <Headline3>
           <Link to="/">Words</Link>
         </Headline3>
         <List>
