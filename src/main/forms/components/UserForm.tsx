@@ -35,10 +35,8 @@ class UserForm extends React.Component<UserFormProps> {
     return (
       <Formik
         key={user.id + user.lastModified.toString()}
-        displayName="UserForm"
         onSubmit={(values, {setErrors}) => saveUser(values, setErrors)}
         initialValues={user}
-        validateOnChange={false}
         validationSchema={validationSchema(t)}
         render={({values, errors, touched}: FormikProps<User>) => {
           return (

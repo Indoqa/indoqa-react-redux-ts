@@ -116,8 +116,7 @@ export default class MainMenuTemplate extends React.Component<Props, State> {
 
   public static defaultProps = {
     title: '',
-    header: null,
-    children: null,
+    header: '',
   }
 
   public state = {

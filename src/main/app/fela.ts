@@ -1,3 +1,4 @@
+import {IConfig, IRenderer} from 'fela'
 import extend from 'fela-plugin-extend'
 import prefixer from 'fela-plugin-prefixer'
 import fallbackValue from 'fela-plugin-fallback-value'
@@ -7,7 +8,7 @@ import monolithic from 'fela-monolithic'
 
 import {BREAKPOINT_DESKTOP, BREAKPOINT_TABLET} from './breakpoints'
 
-const init = (renderer: any) => {
+const init = (renderer: IRenderer) => {
   renderer.renderStatic('html, body, #app {height: 100%}')
 }
 
@@ -16,7 +17,7 @@ const namedMediaQueryPlugin = namedMediaQuery({
   tablet: `@media (min-width: ${BREAKPOINT_TABLET}px)`,
 })
 
-const config: any = {
+const config: IConfig = {
   plugins: [
     extend(),
     prefixer(),
@@ -25,6 +26,7 @@ const config: any = {
     namedMediaQueryPlugin,
   ],
   enhancers: [],
+  // debug: true,
 }
 
 

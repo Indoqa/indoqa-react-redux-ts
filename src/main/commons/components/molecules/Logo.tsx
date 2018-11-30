@@ -1,5 +1,5 @@
 import {Box} from 'indoqa-react-fela'
-import {BoxStyleProps} from 'indoqa-react-fela/dist/components/base'
+import {BoxProps} from 'indoqa-react-fela/dist/components/base'
 import {CSSProperties} from 'react'
 import {createComponentWithProxy} from 'react-fela'
 import Types from 'Types'
@@ -26,4 +26,4 @@ const Logo = ({theme, 'data-logo-height': logoHeight}: Props & Types.FelaProps):
   })
 }
 
-export default createComponentWithProxy<Props, BoxStyleProps, HTMLDivElement>(Logo, Box)
+export default createComponentWithProxy<Props, BoxProps, HTMLDivElement>(Logo, Box)
