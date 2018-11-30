@@ -22,21 +22,22 @@ const MOBILE_ONLY = {
 }
 
 const Main = createComponentWithProxy(({theme, 'data-menu-open': menuOpen}: any): any => ({
+  display: 'flex',
   paddingTop: theme.layout.actionBarHeight,
   height: `calc(100% - ${theme.layout.actionBarHeight}px)`,
   width: '100%',
   overflow: menuOpen ? 'hidden' : 'auto',
-}), Flex)
+}))
 
 const MenuIcon = createComponentWithProxy(({theme}: any): any => ({
   marginRight: theme.spacing.space2,
   ...MOBILE_ONLY,
-}), Text)
+}), 'span')
 
 const FixedBar = createComponentWithProxy(() => ({
   position: 'fixed',
   width: '100%',
-}), Box)
+}))
 
 const MobileMenu = createComponentWithProxy(({theme, 'data-show': show}: any): any => ({
   position: 'absolute',
@@ -47,7 +48,7 @@ const MobileMenu = createComponentWithProxy(({theme, 'data-show': show}: any): a
   width: theme.layout.menuWidth,
   transition: 'left 0.15s',
   ...MOBILE_ONLY,
-}), Box)
+}))
 
 const TabletDesktopMenu = createComponentWithProxy(() => ({
   display: 'none',
@@ -61,7 +62,7 @@ const TabletDesktopMenu = createComponentWithProxy(() => ({
     display: 'block',
     height: '100%',
   },
-}), Box)
+}))
 
 const ContentOverlay = createComponentWithProxy(({'data-show': show}) => ({
   visibility: show ? 'visible' : 'hidden',
@@ -72,11 +73,11 @@ const ContentOverlay = createComponentWithProxy(({'data-show': show}) => ({
   opacity: show ? 0.6 : 0,
   transition: 'opacity .15s, visibility 0s',
   ...MOBILE_ONLY,
-}), Box)
+}))
 
 const renderHeaderContent = (title?: string, header?: string) => (
   <React.Fragment>
-    <Logo mr={1} data-logo-height={50}>
+    <Logo data-logo-height={50}>
       <Link to="/">{BASE_TITLE}</Link>
     </Logo>
     <Box>{title}</Box>
@@ -135,7 +136,7 @@ export default class MainMenuTemplate extends React.Component<Props, State> {
         <ContentOverlay data-show={this.state.showMobileMenu} onClick={() => this.toggleMenu()} />
         <Box grow={1}>
           <FixedBar>
-            <Bar pl={2} pr={2}>
+            <Bar>
               <MenuIcon onClick={() => this.toggleMenu()}>[Menu]</MenuIcon>
               {renderHeaderContent(title, header)}
               {renderLanguageSwitcher()}

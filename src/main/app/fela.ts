@@ -1,4 +1,4 @@
-import {IConfig, IRenderer} from 'fela'
+import {IRenderer} from 'fela'
 import extend from 'fela-plugin-extend'
 import prefixer from 'fela-plugin-prefixer'
 import fallbackValue from 'fela-plugin-fallback-value'
@@ -17,7 +17,7 @@ const namedMediaQueryPlugin = namedMediaQuery({
   tablet: `@media (min-width: ${BREAKPOINT_TABLET}px)`,
 })
 
-const config: IConfig = {
+const config: any = {
   plugins: [
     extend(),
     prefixer(),
@@ -26,12 +26,11 @@ const config: IConfig = {
     namedMediaQueryPlugin,
   ],
   enhancers: [],
-  // debug: true,
 }
-
 
 if (process.env.NODE_ENV !== 'production') {
   config.enhancers = [monolithic({prettySelectors: true})]
+  config.debug = true
 }
 
 export default {

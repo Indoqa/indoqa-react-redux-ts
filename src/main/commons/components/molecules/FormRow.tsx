@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {createComponent, createComponentWithProxy} from 'react-fela'
 import {Field, FormikErrors, FormikTouched, getIn} from 'formik'
-import {Text} from 'indoqa-react-fela'
 
 export interface Props {
   name: string,
@@ -11,6 +10,7 @@ export interface Props {
 }
 
 const Row = createComponent(() => ({
+  width: '100%',
   marginTop: 3,
   marginBottom: 3,
 }))
@@ -38,7 +38,7 @@ const InputField = createComponentWithProxy(({hasError}) => ({
 
 const ErrorMessage = createComponent(() => ({
   color: 'red',
-}), Text) as any
+}), 'span') as any
 
 const renderLabel = (label: string) => {
   return <Label>{label}</Label>

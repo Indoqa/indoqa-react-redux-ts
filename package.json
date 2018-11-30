@@ -28,7 +28,7 @@
     "i18next-browser-languagedetector": "^2.2.3",
     "immer": "^1.7.2",
     "indoqa-react-app": "^4.1.1",
-    "indoqa-react-fela": "^0.7.3",
+    "indoqa-react-fela": "^0.7.4",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-document-title": "^2.0.3",

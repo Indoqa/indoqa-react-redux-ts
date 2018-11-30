@@ -16,7 +16,7 @@ const renderAddressHeader = (
   t: Types.translate,
 ) => {
   return (
-    <Box>
+    <Box grow={1}>
       <Text mr={1}>{t('address')} {index + 1}</Text>
       <button type="button" onClick={() => arrayHelpers.remove(index)}>-</button>
       <Optional test={index > 0}>
@@ -40,14 +40,12 @@ const renderAddressForm = (
 ) => {
   return (
     <Flex key={index} mt={2}>
-      <Box>
-        {renderAddressHeader(arrayHelpers, addresses.length, index, t)}
+      {renderAddressHeader(arrayHelpers, addresses.length, index, t)}
 
-        <FormRow name={`addresses.${index}.street`} label={t('street')} errors={errors} touched={touched}/>
-        <FormRow name={`addresses.${index}.city`} label={t('city')} errors={errors} touched={touched}/>
-        <FormRow name={`addresses.${index}.zipCode`} label={t('zipCode')} errors={errors} touched={touched}/>
-        <FormRow name={`addresses.${index}.country`} label={t('country')} errors={errors} touched={touched}/>
-      </Box>
+      <FormRow name={`addresses.${index}.street`} label={t('street')} errors={errors} touched={touched}/>
+      <FormRow name={`addresses.${index}.city`} label={t('city')} errors={errors} touched={touched}/>
+      <FormRow name={`addresses.${index}.zipCode`} label={t('zipCode')} errors={errors} touched={touched}/>
+      <FormRow name={`addresses.${index}.country`} label={t('country')} errors={errors} touched={touched}/>
     </Flex>
   )
 }
