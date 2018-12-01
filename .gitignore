@@ -1,3 +1,5 @@
+.awcache
+.cache-loader
 .cache/
 node_modules/
 target/
