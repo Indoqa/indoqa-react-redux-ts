@@ -6,7 +6,6 @@ import {Box, buildTheme} from 'indoqa-react-fela'
 import Loadable from 'react-loadable'
 
 import MainMenuTemplate from '../commons/components/templates/MainMenuTemplate'
-import StyleGuideApp from '../style-guide/StyleGuideApp'
 import UploadPage from '../upload/components/UploadPage'
 import WordsPage from '../words/components/WordsPage'
 import i18n from './i18n'
@@ -33,6 +32,11 @@ const FormsApp = Loadable({
   loading: Loading,
 })
 
+const StyleGuide = Loadable({
+  loader: () => import('../style-guide/StyleGuide'),
+  loading: Loading,
+})
+
 export default class App extends React.Component<{}> {
 
   public render() {
@@ -45,7 +49,7 @@ export default class App extends React.Component<{}> {
             <Route exact path="/words" component={WordsPage} />
             <Route path="/forms" component={FormsApp} />
             <Route path="/upload" component={UploadPage} />
-            <Route path="/style-guide" component={StyleGuideApp} />
+            <Route path="/style-guide" component={StyleGuide} />
           </Switch>
         </I18nextProvider>
       </ThemeProvider>

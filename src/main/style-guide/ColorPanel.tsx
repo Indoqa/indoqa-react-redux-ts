@@ -4,7 +4,7 @@ import {FelaComponent, FelaRuleProps} from 'react-fela'
 import {Theme} from '../app/theme'
 
 interface Props {
-  color: string,
+  color?: string,
   name: string,
 }
 
@@ -15,7 +15,10 @@ const toHexString = (color: string) => {
 /* tslint:disable:no-bitwise */
 // tslint:disable-next-line
 /* see https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color */
-const calcTextColor = (color: string) => {
+const calcTextColor = (color?: string) => {
+  if (!color) {
+    return '#fff'
+  }
   const bigint = parseInt(toHexString(color), 16)
   const red = (bigint >> 16) & 255
   const green = (bigint >> 8) & 255

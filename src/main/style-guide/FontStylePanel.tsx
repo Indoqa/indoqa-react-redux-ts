@@ -3,6 +3,7 @@ import {CSSProperties} from 'react'
 import {FelaComponent, FelaRuleProps} from 'react-fela'
 import * as Types from 'Types'
 import {Theme} from '../app/theme'
+import SubSection from './SubSection'
 
 interface FontStyleContainerProps {
   fontStyles: CSSProperties,
@@ -28,7 +29,7 @@ const FontStyleContainer = ({fontStyles, children}: FontStyleContainerProps & Ty
 const FontStylePanel = ({fontStyles, name}: Props) => {
   return (
     <div>
-      <h1>{name}</h1>
+      <SubSection>{name}</SubSection>
       <FontStyleContainer fontStyles={fontStyles}>
         The quick brown fox jumps over the lazy dog.
       </FontStyleContainer>
