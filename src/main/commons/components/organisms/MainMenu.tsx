@@ -15,6 +15,9 @@ const MainMenu = () => (
       <NavLink to="/forms/users/">Forms</NavLink>
     </MenuLink>
     <MenuLink>
+      <NavLink to="/style-guide">Style-Guide</NavLink>
+    </MenuLink>
+    <MenuLink>
       <NavLink to="/time">Time</NavLink>
     </MenuLink>
     <MenuLink>
