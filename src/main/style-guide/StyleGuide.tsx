@@ -34,6 +34,23 @@ const Container = ({children}: Types.WithChildren) => (
  * - line elements styling
  * - use semantic HTML throughout the app
  * - Atoms | Molecules | Organisms | Templates
+ *     colors
+ *     font-mixins
+ *     Inline elements
+ *     Links
+ *     Spacing
+ *     Icons
+ *     Logo(s)
+ *     ? Listen
+ *     ? Tables
+ *     ? Bilder
+ *     ? Button
+ *     ? Forms
+ * - Printing
+ * - Where do the names come from? Oder über die Properties des Themes iterieren? (+ Alphabetische Sortierung?)
+ * - use https://github.com/yeun/open-color
+ * - see https://www.producthunt.com/posts/fontspark
+ * - see https://github.com/pitr12/base-styling-components/blob/master/README.md
  */
 class StyleGuide extends React.Component<Props> {
 
