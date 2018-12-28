@@ -1,9 +1,9 @@
+import i18next from 'i18next'
 import * as React from 'react'
 import {WithNamespaces, withNamespaces} from 'react-i18next'
 import {Link} from 'react-router-dom'
 import {Form, Formik, FormikProps} from 'formik'
 import {Box} from 'indoqa-react-fela'
-import * as Types from 'Types'
 import * as Yup from 'yup'
 
 import AddressesSubForm from './AddressesSubForm'
@@ -11,11 +11,8 @@ import FormRow from '../../commons/components/molecules/FormRow'
 import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
 
-const validationSchema = (t: Types.translate) => {
-  if (!t) {
-    throw Error('t() is undefined!')
-  }
-  return Yup.object().shape({
+const validationSchema = (t: i18next.TranslationFunction) =>
+  Yup.object().shape({
     name: Yup.string().required(),
     email: Yup.string().required(t('errorMissingEmail')),
     addresses: Yup.array().of(Yup.object().shape({
@@ -23,7 +20,6 @@ const validationSchema = (t: Types.translate) => {
       zipCode: Yup.string().required(),
     })),
   })
-}
 
 export interface Props {
   user: User,

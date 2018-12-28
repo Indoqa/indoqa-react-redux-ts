@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {CSSProperties} from 'react'
-import {TransProps} from 'react-i18next'
 import {StateType} from 'typesafe-actions'
 
 import {services} from './rootEpic'
@@ -12,13 +11,12 @@ import {TimeAction} from '../time/store/time.types'
 import {FormsAction} from '../forms/store/forms.types'
 
 declare module 'Types' {
+
   export type RootState = StateType<typeof rootReducer>
   export type RootAction = FormsAction
     | TimeAction
     | WordsAction
   export type Services = typeof services
-
-  export type translate = TransProps['t']
 
   export interface CSSPropertiesWithBreakpointExtensions extends CSSProperties {
     desktop: CSSProperties,
