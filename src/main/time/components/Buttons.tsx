@@ -1,7 +1,6 @@
 import {Box} from 'indoqa-react-fela'
 import * as React from 'react'
-// TODO: withNamespaces is not supported yet (2018-10-05) --> see ./src/main/typings
-import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
+import {WithNamespaces, withNamespaces} from 'react-i18next'
 
 import Button from '../../commons/components/atoms/Button'
 
@@ -13,9 +12,8 @@ export interface ButtonDispatchProps {
   clear: () => void,
 }
 
-interface Props extends ButtonDispatchProps, InjectedTranslateProps {}
-
-const Buttons = ({t, loadVienna, loadNewYork, loadViennaAndNewYork, loadInvalidLocation, clear}: Props) => (
+const Buttons: React.FunctionComponent<ButtonDispatchProps & WithNamespaces> =
+  ({t, loadVienna, loadNewYork, loadViennaAndNewYork, loadInvalidLocation, clear}) => (
   <Box mb={2}>
     <Button onClick={loadVienna}>{t('Vienna')}</Button>
     <Button onClick={loadNewYork}>{t('New York')}</Button>

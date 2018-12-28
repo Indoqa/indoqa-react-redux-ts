@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
+import {WithNamespaces, withNamespaces} from 'react-i18next'
 import {Link} from 'react-router-dom'
 import {Form, Formik, FormikProps} from 'formik'
 import {Box} from 'indoqa-react-fela'
@@ -12,6 +12,9 @@ import ButtonLink from '../../commons/components/atoms/ButtonLink'
 import {User} from '../store/forms.types'
 
 const validationSchema = (t: Types.translate) => {
+  if (!t) {
+    throw Error('t() is undefined!')
+  }
   return Yup.object().shape({
     name: Yup.string().required(),
     email: Yup.string().required(t('errorMissingEmail')),
@@ -22,13 +25,13 @@ const validationSchema = (t: Types.translate) => {
   })
 }
 
-export interface UserFormProps extends InjectedTranslateProps {
+export interface Props {
   user: User,
   cancelUrl: string,
   saveUser: (user: User, setErrors: any) => void
 }
 
-class UserForm extends React.Component<UserFormProps> {
+class UserForm extends React.Component<Props & WithNamespaces> {
 
   public render() {
     const {user, cancelUrl, saveUser, t} = this.props

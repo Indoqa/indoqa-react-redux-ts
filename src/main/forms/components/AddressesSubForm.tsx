@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ArrayHelpers, FieldArray, FormikErrors, FormikTouched} from 'formik'
 import {Box, Flex, Text} from 'indoqa-react-fela'
-import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
+import {WithNamespaces, withNamespaces} from 'react-i18next'
 import * as Types from 'Types'
 
 import Optional from '../../commons/components/utils/Optional'
@@ -15,6 +15,9 @@ const renderAddressHeader = (
   index: number,
   t: Types.translate,
 ) => {
+  if (!t) {
+    throw Error('t() is undefined.')
+  }
   return (
     <Box grow={1}>
       <Text mr={1}>{t('address')} {index + 1}</Text>
@@ -38,6 +41,9 @@ const renderAddressForm = (
   index: number,
   t: Types.translate,
 ) => {
+  if (!t) {
+    throw Error('t() is undefined.')
+  }
   return (
     <Flex key={index} mt={2}>
       {renderAddressHeader(arrayHelpers, addresses.length, index, t)}
@@ -68,6 +74,9 @@ const renderForms = (
 }
 
 const renderHeader = (arrayHelpers: ArrayHelpers, t: Types.translate) => {
+  if (!t) {
+    throw Error('t() is undefined.')
+  }
   return (
     <Box>
       <Box>
@@ -78,13 +87,14 @@ const renderHeader = (arrayHelpers: ArrayHelpers, t: Types.translate) => {
   )
 }
 
-export interface AddressFormProps extends InjectedTranslateProps {
+export interface AddressFormProps {
   addresses: Address[],
   errors: FormikErrors<{}>,
   touched: FormikTouched<{}>,
 }
 
-const AddressesSubForm = ({addresses, errors, touched, t}: AddressFormProps) => {
+const AddressesSubForm: React.FunctionComponent<AddressFormProps & WithNamespaces> =
+  ({addresses, errors, touched, t}) => {
   return (
     <FieldArray
       name="addresses"

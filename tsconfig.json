@@ -19,10 +19,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "paths": {
-      "react-i18next": ["./src/typings/react-i18next"]
-    }
+    "experimentalDecorators": true
   },
   "compileOnSave": true,
   "include": ["src/main/**/*", "src/typings/*"],

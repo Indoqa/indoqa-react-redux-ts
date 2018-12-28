@@ -1,7 +1,7 @@
 import {Box} from 'indoqa-react-fela'
 import * as React from 'react'
 import {createComponent} from 'react-fela'
-import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
+import {WithNamespaces, withNamespaces} from 'react-i18next'
 import {Link} from 'react-router-dom'
 import * as Types from 'Types'
 
@@ -13,6 +13,9 @@ const TableData = createComponent(({theme}) => ({
 }), 'td') as any
 
 const renderUserRow = (user: User, baseurl: string, t: Types.translate) => {
+  if (!t) {
+    throw Error('t() is undefined!')
+  }
   return (
     <tr key={user.id}>
       <TableData>{user.name}</TableData>
@@ -26,12 +29,12 @@ const renderUserRow = (user: User, baseurl: string, t: Types.translate) => {
   )
 }
 
-export interface Props extends InjectedTranslateProps {
+export interface Props {
   users: {[key: string]: User},
   baseurl: string,
 }
 
-class UsersTable extends React.Component<Props> {
+class UsersTable extends React.Component<Props & WithNamespaces> {
 
   public render() {
     const {users, baseurl, t} = this.props

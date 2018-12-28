@@ -1,16 +1,16 @@
 import {Box} from 'indoqa-react-fela'
 import * as React from 'react'
-import {InjectedTranslateProps, withNamespaces} from 'react-i18next'
+import {WithNamespaces, withNamespaces} from 'react-i18next'
 import {Link, RouteComponentProps} from 'react-router-dom'
 
 import {User} from '../store/forms.types'
 import UsersTable from './UsersTable'
 
-export interface Props extends RouteComponentProps, InjectedTranslateProps {
+export interface Props extends RouteComponentProps {
   users: { [key: string]: User },
 }
 
-class UsersPage extends React.Component<Props> {
+class UsersPage extends React.Component<Props & WithNamespaces> {
 
   public render() {
     const {users, match, t} = this.props
