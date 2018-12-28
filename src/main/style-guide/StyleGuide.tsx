@@ -6,14 +6,29 @@ import {Theme} from '../app/theme'
 import ColorPanel from './ColorPanel'
 import FontStylePanel from './FontStylePanel'
 import Section from './Section'
+import {styleGuideThemeLight} from './StyleGuideThemes'
+import {WithSGTheme} from './StyleGuideTypes'
 
 interface Props {
   theme: Theme,
 }
 
-const Container = ({children}: Types.WithChildren) => (
+const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => (
+  <FelaComponent rule={(): React.CSSProperties => ({
+    backgroundColor: sgTheme.backgroundColor,
+    minHeight: '100%',
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
+  })}
+  >
+    {children}
+  </FelaComponent>
+)
+
+const InnerContainer = ({children}: Types.WithChildren) => (
   <FelaComponent rule={(): React.CSSProperties => ({
       maxWidth: 1140,
+      height: '100%',
       margin: 'auto',
     })}
   >
@@ -52,26 +67,35 @@ const Container = ({children}: Types.WithChildren) => (
  * - see https://www.producthunt.com/posts/fontspark
  * - see https://github.com/pitr12/base-styling-components/blob/master/README.md
  */
-class StyleGuide extends React.Component<Props> {
+class StyleGuide extends React.Component<Props, WithSGTheme> {
+
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      sgTheme: styleGuideThemeLight,
+    }
+  }
 
   public render() {
     const {theme} = this.props
     return (
-      <Container>
-        <Section>Colors</Section>
-        <Flex>
-          <ColorPanel color={theme.colors.primary} name="primary" />
-          <ColorPanel color={theme.colors.primaryDark} name="dark-primary" />
-          <ColorPanel color={theme.colors.primaryLight} name="light-primary" />
-          <ColorPanel color={theme.colors.text} name="text" />
-          <ColorPanel color={theme.colors.accent} name="accent" />
-          <ColorPanel color={theme.colors.textSecondary} name="secondary-text" />
-          <ColorPanel color={theme.colors.divider} name="divider" />
-        </Flex>
-        <Section>Fonts</Section>
-        <FontStylePanel fontStyles={theme.fontStyles.base} name="text" />
-        <FontStylePanel fontStyles={theme.fontStyles.headline} name="headline" />
-      </Container>
+      <OuterContainer sgTheme={this.state.sgTheme}>
+        <InnerContainer>
+          <Section>Colors</Section>
+          <Flex>
+            <ColorPanel color={theme.colors.primary} name="primary" />
+            <ColorPanel color={theme.colors.primaryDark} name="dark-primary" />
+            <ColorPanel color={theme.colors.primaryLight} name="light-primary" />
+            <ColorPanel color={theme.colors.text} name="text" />
+            <ColorPanel color={theme.colors.accent} name="accent" />
+            <ColorPanel color={theme.colors.textSecondary} name="secondary-text" />
+            <ColorPanel color={theme.colors.divider} name="divider" />
+          </Flex>
+          <Section>Fonts</Section>
+          <FontStylePanel sgTheme={this.state.sgTheme} fontStyles={theme.fontStyles.base} name="text" />
+          <FontStylePanel sgTheme={this.state.sgTheme} fontStyles={theme.fontStyles.headline} name="headline" />
+        </InnerContainer>
+      </OuterContainer>
     )
   }
 }

@@ -3,14 +3,20 @@ import {CSSProperties} from 'react'
 import {FelaComponent} from 'react-fela'
 import * as Types from 'Types'
 
+interface SectionProps extends CSSProperties {
+  ':not(:first-child)': CSSProperties,
+}
+
 const Section = ({children}: Types.WithChildren) => (
-  <FelaComponent rule={(): CSSProperties => ({
+  <FelaComponent rule={(): SectionProps => ({
     fontSize: '1.5rem',
     fontWeight: 700,
     fontFamily: 'sans-serif',
-    marginTop: '2rem',
-    marginBottom: '1rem',
+    marginBottom: '0.75rem',
     borderBottom: '2px solid #121212',
+    ':not(:first-child)': {
+      marginTop: '1rem',
+    },
   })}
   render="h1"
   >

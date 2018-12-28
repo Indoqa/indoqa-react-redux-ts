@@ -30,14 +30,18 @@ const ColorPanel = ({color, name}: Props) => {
   const textColor = calcTextColor(color)
   return (
     <FelaComponent rule={({theme}: FelaRuleProps<Theme, Props>): CSSProperties => ({
+      boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',
-      minWidth: '11rem',
-      height: '6rem',
+      minWidth: '12rem',
+      height: '7rem',
       backgroundColor: color,
       textAlign: 'center',
       textTransform: 'uppercase',
       padding: theme.spacing.space1,
+      marginRight: '0.4rem',
+      marginBottom: '0.4rem',
+      borderRadius: '3px',
     })}>
       <div style={{color: textColor, fontSize: '100%', marginBottom: 'auto'}}>{name}</div>
       <div style={{color: textColor, fontSize: '90%'}}>{color}</div>
