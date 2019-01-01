@@ -1,5 +1,7 @@
+import {IStyle} from 'fela'
 import * as React from 'react'
 import {CSSProperties} from 'react'
+import {StyleProps} from "react-fela"
 import {StateType} from 'typesafe-actions'
 
 import {services} from './rootEpic'
@@ -34,26 +36,27 @@ declare module 'Types' {
 declare module 'react-fela' {
   // see http://fela.js.org/docs/api/bindings/FelaComponent.html
 
-  interface RenderProps<CTheme> {
+  interface RenderProps<T> {
     className: string,
-    theme: CTheme,
+    theme: T,
     as: keyof React.ReactHTML,
   }
 
   // pass the union of the theme props and the FelaComponent props
-  type FelaStyleProps<CProps, CTheme> = { theme: CTheme } & {
-    [P in keyof CProps]?: CProps[P]
+  export type StyleProps<T, P = {}> = { theme: T } & {
+    [K in keyof P]?: P[K]
   }
 
-  interface FelaComponentProps<CProps, CTheme> {
+  export type StyleFunction<T, P = {}> = (styleProps: StyleProps<T, P>) => IStyle
+
+  interface FelaComponentProps<T, P = {}> {
     // also allow passing a ReactNode as children
-    children?: ((renderProps: RenderProps<CTheme>) => React.ReactNode) | React.ReactNode,
+    children?: ((renderProps: RenderProps<T>) => React.ReactNode) | React.ReactNode,
     customClass?: string,
-    // composition not supported yet
-    style: (styleProps: FelaStyleProps<CProps, CTheme>) => React.CSSProperties,
+    style: IStyle | StyleFunction<T, P> | Array<StyleFunction<T, P> | IStyle>
     as?: keyof React.ReactHTML,
   }
 
-  export class FelaComponent<CProps, CTheme> extends React.Component<FelaComponentProps<CProps, CTheme> & CProps> {
+  export class FelaComponent<T, P = {}> extends React.Component<FelaComponentProps<T, P> & P> {
   }
 }

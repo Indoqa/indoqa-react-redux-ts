@@ -1,7 +1,7 @@
+import {IStyle} from 'fela'
 import {Flex} from 'indoqa-react-fela'
 import * as React from 'react'
 import {withTheme, FelaComponent} from 'react-fela'
-import * as Types from 'Types'
 import {Theme} from '../app/theme'
 import ColorPanel from './ColorPanel'
 import FontStylePanel from './FontStylePanel'
@@ -13,28 +13,32 @@ interface Props {
   theme: Theme,
 }
 
-const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => (
-  <FelaComponent style={(): React.CSSProperties => ({
+const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => {
+  const style: IStyle = {
     backgroundColor: sgTheme.backgroundColor,
     minHeight: '100%',
     paddingTop: '1rem',
     paddingBottom: '1rem',
-  })}
-  >
-    {children}
-  </FelaComponent>
-)
+  }
+  return (
+    <FelaComponent style={style}>
+      {children}
+    </FelaComponent>
+  )
+}
 
-const InnerContainer = ({children}: Types.WithChildren) => (
-  <FelaComponent style={(): React.CSSProperties => ({
-      maxWidth: 1140,
-      height: '100%',
-      margin: 'auto',
-    })}
-  >
-    {children}
-  </FelaComponent>
-)
+const InnerContainer: React.FunctionComponent = ({children}) => {
+  const style: IStyle = {
+    maxWidth: 1140,
+    height: '100%',
+    margin: 'auto',
+  }
+  return (
+    <FelaComponent style={style}>
+      {children}
+    </FelaComponent>
+  )
+}
 
 /**
  * Todos

@@ -1,6 +1,6 @@
+import {IStyle} from 'fela'
 import * as React from 'react'
-import {CSSProperties} from 'react'
-import {FelaComponent, FelaStyleProps} from 'react-fela'
+import {FelaComponent, StyleFunction} from 'react-fela'
 import {Theme} from '../app/theme'
 
 interface Props {
@@ -28,21 +28,24 @@ const calcTextColor = (color?: string) => {
 
 const ColorPanel = ({color, name}: Props) => {
   const textColor = calcTextColor(color)
+  const style1: IStyle = {
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: '12rem',
+    height: '7rem',
+    backgroundColor: color,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+  }
+  const style2: StyleFunction<Theme> = ({theme}): IStyle => ({
+    padding: theme.spacing.space1,
+    marginRight: '0.4rem',
+    marginBottom: '0.4rem',
+    borderRadius: '3px',
+  })
   return (
-    <FelaComponent style={({theme}: FelaStyleProps<{}, Theme>): CSSProperties => ({
-      boxSizing: 'border-box',
-      display: 'flex',
-      flexDirection: 'column',
-      minWidth: '12rem',
-      height: '7rem',
-      backgroundColor: color,
-      textAlign: 'center',
-      textTransform: 'uppercase',
-      padding: theme.spacing.space1,
-      marginRight: '0.4rem',
-      marginBottom: '0.4rem',
-      borderRadius: '3px',
-    })}>
+    <FelaComponent style={[style1, style2]}>
       <div style={{color: textColor, fontSize: '100%', marginBottom: 'auto'}}>{name}</div>
       <div style={{color: textColor, fontSize: '90%'}}>{color}</div>
     </FelaComponent>
