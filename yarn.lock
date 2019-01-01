@@ -991,9 +991,9 @@
     source-map "^0.6.0"
 
 "@types/yup@^0.26.3":
-  version "0.26.3"
-  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.3.tgz#7991240645fc8171481838b01a19e355dfdb17fc"
-  integrity sha512-Df1N/EAMOvz9qlt5JbNX8ZvkMTcZcHWQU1nJ6jdz5aTx/oRnn1cmtOTtd+1AEVYDZshqJR3t7nRGPutADiVa/g==
+  version "0.26.4"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.4.tgz#b6527d1ea167ac8049b6d62b45cff8eadfe883c5"
+  integrity sha512-R6Mgx+puMTwst8jX3rJDN2Ncu9jF8P/88NOPa8DeCx3OU6Md+Fuo8AV4+WqNCujWNp/XjJtQd4o3fH0/9O19yw==
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -4810,9 +4810,9 @@ i18next-browser-languagedetector@^2.2.4:
   integrity sha512-wPbtH18FdOuB245I8Bhma5/XSDdN/HpYlX+wga1eMy+slhaFQSnrWX6fp+aYSL2eEuj0RlfHeEVz6Fo/lxAj6A==
 
 i18next@^13.0.0:
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-13.0.1.tgz#aac758333e01a712710a81447bf033e6a0dbb71c"
-  integrity sha512-V9hnqoP7N7aHncb1FYvHcAgKiDTmVpNuIr70QGFTyyNUVlQwz2O393fM0x7JIm0/ZYsoKjZdwtlGKYO4aYJ79Q==
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-13.1.0.tgz#d8656bbc53216ffcd428364fbfb75f75647846a5"
+  integrity sha512-BuDhYRFReCXJiUJ8GdC2m0wXw4vC/BS6e7UJO+wTrkE3K+92VmJn5p/wxqEE+pdffquh9GYYAMfK9rUlb48pcg==
 
 iconv-lite@0.4.23:
   version "0.4.23"
@@ -6765,9 +6765,9 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 node-releases@^1.0.0-alpha.11, node-releases@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.2.tgz#93c17fba5eec8650ad908de5433fa8763baebe4d"
-  integrity sha512-j1gEV/zX821yxdWp/1vBMN0pSUjuH9oGUdLCb4PfUko6ZW7KdRs3Z+QGGwDUhYtSpQvdVVyLd2V0YvLsmdg5jQ==
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.3.tgz#aad9ce0dcb98129c753f772c0aa01360fb90fbd2"
+  integrity sha512-6VrvH7z6jqqNFY200kdB6HdzkgM96Oaj9v3dqGfgp6mF+cHmU4wyQKZ2/WPDRVoR0Jz9KqbamaBN0ZhdUaysUQ==
   dependencies:
     semver "^5.3.0"
 
@@ -8042,7 +8042,16 @@ react-hot-loader@^4.6.3:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-i18next@*, react-i18next@8.4.0:
+react-i18next@*:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-9.0.0.tgz#32b90bcaac50409b0b3ab90aeda53d7791dd5ddf"
+  integrity sha512-v+z0qNYWOYd9KM2XFd6Efww0RwD4F5kSPUmtdT31Qr1aWCnT5L4wpli2mxX2D8lHjhuKpSFmoGUiCXDokEuiZg==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    hoist-non-react-statics "3.0.1"
+    html-parse-stringify2 "2.0.1"
+
+react-i18next@8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-8.4.0.tgz#e9f0c5b9938b155eaa6051360614719c08cae72f"
   integrity sha512-zIO/bc1L0UUGdaws2y40cTiSQHuQud5e9SSodYM6MTzhJTI3iayxCCdgvotblOLM4taOD77Ct2/fUbheQIhyeg==
@@ -9305,9 +9314,9 @@ terser-webpack-plugin@^1.1.0:
     worker-farm "^1.5.2"
 
 terser@^3.8.1:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-3.13.1.tgz#a02e8827fb9705fe7b609c31093d010b28cea8eb"
-  integrity sha512-ogyZye4DFqOtMzT92Y3Nxxw8OvXmL39HOALro4fc+EUYFFF9G/kk0znkvwMz6PPYgBtdKAodh3FPR70eugdaQA==
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-3.14.0.tgz#49a8ddf34a1308a901d787dab03a42c51b557447"
+  integrity sha512-KQC1QNKbC/K1ZUjLIWsezW7wkTJuB4v9ptQQUNOzAPVHuVf2LrwEcB0I9t2HTEYUwAFVGiiS6wc+P4ClLDc5FQ==
   dependencies:
     commander "~2.17.1"
     source-map "~0.6.1"
@@ -9567,9 +9576,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 typesafe-actions@^2.0.4:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/typesafe-actions/-/typesafe-actions-2.1.1.tgz#7fda76b8f448e44cfbadd477b88fcc5cf08ff6fd"
-  integrity sha512-QSNsMNDy90fcjYtNuP8tSmlarQP/+rzryPZFEEMQJpBDSiTaFZ4CYRwUGc8AuiSbuED5tnDZnfyA7DUXk4K8SA==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/typesafe-actions/-/typesafe-actions-2.2.0.tgz#2d2d8e403745446852f9f88ebf45ec07fa58c0fe"
+  integrity sha512-qjrFDl6S2yejKEz0M2c3c5D5z8sGJTjma94O9kRHStiqauXP9dKUM0Nbdmn90HCZBZl3jzFNT21bOtxRfCkc0w==
 
 typescript@^3.2.2:
   version "3.2.2"
@@ -9965,9 +9974,9 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-map "~0.6.1"
 
 webpack@^4.28.2:
-  version "4.28.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.28.2.tgz#6b534a8bc91a45787ed631dc2e87aec94e9e4db7"
-  integrity sha512-PK3uVg3/NuNVOjPfYleFI6JF7khO7c2kIlksH7mivQm+QDcwiqV1x6+q89dDeOioh5FNxJHr3LKbDu3oSAhl9g==
+  version "4.28.3"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.28.3.tgz#8acef6e77fad8a01bfd0c2b25aa3636d46511874"
+  integrity sha512-vLZN9k5I7Nr/XB1IDG9GbZB4yQd1sPuvufMFgJkx0b31fi2LD97KQIjwjxE7xytdruAYfu5S0FLBLjdxmwGJCg==
   dependencies:
     "@webassemblyjs/ast" "1.7.11"
     "@webassemblyjs/helper-module-context" "1.7.11"

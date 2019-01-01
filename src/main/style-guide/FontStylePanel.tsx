@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {CSSProperties} from 'react'
-import {FelaComponent, FelaRuleProps} from 'react-fela'
+import {FelaComponent, FelaStyleProps} from 'react-fela'
 import * as Types from 'Types'
 import {Theme} from '../app/theme'
 import {WithSGTheme} from './StyleGuideTypes'
@@ -13,15 +13,22 @@ interface Props extends FontStyleContainerProps {
   name: string,
 }
 
+const textSampleStyle = ({theme, fontStyles}: FelaStyleProps<Props, Theme>): CSSProperties => {
+  return {
+    marginTop: theme.spacing.space1,
+    marginBottom: theme.spacing.space1,
+    padding: '0.5rem',
+    ...fontStyles,
+  }
+}
+
 const TextSample = ({fontStyles, children}: FontStyleContainerProps & Types.WithChildren) => {
   return (
-    <FelaComponent rule={({theme}: FelaRuleProps<Theme, Props>): CSSProperties => ({
-      marginTop: theme.spacing.space1,
-      marginBottom: theme.spacing.space1,
-      padding: '0.5rem',
-      ...fontStyles,
-    })}
-    render="p">
+    <FelaComponent<FontStyleContainerProps, Theme>
+      fontStyles={fontStyles}
+      style={textSampleStyle}
+      as="p"
+    >
       {children}
     </FelaComponent>
   )
@@ -29,7 +36,7 @@ const TextSample = ({fontStyles, children}: FontStyleContainerProps & Types.With
 
 const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   return (
-    <FelaComponent rule={(): CSSProperties => ({
+    <FelaComponent style={(): CSSProperties => ({
       backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
       padding: '0.5rem',
       textTransform: 'uppercase',
@@ -47,7 +54,7 @@ const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, childr
 
 const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   return (
-    <FelaComponent rule={(): CSSProperties => ({
+    <FelaComponent style={(): CSSProperties => ({
       flexGrow: 1,
       backgroundColor: sgTheme.fontPanelBackgroundColor,
       marginRight: '0.5rem',
@@ -62,7 +69,7 @@ const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, chil
 
 const FontStyleContainers: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   return (
-    <FelaComponent rule={(): CSSProperties => ({
+    <FelaComponent style={(): CSSProperties => ({
       display: 'flex',
     })}
     >

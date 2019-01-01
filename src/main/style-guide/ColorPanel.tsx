@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {CSSProperties} from 'react'
-import {FelaComponent, FelaRuleProps} from 'react-fela'
+import {FelaComponent, FelaStyleProps} from 'react-fela'
 import {Theme} from '../app/theme'
 
 interface Props {
@@ -29,7 +29,7 @@ const calcTextColor = (color?: string) => {
 const ColorPanel = ({color, name}: Props) => {
   const textColor = calcTextColor(color)
   return (
-    <FelaComponent rule={({theme}: FelaRuleProps<Theme, Props>): CSSProperties => ({
+    <FelaComponent style={({theme}: FelaStyleProps<{}, Theme>): CSSProperties => ({
       boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',

@@ -1,14 +1,13 @@
 import * as React from 'react'
 import {CSSProperties} from 'react'
 import {FelaComponent} from 'react-fela'
-import * as Types from 'Types'
 
 interface SectionProps extends CSSProperties {
   ':not(:first-child)': CSSProperties,
 }
 
-const Section = ({children}: Types.WithChildren) => (
-  <FelaComponent rule={(): SectionProps => ({
+const Section: React.FunctionComponent = ({children}) => (
+  <FelaComponent style={(): SectionProps => ({
     fontSize: '1.5rem',
     fontWeight: 700,
     fontFamily: 'sans-serif',
@@ -18,7 +17,7 @@ const Section = ({children}: Types.WithChildren) => (
       marginTop: '1rem',
     },
   })}
-  render="h1"
+  as="h1"
   >
     {children}
   </FelaComponent>

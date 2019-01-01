@@ -32,23 +32,28 @@ declare module 'Types' {
 }
 
 declare module 'react-fela' {
-  interface FelaComponentRenderProps<CTheme> {
+  // see http://fela.js.org/docs/api/bindings/FelaComponent.html
+
+  interface RenderProps<CTheme> {
     className: string,
     theme: CTheme,
+    as: keyof React.ReactHTML,
   }
 
-  type FelaRuleProps<CTheme, CProps> = { theme: CTheme } & {
+  // pass the union of the theme props and the FelaComponent props
+  type FelaStyleProps<CProps, CTheme> = { theme: CTheme } & {
     [P in keyof CProps]?: CProps[P]
   }
 
-  interface FelaComponentProps<CTheme, CProps> {
-    children?: React.ReactNode,
+  interface FelaComponentProps<CProps, CTheme> {
+    // also allow passing a ReactNode as children
+    children?: ((renderProps: RenderProps<CTheme>) => React.ReactNode) | React.ReactNode,
     customClass?: string,
-    style?: React.CSSProperties,
-    rule?: (ruleProps: FelaRuleProps<CTheme, CProps>) => React.CSSProperties,
-    render?: ((renderProps: FelaComponentRenderProps<CTheme>) => React.ReactNode) | keyof React.ReactHTML,
+    // composition not supported yet
+    style: (styleProps: FelaStyleProps<CProps, CTheme>) => React.CSSProperties,
+    as?: keyof React.ReactHTML,
   }
 
-  export class FelaComponent<CProps, CTheme> extends React.Component<FelaComponentProps<CTheme, CProps> & CProps> {
+  export class FelaComponent<CProps, CTheme> extends React.Component<FelaComponentProps<CProps, CTheme> & CProps> {
   }
 }

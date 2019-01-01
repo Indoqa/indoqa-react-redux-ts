@@ -14,7 +14,7 @@ interface Props {
 }
 
 const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => (
-  <FelaComponent rule={(): React.CSSProperties => ({
+  <FelaComponent style={(): React.CSSProperties => ({
     backgroundColor: sgTheme.backgroundColor,
     minHeight: '100%',
     paddingTop: '1rem',
@@ -26,7 +26,7 @@ const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme
 )
 
 const InnerContainer = ({children}: Types.WithChildren) => (
-  <FelaComponent rule={(): React.CSSProperties => ({
+  <FelaComponent style={(): React.CSSProperties => ({
       maxWidth: 1140,
       height: '100%',
       margin: 'auto',
