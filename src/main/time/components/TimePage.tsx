@@ -7,8 +7,10 @@ import {Box} from 'indoqa-react-fela'
 export default class TimePage extends React.Component<{}> {
 
   public render() {
+
     return (
       <MainMenuTemplate title="Time">
+        <div />
         <Box>
           <Buttons />
           <Result />

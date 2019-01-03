@@ -1,7 +1,7 @@
 import {IStyle} from 'fela'
 import * as React from 'react'
 import {CSSProperties} from 'react'
-import {StyleProps} from "react-fela"
+import {StyleProps} from 'react-fela'
 import {StateType} from 'typesafe-actions'
 
 import {services} from './rootEpic'
@@ -49,11 +49,17 @@ declare module 'react-fela' {
 
   export type StyleFunction<T, P = {}> = (styleProps: StyleProps<T, P>) => IStyle
 
+  export type FelaStyle<T, P = {}> = IStyle | StyleFunction<T, P> | Array<StyleFunction<T, P> | IStyle>
+
+  export interface WithStyle<T, P> {
+    style: FelaStyle<T, P>
+  }
+
   interface FelaComponentProps<T, P = {}> {
-    // also allow passing a ReactNode as children
+    // also allow passing a ReactNode or a render function as children
     children?: ((renderProps: RenderProps<T>) => React.ReactNode) | React.ReactNode,
     customClass?: string,
-    style: IStyle | StyleFunction<T, P> | Array<StyleFunction<T, P> | IStyle>
+    style: FelaStyle<T, P>,
     as?: keyof React.ReactHTML,
   }
 

@@ -1,11 +1,9 @@
 import {IStyle} from 'fela'
-import {Flex} from 'indoqa-react-fela'
 import * as React from 'react'
 import {withTheme, FelaComponent} from 'react-fela'
 import {Theme} from '../app/theme'
-import ColorPanel from './ColorPanel'
-import FontStylePanel from './FontStylePanel'
-import Section from './Section'
+import {Color, ColorsPanel} from './colors/ColorsPanel'
+import {Font, TypographyPanel} from './typography/TypographiePanel'
 import {styleGuideThemeLight} from './StyleGuideThemes'
 import {WithSGTheme} from './StyleGuideTypes'
 
@@ -82,22 +80,25 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
 
   public render() {
     const {theme} = this.props
+    const colors: Color[] = [
+      {name: 'primary', hexCode: theme.colors.primary},
+      {name: 'primary-dark', hexCode: theme.colors.primaryDark},
+      {name: 'primary-light', hexCode: theme.colors.primaryLight},
+      {name: 'text', hexCode: theme.colors.text},
+      {name: 'accent', hexCode: theme.colors.accent},
+      {name: 'secondary-text', hexCode: theme.colors.textSecondary},
+      {name: 'divider', hexCode: theme.colors.divider},
+    ]
+    const fonts: Font[] = [
+      {name: 'base', fontStyle: theme.fontStyles.base},
+      {name: 'headline', fontStyle: theme.fontStyles.headline},
+    ]
+    const {sgTheme} = this.state
     return (
-      <OuterContainer sgTheme={this.state.sgTheme}>
+      <OuterContainer sgTheme={sgTheme}>
         <InnerContainer>
-          <Section>Colors</Section>
-          <Flex>
-            <ColorPanel color={theme.colors.primary} name="primary" />
-            <ColorPanel color={theme.colors.primaryDark} name="dark-primary" />
-            <ColorPanel color={theme.colors.primaryLight} name="light-primary" />
-            <ColorPanel color={theme.colors.text} name="text" />
-            <ColorPanel color={theme.colors.accent} name="accent" />
-            <ColorPanel color={theme.colors.textSecondary} name="secondary-text" />
-            <ColorPanel color={theme.colors.divider} name="divider" />
-          </Flex>
-          <Section>Fonts</Section>
-          <FontStylePanel sgTheme={this.state.sgTheme} fontStyles={theme.fontStyles.base} name="text" />
-          <FontStylePanel sgTheme={this.state.sgTheme} fontStyles={theme.fontStyles.headline} name="headline" />
+          <ColorsPanel colors={colors} />
+          <TypographyPanel fonts={fonts} sgTheme={sgTheme} />
         </InnerContainer>
       </OuterContainer>
     )

@@ -41,7 +41,7 @@ const fontFamilies = {
   special: 'serif',
 }
 
-const colors = {
+const baseColors = {
   black_1: '#000000',
   black_2: '#120012',
   grey_1: '#727272',
@@ -54,10 +54,17 @@ const colors = {
   orange_1: '#ff5722',
 }
 
+const fontSizes: FontSizes = {
+  text: typeScale(1),
+  big: typeScale(2),
+  veryBig: typeScale(3),
+  extraBig: typeScale(4),
+  small: typeScale(0),
+  verySmall: typeScale(-1),
+}
+
 const theme: Theme = {
-  fontSizes: {
-    extraBig: typeScale(3),
-  },
+  fontSizes,
   fonts: {
     text: fontFamilies.text,
     special: fontFamilies.special,
@@ -65,23 +72,27 @@ const theme: Theme = {
   fontStyles: {
     base: {
       fontFamily: fontFamilies.special,
+      fontSize: fontSizes.text,
+      lineHeight: 1.2,
       fontWeight: 400,
-      color: colors.black_2,
+      color: baseColors.black_2,
     },
     headline: {
       fontFamily: fontFamilies.text,
+      fontSize: fontSizes.big,
+      lineHeight: 1.2,
       fontWeight: 700,
-      color: colors.black_2,
+      color: baseColors.black_2,
     },
   },
   colors: {
-    primary: colors.blue_2,
-    primaryDark: colors.blue_3,
-    primaryLight: colors.blue_1,
-    accent: colors.orange_1,
-    text: colors.black_1,
-    textSecondary: colors.grey_1,
-    divider: colors.white_1,
+    primary: baseColors.blue_2,
+    primaryDark: baseColors.blue_3,
+    primaryLight: baseColors.blue_1,
+    accent: baseColors.orange_1,
+    text: baseColors.black_1,
+    textSecondary: baseColors.grey_1,
+    divider: baseColors.white_1,
   },
   spacing: {},
   layout: {
