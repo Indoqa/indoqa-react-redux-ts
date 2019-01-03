@@ -1,4 +1,5 @@
 import {IStyle} from 'fela'
+import {Grid, Row, Panel, Box} from 'indoqa-react-fela'
 import * as React from 'react'
 import {withTheme, FelaComponent} from 'react-fela'
 import {Theme} from '../app/theme'
@@ -15,21 +16,6 @@ const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme
   const style: IStyle = {
     backgroundColor: sgTheme.backgroundColor,
     minHeight: '100%',
-    paddingTop: '1rem',
-    paddingBottom: '1rem',
-  }
-  return (
-    <FelaComponent style={style}>
-      {children}
-    </FelaComponent>
-  )
-}
-
-const InnerContainer: React.FunctionComponent = ({children}) => {
-  const style: IStyle = {
-    maxWidth: 1140,
-    height: '100%',
-    margin: 'auto',
   }
   return (
     <FelaComponent style={style}>
@@ -96,10 +82,33 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
     const {sgTheme} = this.state
     return (
       <OuterContainer sgTheme={sgTheme}>
-        <InnerContainer>
-          <ColorsPanel colors={colors} />
-          <TypographyPanel fonts={fonts} sgTheme={sgTheme} />
-        </InnerContainer>
+        <Grid spacing={0}>
+          <Row height="100vh">
+            <Panel width="300px">
+              <Box fullWidth={true} fullHeight={true} style={{backgroundColor: sgTheme.menuBackgroundColor}}>
+                Styleguide
+                <ul>
+                  <li>Colors</li>
+                  <li>Typography</li>
+                  <li>Components</li>
+                  <ul>
+                    <li>Atoms</li>
+                    <ul>
+                      <li>Atom1</li>
+                      <li>Atom2</li>
+                    </ul>
+                  </ul>
+                </ul>
+              </Box>
+            </Panel>
+            <Panel style={{overflowY: 'scroll'}} px={2} pt={1} pb={1}>
+              <Box>
+                <ColorsPanel colors={colors}/>
+                <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
+              </Box>
+            </Panel>
+          </Row>
+        </Grid>
       </OuterContainer>
     )
   }

@@ -1,5 +1,6 @@
 export interface SGTheme {
   backgroundColor: string,
+  menuBackgroundColor: string,
   fontPanelBackgroundColor: string,
   fontPanelHeaderBackgroundColor: string,
 }

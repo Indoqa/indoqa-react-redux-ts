@@ -36,7 +36,7 @@ export declare interface Theme extends BaseTheme {
   readonly layout: Layout,
 }
 
-const fontFamilies = {
+const baseFontFamilies = {
   text: 'sans-serif',
   special: 'serif',
 }
@@ -54,7 +54,7 @@ const baseColors = {
   orange_1: '#ff5722',
 }
 
-const fontSizes: FontSizes = {
+const baseFontSizes: FontSizes = {
   text: typeScale(1),
   big: typeScale(2),
   veryBig: typeScale(3),
@@ -64,22 +64,22 @@ const fontSizes: FontSizes = {
 }
 
 const theme: Theme = {
-  fontSizes,
+  fontSizes: baseFontSizes,
   fonts: {
-    text: fontFamilies.text,
-    special: fontFamilies.special,
+    text: baseFontFamilies.text,
+    special: baseFontFamilies.special,
   },
   fontStyles: {
     base: {
-      fontFamily: fontFamilies.special,
-      fontSize: fontSizes.text,
+      fontFamily: baseFontFamilies.special,
+      fontSize: baseFontSizes.text,
       lineHeight: 1.2,
       fontWeight: 400,
       color: baseColors.black_2,
     },
     headline: {
-      fontFamily: fontFamilies.text,
-      fontSize: fontSizes.big,
+      fontFamily: baseFontFamilies.text,
+      fontSize: baseFontSizes.big,
       lineHeight: 1.2,
       fontWeight: 700,
       color: baseColors.black_2,
@@ -90,7 +90,7 @@ const theme: Theme = {
     primaryDark: baseColors.blue_3,
     primaryLight: baseColors.blue_1,
     accent: baseColors.orange_1,
-    text: baseColors.black_1,
+    text: baseColors.black_2,
     textSecondary: baseColors.grey_1,
     divider: baseColors.white_1,
   },

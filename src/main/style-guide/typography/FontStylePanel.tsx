@@ -49,6 +49,7 @@ const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, chil
     flexGrow: 1,
     backgroundColor: sgTheme.fontPanelBackgroundColor,
     borderRadius: '3px',
+    marginBottom: '2rem',
   }
   return (
     <FelaComponent style={style}>
@@ -59,7 +60,7 @@ const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, chil
 
 const FontStylePanel: React.FunctionComponent<Props & WithSGTheme> = ({fontStyles, name, sgTheme}) => {
   return (
-    <Grid spacing="2rem">
+    <Grid spacing="1rem">
       <Row>
         <Panel>
           <FontStyleContainer sgTheme={sgTheme}>
