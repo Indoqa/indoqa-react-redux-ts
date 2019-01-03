@@ -46,7 +46,6 @@ const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, childr
 
 const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   const style: IStyle = {
-    flexGrow: 1,
     backgroundColor: sgTheme.fontPanelBackgroundColor,
     borderRadius: '3px',
     marginBottom: '2rem',

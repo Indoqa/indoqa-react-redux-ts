@@ -8,11 +8,12 @@ interface SectionProps extends IStyle {
 
 const Section: React.FunctionComponent = ({children}) => {
   const style: SectionProps = {
-    fontSize: '1.5rem',
+    fontSize: '1rem',
     fontWeight: 700,
-    fontFamily: 'sans-serif',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    color: '#495057',
+    textTransform: 'uppercase',
     marginBottom: '0.75rem',
-    borderBottom: '2px solid #121212',
     ':not(:first-child)': {
       marginTop: '1rem',
     },
