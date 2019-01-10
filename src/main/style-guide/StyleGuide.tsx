@@ -42,13 +42,24 @@ const createComponentRoute = (name: string, component: React.ReactNode) => {
   )
 }
 
+interface StyleGuideMenuCSSProps extends IStyle {
+  tablet: IStyle,
+}
+
 const StyleGuideMenu: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => {
-  const style: IStyle = {
-    backgroundColor: sgTheme.menuBackgroundColor,
-    boxShadow: sgTheme.menuShadow,
+  const style: StyleGuideMenuCSSProps = {
+    boxSizing: 'border-box',
+    backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
+    marginBottom: '10px',
+    tablet: {
+      overflowY: 'auto',
+      boxShadow: sgTheme.menuShadow,
+      borderBottom: 'none',
+      backgroundColor: sgTheme.menuBackgroundColor,
+    },
   }
   return (
-    <Box fullWidth fullHeight style={style}>
+    <Box fullWidth fullHeight style={style} p={2}>
       {children}
     </Box>
   )
@@ -135,23 +146,33 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
             <Panel width="300px">
               <StyleGuideMenu sgTheme={sgTheme}>
                 <Link to="/style-guide">Styleguide</Link>
+                <hr />
                 <ul>
                   <li><Link to="/style-guide/colors">Colors</Link></li>
                   <li>Typography</li>
-                  <li>Components</li>
-                  <ul>
-                    <li>Atoms</li>
-                    <ul>
-                      <li>Atom1</li>
-                      <li><Link to="/style-guide/button">Button</Link></li>
-                      <li><Link to="/style-guide/button2">Button2</Link></li>
-                    </ul>
-                  </ul>
+                </ul>
+                <hr />
+                ATOMS
+                <ul>
+                  <li><Link to="/style-guide/button">Button</Link></li>
+                  <li><Link to="/style-guide/button2">Button2</Link></li>
+                </ul>
+                <hr />
+                MOLECULES
+                <ul>
+                  <li><Link to="/style-guide/button">Button</Link></li>
+                  <li><Link to="/style-guide/button2">Button2</Link></li>
+                </ul>
+                <hr />
+                ORGANISMS
+                <ul>
+                  <li><Link to="/style-guide/button">Button</Link></li>
+                  <li><Link to="/style-guide/button2">Button2</Link></li>
                 </ul>
               </StyleGuideMenu>
             </Panel>
             <Panel>
-              <Box py={2} px={3} fullHeight fullWidth style={{overflowY: 'auto'}}>
+              <Box py={2} px={2} fullHeight fullWidth style={{overflowY: 'auto'}}>
                 <Route exact path="/style-guide" render={() => (
                   <Box>
                     <ColorsPanel colors={colors}/>
