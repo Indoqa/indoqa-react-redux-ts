@@ -1,8 +1,7 @@
-import {IStyle} from 'fela'
 import {Flex} from 'indoqa-react-fela'
 import * as React from 'react'
 import Section from '../Section'
-import {SGTheme} from '../StyleGuideTypes'
+import {Font, SGTheme} from '../StyleGuideTypes'
 import FontStylePanel from './FontStylePanel'
 
 interface Props {
@@ -10,16 +9,11 @@ interface Props {
   sgTheme: SGTheme,
 }
 
-export interface Font {
-  name: string,
-  fontStyle: IStyle,
-}
-
 const renderFont = (font: Font, sgTheme: SGTheme) => {
   return <FontStylePanel key={font.name} name={font.name} fontStyles={font.fontStyle} sgTheme={sgTheme} />
 }
 
-export const TypographyPanel: React.FunctionComponent<Props> = ({fonts, sgTheme}) => {
+const TypographyPanel: React.FunctionComponent<Props> = ({fonts, sgTheme}) => {
   return (
     <React.Fragment>
       <Section>Typographie</Section>
@@ -29,3 +23,5 @@ export const TypographyPanel: React.FunctionComponent<Props> = ({fonts, sgTheme}
     </React.Fragment>
   )
 }
+
+export default TypographyPanel

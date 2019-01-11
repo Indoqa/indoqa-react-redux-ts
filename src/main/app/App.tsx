@@ -32,8 +32,8 @@ const FormsApp = Loadable({
   loading: Loading,
 })
 
-const StyleGuide = Loadable({
-  loader: () => import('../style-guide/StyleGuide'),
+const DemoStyleGuide = Loadable({
+  loader: () => import('../style-guide/DemoStyleGuide'),
   loading: Loading,
 })
 
@@ -49,7 +49,7 @@ export default class App extends React.Component<{}> {
             <Route exact path="/words" component={WordsPage} />
             <Route path="/forms" component={FormsApp} />
             <Route path="/upload" component={UploadPage} />
-            <Route path="/style-guide" component={StyleGuide} />
+            <Route path="/style-guide" component={DemoStyleGuide} />
           </Switch>
         </I18nextProvider>
       </ThemeProvider>

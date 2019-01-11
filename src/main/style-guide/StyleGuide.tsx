@@ -1,23 +1,23 @@
 import {IStyle} from 'fela'
 import {Grid, Row, Panel, Box} from 'indoqa-react-fela'
 import * as React from 'react'
-import {withTheme, FelaComponent} from 'react-fela'
+import {FelaComponent} from 'react-fela'
 import {Route} from 'react-router'
 import {Link} from 'react-router-dom'
-import {Theme} from '../app/theme'
-import {Color, ColorsPanel} from './colors/ColorsPanel'
-import {Font, TypographyPanel} from './typography/TypographiePanel'
+import ColorsPanel from './colors/ColorsPanel'
+import TypographyPanel from './typography/TypographiePanel'
 import {styleGuideThemeLight} from './StyleGuideThemes'
-import {WithSGTheme} from './StyleGuideTypes'
+import {Color, Font, WithSGTheme, ComponentDescription} from './StyleGuideTypes'
 
 interface Props {
-  theme: Theme,
+  colors: Color[],
+  fonts: Font[],
+  atoms: ComponentDescription[],
+  mountPath: string,
 }
 
-interface ComponentDescription {
-  name: string,
-  description?: React.ReactNode,
-  component: React.ReactNode,
+interface StyleGuideMenuCSSProps extends IStyle {
+  tablet: IStyle,
 }
 
 const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => {
@@ -32,18 +32,14 @@ const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme
   )
 }
 
-const createComponentRoute = (name: string, component: React.ReactNode) => {
+const createComponentRoute = (name: string, component: React.ReactNode, mountPath: string) => {
   return (
-    <Route key={name} exact path={`/style-guide/${name}`} render={() => (
+    <Route key={name} exact path={`${mountPath}/${name}`} render={() => (
       <Box>
         {component}
       </Box>
     )}/>
   )
-}
-
-interface StyleGuideMenuCSSProps extends IStyle {
-  tablet: IStyle,
 }
 
 const StyleGuideMenu: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => {
@@ -106,37 +102,12 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   }
 
   public render() {
-    const {theme} = this.props
+    const {colors, fonts, atoms, mountPath} = this.props
     const {sgTheme} = this.state
-
-    const colors: Color[] = [
-      {name: 'primary', hexCode: theme.colors.primary},
-      {name: 'primary-dark', hexCode: theme.colors.primaryDark},
-      {name: 'primary-light', hexCode: theme.colors.primaryLight},
-      {name: 'text', hexCode: theme.colors.text},
-      {name: 'accent', hexCode: theme.colors.accent},
-      {name: 'secondary-text', hexCode: theme.colors.textSecondary},
-      {name: 'divider', hexCode: theme.colors.divider},
-    ]
-    const fonts: Font[] = [
-      {name: 'base', fontStyle: theme.fontStyles.base},
-      {name: 'headline', fontStyle: theme.fontStyles.headline},
-    ]
-
-    const atoms: ComponentDescription[] = [
-      {
-        name: 'button',
-        component: <button>Click me!</button>,
-      },
-      {
-        name: 'button2',
-        component: <button>Click me again!</button>,
-      },
-    ]
 
     const atomRoutes = atoms.map((componentDescription) => {
       const {name, component} = componentDescription
-      return createComponentRoute(name, component)
+      return createComponentRoute(name, component, mountPath)
     })
 
     return (
@@ -194,4 +165,4 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   }
 }
 
-export default withTheme(StyleGuide)
+export default StyleGuide
