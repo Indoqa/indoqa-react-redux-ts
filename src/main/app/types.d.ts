@@ -1,4 +1,4 @@
-import {IStyle} from 'fela'
+import {IStyle, IRenderer} from 'fela'
 import * as React from 'react'
 import {CSSProperties} from 'react'
 import {StyleProps} from 'react-fela'
@@ -34,8 +34,6 @@ declare module 'Types' {
 }
 
 declare module 'react-fela' {
-  // see http://fela.js.org/docs/api/bindings/FelaComponent.html
-
   interface RenderProps<T> {
     className: string,
     theme: T,
@@ -65,4 +63,6 @@ declare module 'react-fela' {
 
   export class FelaComponent<T, P = {}> extends React.Component<FelaComponentProps<T, P> & P> {
   }
+
+  export const RendererContext: React.Context<IRenderer>
 }

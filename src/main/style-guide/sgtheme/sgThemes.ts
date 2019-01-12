@@ -1,11 +1,10 @@
-import {SGTheme} from './StyleGuideTypes'
+import {SGTheme} from './SGTheme'
 
 const fontFamilies = {
-  base: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, ' +
-    '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  base: 'Roboto, sans-serif',
 }
 
-export const styleGuideThemeLight: SGTheme = {
+export const lightTheme: SGTheme = {
   backgroundColor: '#f1f3f5',
   menuBackgroundColor: '#f1f3f5',
   menuShadow: 'inset -26px 0px 22px -17px rgba(222,222,222,1)',
@@ -16,4 +15,5 @@ export const styleGuideThemeLight: SGTheme = {
       fontFamily: fontFamilies.base,
     },
   },
+  fontFamilyCSSImports: 'https://fonts.googleapis.com/css?family=Roboto',
 }

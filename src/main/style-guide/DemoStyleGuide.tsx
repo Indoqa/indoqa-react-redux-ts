@@ -2,21 +2,13 @@ import * as React from 'react'
 import {withTheme} from 'react-fela'
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
-import {styleGuideThemeLight} from './StyleGuideThemes'
-import {Color, ComponentDescription, Font, WithSGTheme} from './StyleGuideTypes'
+import {Color, ComponentDescription, Font} from './StyleGuideTypes'
 
 interface Props {
   theme: Theme,
 }
 
-class DemoStyleGuide extends React.Component<Props, WithSGTheme> {
-
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      sgTheme: styleGuideThemeLight,
-    }
-  }
+class DemoStyleGuide extends React.Component<Props> {
 
   public render() {
     const {theme} = this.props

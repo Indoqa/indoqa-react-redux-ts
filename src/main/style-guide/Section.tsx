@@ -10,8 +10,7 @@ const Section: React.FunctionComponent = ({children}) => {
   const style: SectionCSSProps = {
     fontSize: '1rem',
     fontWeight: 700,
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, ' +
-      '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    fontFamily: 'Roboto',
     color: '#868e96',
     textTransform: 'uppercase',
     marginBottom: '0.75rem',

@@ -3,11 +3,18 @@ import {Grid, Row, Panel, Box} from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent} from 'react-fela'
 import {Route} from 'react-router'
-import {Link} from 'react-router-dom'
+
 import ColorsPanel from './colors/ColorsPanel'
+import Logo from './menu/Logo'
+import MenuGroup from './menu/MenuGroup'
+import MenuItem from './menu/MenuItem'
+import StyleGuideMenu from './menu/StyleGuideMenu'
+import {lightTheme} from './sgtheme/sgThemes'
+import {WithSGTheme} from './sgtheme/withSGTheme'
 import TypographyPanel from './typography/TypographiePanel'
-import {styleGuideThemeLight} from './StyleGuideThemes'
-import {Color, Font, WithSGTheme, ComponentDescription} from './StyleGuideTypes'
+import {Color, Font, ComponentDescription} from './StyleGuideTypes'
+import importCss from './utils/importCss'
+import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 
 interface Props {
   colors: Color[],
@@ -16,11 +23,7 @@ interface Props {
   mountPath: string,
 }
 
-interface StyleGuideMenuCSSProps extends IStyle {
-  tablet: IStyle,
-}
-
-const OuterContainer: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => {
+const OuterContainer: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: IStyle = {
     backgroundColor: sgTheme.backgroundColor,
     minHeight: '100%',
@@ -42,24 +45,6 @@ const createComponentRoute = (name: string, component: React.ReactNode, mountPat
   )
 }
 
-const StyleGuideMenu: React.FunctionComponent<WithSGTheme> = ({children, sgTheme}) => {
-  const style: StyleGuideMenuCSSProps = {
-    boxSizing: 'border-box',
-    backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
-    marginBottom: '10px',
-    tablet: {
-      overflowY: 'auto',
-      boxShadow: sgTheme.menuShadow,
-      borderBottom: 'none',
-      backgroundColor: sgTheme.menuBackgroundColor,
-    },
-  }
-  return (
-    <Box fullWidth fullHeight style={style} p={2}>
-      {children}
-    </Box>
-  )
-}
 
 /**
  * Todos
@@ -97,8 +82,14 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      sgTheme: styleGuideThemeLight,
+      sgTheme: lightTheme,
     }
+  }
+
+  public componentDidMount() {
+    const {sgTheme} = this.state
+    const {fontFamilyCSSImports} = sgTheme
+    importCss('style-guide-fonts', fontFamilyCSSImports)
   }
 
   public render() {
@@ -111,56 +102,61 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
     })
 
     return (
-      <OuterContainer sgTheme={sgTheme}>
-        <Grid spacing={0}>
-          <Row height="100vh">
-            <Panel width="300px">
-              <StyleGuideMenu sgTheme={sgTheme}>
-                <Link to="/style-guide">Styleguide</Link>
-                <hr />
-                <ul>
-                  <li><Link to="/style-guide/colors">Colors</Link></li>
-                  <li>Typography</li>
-                </ul>
-                <hr />
-                ATOMS
-                <ul>
-                  <li><Link to="/style-guide/button">Button</Link></li>
-                  <li><Link to="/style-guide/button2">Button2</Link></li>
-                </ul>
-                <hr />
-                MOLECULES
-                <ul>
-                  <li><Link to="/style-guide/button">Button</Link></li>
-                  <li><Link to="/style-guide/button2">Button2</Link></li>
-                </ul>
-                <hr />
-                ORGANISMS
-                <ul>
-                  <li><Link to="/style-guide/button">Button</Link></li>
-                  <li><Link to="/style-guide/button2">Button2</Link></li>
-                </ul>
-              </StyleGuideMenu>
-            </Panel>
-            <Panel>
-              <Box py={2} px={2} fullHeight fullWidth style={{overflowY: 'auto'}}>
-                <Route exact path="/style-guide" render={() => (
-                  <Box>
-                    <ColorsPanel colors={colors}/>
-                    <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
-                  </Box>
-                )}/>
-                <Route exact path="/style-guide/colors" render={() => (
-                  <Box>
-                    <ColorsPanel colors={colors}/>
-                  </Box>
-                )}/>
-                {atomRoutes}
-              </Box>
-            </Panel>
-          </Row>
-        </Grid>
-      </OuterContainer>
+      <StyleGuideThemeContext.Provider value={sgTheme}>
+        <OuterContainer sgTheme={sgTheme}>
+          <Grid spacing={0}>
+            <Row height="100vh">
+              <Panel width="300px">
+                <StyleGuideMenu>
+                  <Logo to={mountPath}>Style-Guide</Logo>
+                  <MenuGroup>
+                    <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
+                    <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
+                  </MenuGroup>
+                  <MenuGroup name="Atoms">
+                    <MenuItem to={`${mountPath}/button`}>Button</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                  </MenuGroup>
+                  <MenuGroup name="Molecules">
+                    <MenuItem to={`${mountPath}/button`}>Button</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                  </MenuGroup>
+                  <MenuGroup name="Organisms">
+                    <MenuItem to={`${mountPath}/button`}>Button</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
+                  </MenuGroup>
+                </StyleGuideMenu>
+              </Panel>
+              <Panel>
+                <Box py={2} px={2} fullHeight fullWidth style={{overflowY: 'auto'}}>
+                  <Route exact path={mountPath} render={() => (
+                    <Box>
+                      Welcome!
+                    </Box>
+                  )}/>
+                  <Route exact path={`${mountPath}/colors`} render={() => (
+                    <Box>
+                      <ColorsPanel colors={colors}/>
+                    </Box>
+                  )}/>
+                  <Route exact path={`${mountPath}/typography`} render={() => (
+                    <Box>
+                      <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
+                    </Box>
+                  )}/>
+                  {atomRoutes}
+                </Box>
+              </Panel>
+            </Row>
+          </Grid>
+        </OuterContainer>
+      </StyleGuideThemeContext.Provider>
     )
   }
 }

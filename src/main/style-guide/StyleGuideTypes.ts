@@ -16,18 +16,3 @@ export interface Font {
   name: string,
   fontStyle: IStyle,
 }
-
-export interface SGTheme {
-  backgroundColor: string,
-  menuBackgroundColor: string,
-  menuShadow: string,
-  fontPanelBackgroundColor: string,
-  fontPanelHeaderBackgroundColor: string,
-  fontStyles: {
-    base: IStyle,
-  }
-}
-
-export interface WithSGTheme {
-  sgTheme: SGTheme,
-}
