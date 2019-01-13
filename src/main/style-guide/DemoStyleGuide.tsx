@@ -2,7 +2,7 @@ import * as React from 'react'
 import {withTheme} from 'react-fela'
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
-import {Color, ComponentDescription, Font} from './StyleGuideTypes'
+import {Color, ComponentDescription, Font} from './types'
 
 interface Props {
   theme: Theme,

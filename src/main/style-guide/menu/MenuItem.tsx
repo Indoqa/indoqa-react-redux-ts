@@ -10,6 +10,7 @@ interface MenuLinkProps extends WithSGTheme {
 
 interface MenuLinkStyle extends IStyle {
   '> a': IStyle,
+  '> a:visited': IStyle,
 }
 
 const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
@@ -18,7 +19,11 @@ const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
     listStyle: 'none',
     '> a': {
       textDecoration: 'none',
-      fontSize: '0.9rem',
+      ...sgTheme.fontStyles.base,
+    },
+    '> a:visited': {
+      textDecoration: 'none',
+      ...sgTheme.fontStyles.base,
     },
   }
   return (

@@ -14,6 +14,8 @@ const StyleGuideMenu: React.FC<WithSGTheme> = ({children, sgTheme}) => {
     fontFamily: 'Roboto',
     fontSize: '14px',
     marginBottom: '10px',
+    paddingTop: '1rem',
+    paddingLeft: '1rem',
     tablet: {
       overflowY: 'auto',
       boxShadow: sgTheme.menuShadow,
@@ -22,7 +24,7 @@ const StyleGuideMenu: React.FC<WithSGTheme> = ({children, sgTheme}) => {
     },
   }
   return (
-    <Box fullWidth fullHeight style={style} p={2}>
+    <Box fullWidth fullHeight style={style}>
       {children}
     </Box>
   )

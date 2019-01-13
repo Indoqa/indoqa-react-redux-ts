@@ -44,12 +44,12 @@ export default class App extends React.Component<{}> {
       <ThemeProvider theme={buildTheme(theme)}>
         <I18nextProvider i18n={i18n}>
           <Switch>
+            <Route path="/style-guide" component={DemoStyleGuide} />
             <Route exact path="/" component={OverviewPage}/>
             <Route exact path="/time" component={TimePage}/>
             <Route exact path="/words" component={WordsPage} />
             <Route path="/forms" component={FormsApp} />
             <Route path="/upload" component={UploadPage} />
-            <Route path="/style-guide" component={DemoStyleGuide} />
           </Switch>
         </I18nextProvider>
       </ThemeProvider>

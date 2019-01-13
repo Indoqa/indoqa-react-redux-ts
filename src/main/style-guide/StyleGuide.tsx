@@ -5,14 +5,15 @@ import {FelaComponent} from 'react-fela'
 import {Route} from 'react-router'
 
 import ColorsPanel from './colors/ColorsPanel'
+import ContentPanel from './ContentPanel'
 import Logo from './menu/Logo'
 import MenuGroup from './menu/MenuGroup'
 import MenuItem from './menu/MenuItem'
 import StyleGuideMenu from './menu/StyleGuideMenu'
 import {lightTheme} from './sgtheme/sgThemes'
 import {WithSGTheme} from './sgtheme/withSGTheme'
-import TypographyPanel from './typography/TypographiePanel'
-import {Color, Font, ComponentDescription} from './StyleGuideTypes'
+import TypographyPanel from './typography/TypographyPanel'
+import {Color, Font, ComponentDescription} from './types'
 import importCss from './utils/importCss'
 import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 
@@ -108,7 +109,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
             <Row height="100vh">
               <Panel width="300px">
                 <StyleGuideMenu>
-                  <Logo to={mountPath}>Style-Guide</Logo>
+                  <Logo to={mountPath}>Indoqa Styleguide</Logo>
                   <MenuGroup>
                     <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
                     <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
@@ -134,24 +135,20 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
                 </StyleGuideMenu>
               </Panel>
               <Panel>
-                <Box py={2} px={2} fullHeight fullWidth style={{overflowY: 'auto'}}>
+                <ContentPanel>
                   <Route exact path={mountPath} render={() => (
-                    <Box>
+                    <div>
                       Welcome!
-                    </Box>
+                    </div>
                   )}/>
                   <Route exact path={`${mountPath}/colors`} render={() => (
-                    <Box>
-                      <ColorsPanel colors={colors}/>
-                    </Box>
+                    <ColorsPanel colors={colors}/>
                   )}/>
                   <Route exact path={`${mountPath}/typography`} render={() => (
-                    <Box>
-                      <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
-                    </Box>
+                    <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
                   )}/>
                   {atomRoutes}
-                </Box>
+                </ContentPanel>
               </Panel>
             </Row>
           </Grid>

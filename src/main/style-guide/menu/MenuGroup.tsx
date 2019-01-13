@@ -1,26 +1,11 @@
 import {IStyle} from 'fela'
 import * as React from 'react'
 import {FelaComponent} from 'react-fela'
+import Heading from '../Heading'
 import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
 
 interface Props extends WithSGTheme {
   name?: string,
-}
-
-const Titel: React.FC = ({children}) => {
-  const style: IStyle = {
-    fontSize: '12px',
-    fontWeight: 700,
-    fontFamily: 'Roboto',
-    color: '#868e96',
-    textTransform: 'uppercase',
-    paddingBottom: '0.3rem',
-  }
-  return (
-    <FelaComponent style={style} as="h1">
-      {children}
-    </FelaComponent>
-  )
 }
 
 const List: React.FC = ({children}) => {
@@ -36,11 +21,11 @@ const List: React.FC = ({children}) => {
 
 const MenuGroup: React.FC<Props> = ({sgTheme, name, children}) => {
   const style: IStyle = {
-    paddingTop: '1rem',
+    paddingTop: sgTheme.spacing.space3,
   }
   return (
     <FelaComponent style={style}>
-      {name && <Titel>{name}</Titel>}
+      {name && <Heading as="h3">{name}</Heading>}
       <List>
         {children}
       </List>

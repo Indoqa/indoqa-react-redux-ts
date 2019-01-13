@@ -3,7 +3,7 @@ import {Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent, StyleFunction} from 'react-fela'
 import {Theme} from '../../app/theme'
-import {WithSGTheme} from '../StyleGuideTypes'
+import {WithSGTheme} from '../sgtheme/withSGTheme'
 
 interface FontStyleContainerProps {
   fontStyles: IStyle,
@@ -29,12 +29,10 @@ const TextSample: React.FunctionComponent<FontStyleContainerProps> = ({fontStyle
 const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   const style: IStyle = {
     backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
-    padding: '0.5rem',
     textTransform: 'uppercase',
-    fontWeight: 'bold',
-    fontFamily: 'sans-serif',
-    fontSize: '0.75rem',
-    color: '#ffffff',
+    ...sgTheme.fontStyles.h3,
+    color: sgTheme.fontPanelHeaderColor,
+    padding: '0.5rem',
     borderRadius: '3px',
   }
   return (

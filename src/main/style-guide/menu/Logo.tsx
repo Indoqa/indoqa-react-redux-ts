@@ -14,15 +14,17 @@ interface MenuLinkStyle extends IStyle {
 
 const Logo: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
   const style: MenuLinkStyle = {
-    paddingBottom: '0.15rem',
     listStyle: 'none',
     '> a': {
-      fontSize: '1.2rem',
-      fontWeight: 700,
-      fontFamily: 'Roboto',
-      color: '#868e96',
+      ...sgTheme.fontStyles.h1,
       textTransform: 'uppercase',
       textDecoration: 'none',
+      backgroundColor: '#FF6666',
+      color: '#ffffff',
+      lineHeight: 1,
+      paddingLeft: sgTheme.spacing.space2,
+      paddingRight: sgTheme.spacing.space2,
+      marginLeft: `-${sgTheme.spacing.space2}`,
     },
   }
   return (
