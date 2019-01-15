@@ -1,9 +1,10 @@
 import {IStyle} from 'fela'
+import {Box} from 'indoqa-react-fela'
 import * as React from 'react'
-import {FelaComponent, StyleFunction} from 'react-fela'
-import {Theme} from '../../app/theme'
+import {FelaComponent} from 'react-fela'
+import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
 
-interface Props {
+interface Props extends WithSGTheme {
   color?: string,
   name: string,
 }
@@ -26,9 +27,9 @@ const calcTextColor = (color?: string) => {
   return (red * 0.299 + green * 0.587 + blue * 0.114) > 180 ? '#000' : '#fff'
 }
 
-const ColorPanel = ({color, name}: Props) => {
+const ColorPanel = ({color, name, sgTheme}: Props) => {
   const textColor = calcTextColor(color)
-  const style1: IStyle = {
+  const style: IStyle = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
@@ -37,19 +38,35 @@ const ColorPanel = ({color, name}: Props) => {
     backgroundColor: color,
     textAlign: 'center',
     textTransform: 'uppercase',
-  }
-  const style2: StyleFunction<Theme> = ({theme}): IStyle => ({
-    padding: theme.spacing.space1,
+    padding: sgTheme.spacing.space1,
     marginRight: '0.4rem',
     marginBottom: '0.4rem',
     borderRadius: '3px',
-  })
+    border: sgTheme.colorPanelBorder
+  }
   return (
-    <FelaComponent style={[style1, style2]}>
-      <div style={{color: textColor, fontSize: '100%', marginBottom: 'auto'}}>{name}</div>
-      <div style={{color: textColor, fontSize: '90%'}}>{color}</div>
+    <FelaComponent style={style}>
+      <Box
+        style={{
+          ...sgTheme.fontStyles.base,
+          color: textColor,
+          fontSize: '0.80rem',
+          marginBottom: 'auto',
+        }}
+      >
+        {name}
+      </Box>
+      <Box
+        style={{
+          ...sgTheme.fontStyles.base,
+          color: textColor,
+          fontSize: '0.70rem',
+        }}
+      >
+        {name}
+      </Box>
     </FelaComponent>
   )
 }
 
-export default ColorPanel
+export default withSGTheme(ColorPanel)

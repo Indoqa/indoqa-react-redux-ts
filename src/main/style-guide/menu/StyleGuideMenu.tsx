@@ -14,8 +14,8 @@ const StyleGuideMenu: React.FC<WithSGTheme> = ({children, sgTheme}) => {
     fontFamily: 'Roboto',
     fontSize: '14px',
     marginBottom: '10px',
-    paddingTop: '1rem',
-    paddingLeft: '1rem',
+    paddingTop: sgTheme.spacing.space4,
+    paddingLeft: sgTheme.spacing.space3,
     tablet: {
       overflowY: 'auto',
       boxShadow: sgTheme.menuShadow,

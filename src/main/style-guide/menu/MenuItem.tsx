@@ -1,7 +1,7 @@
 import {IStyle} from 'fela'
 import * as React from 'react'
 import {FelaComponent} from 'react-fela'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
 
 interface MenuLinkProps extends WithSGTheme {
@@ -11,6 +11,7 @@ interface MenuLinkProps extends WithSGTheme {
 interface MenuLinkStyle extends IStyle {
   '> a': IStyle,
   '> a:visited': IStyle,
+  '> a.active': IStyle,
 }
 
 const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
@@ -25,10 +26,13 @@ const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
       textDecoration: 'none',
       ...sgTheme.fontStyles.base,
     },
+    '> a.active': {
+      fontWeight: 'bold',
+    }
   }
   return (
     <FelaComponent style={style} as="li">
-      <Link to={to}>{children}</Link>
+      <NavLink to={to}>{children}</NavLink>
     </FelaComponent>
   )
 }

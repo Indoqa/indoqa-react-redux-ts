@@ -1,6 +1,5 @@
 import {Flex} from 'indoqa-react-fela'
 import * as React from 'react'
-import Heading from '../Heading'
 import {SGTheme} from '../sgtheme/SGTheme'
 import {Font} from '../types'
 import FontStylePanel from './FontStylePanel'
@@ -17,7 +16,6 @@ const renderFont = (font: Font, sgTheme: SGTheme) => {
 const TypographyPanel: React.FunctionComponent<Props> = ({fonts, sgTheme}) => {
   return (
     <React.Fragment>
-      <Heading as="h2">Typography</Heading>
       <Flex>
         {fonts.map((font) => renderFont(font, sgTheme))}
       </Flex>

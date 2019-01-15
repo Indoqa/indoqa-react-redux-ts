@@ -12,6 +12,7 @@ export const lightTheme: SGTheme = {
   fontPanelBackgroundColor: '#ffffff',
   fontPanelHeaderBackgroundColor: '#868e96',
   fontPanelHeaderColor: '#ffffff',
+  colorPanelBorder: 'solid 1px #dedede',
   fontStyles: {
     base: {
       fontFamily: fontFamilies.base,
@@ -48,6 +49,6 @@ export const lightTheme: SGTheme = {
     space1: '0.25rem',
     space2: '0.5rem',
     space3: '1rem',
-    space4: '2rem',
+    space4: '1.5rem',
   },
 }

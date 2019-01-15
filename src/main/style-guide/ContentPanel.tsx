@@ -6,7 +6,7 @@ import {withSGTheme, WithSGTheme} from './sgtheme/withSGTheme'
 const ContentPanel: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: IStyle = {
     boxSizing: 'border-box',
-    padding: sgTheme.spacing.space3,
+    padding: sgTheme.spacing.space4,
     overflow: 'auto',
   }
   return (
