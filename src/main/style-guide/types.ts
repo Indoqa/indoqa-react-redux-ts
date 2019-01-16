@@ -7,6 +7,11 @@ export interface ComponentDescription {
   component: React.ReactNode,
 }
 
+export interface Group {
+  name: string,
+  descriptions: ComponentDescription[]
+}
+
 export interface Color {
   name: string,
   hexCode?: string,

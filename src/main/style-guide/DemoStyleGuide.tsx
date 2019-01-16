@@ -2,7 +2,7 @@ import * as React from 'react'
 import {withTheme} from 'react-fela'
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
-import {Color, ComponentDescription, Font} from './types'
+import {Color, Font, Group} from './types'
 
 interface Props {
   theme: Theme,
@@ -27,19 +27,38 @@ class DemoStyleGuide extends React.Component<Props> {
       {name: 'headline', fontStyle: theme.fontStyles.headline},
     ]
 
-    const atoms: ComponentDescription[] = [
-      {
-        name: 'button',
-        component: <button>Click me!</button>,
-      },
-      {
-        name: 'button2',
-        component: <button>Click me again!</button>,
-      },
-    ]
+    const atomsGroup: Group = {
+      name: 'Atoms',
+      descriptions: [
+        {
+          name: 'button',
+          component: <button>Click me!</button>,
+        },
+        {
+          name: 'button2',
+          component: <button>Click me again!</button>,
+        },
+      ],
+    }
+
+    const moleculesGroup: Group = {
+      name: 'Molecules',
+      descriptions: [
+        {
+          name: 'Button',
+          component: <button>Click me!</button>,
+        },
+        {
+          name: 'Button2',
+          component: <button>Click me again!</button>,
+        },
+      ],
+    }
+
+    const groups = [atomsGroup, moleculesGroup]
 
     return (
-      <StyleGuide fonts={fonts} colors={colors} atoms={atoms} mountPath="/style-guide" />
+      <StyleGuide fonts={fonts} colors={colors} groups={groups} mountPath="/style-guide" />
     )
   }
 }

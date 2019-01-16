@@ -1,5 +1,5 @@
 import {IStyle} from 'fela'
-import {Grid, Row, Panel, Box} from 'indoqa-react-fela'
+import {Box, Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent} from 'react-fela'
 import {Route} from 'react-router'
@@ -10,17 +10,17 @@ import Logo from './menu/Logo'
 import MenuGroup from './menu/MenuGroup'
 import MenuItem from './menu/MenuItem'
 import StyleGuideMenu from './menu/StyleGuideMenu'
+import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 import {lightTheme} from './sgtheme/sgThemes'
 import {WithSGTheme} from './sgtheme/withSGTheme'
+import {Color, Font, Group} from './types'
 import TypographyPanel from './typography/TypographyPanel'
-import {Color, Font, ComponentDescription} from './types'
 import importCss from './utils/importCss'
-import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 
 interface Props {
   colors: Color[],
   fonts: Font[],
-  atoms: ComponentDescription[],
+  groups: Group[],
   mountPath: string,
 }
 
@@ -37,8 +37,9 @@ const OuterContainer: React.FC<WithSGTheme> = ({children, sgTheme}) => {
 }
 
 const createComponentRoute = (name: string, component: React.ReactNode, mountPath: string) => {
+  const componentMountPath = `${mountPath}/${name.toLowerCase()}`
   return (
-    <Route key={name} exact path={`${mountPath}/${name}`} render={() => (
+    <Route key={componentMountPath} exact path={componentMountPath} render={() => (
       <Box>
         {component}
       </Box>
@@ -94,12 +95,28 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   }
 
   public render() {
-    const {colors, fonts, atoms, mountPath} = this.props
+    const {colors, fonts, groups, mountPath} = this.props
     const {sgTheme} = this.state
 
-    const atomRoutes = atoms.map((componentDescription) => {
-      const {name, component} = componentDescription
-      return createComponentRoute(name, component, mountPath)
+    const menuGroups = groups.map((componentDescription) => {
+      const {name, descriptions} = componentDescription
+      const menuItems = descriptions.map((description) => {
+        const componentMountPath = `${mountPath}/${name.toLowerCase()}/${description.name.toLowerCase()}`
+        return <MenuItem key={componentMountPath} to={componentMountPath}>{description.name}</MenuItem>
+      })
+      return (
+        <MenuGroup name={name} key={name}>
+          {menuItems}
+        </MenuGroup>
+      )
+    })
+
+    const routes: JSX.Element[] = []
+    groups.forEach((componentDescription) => {
+      const {name, descriptions} = componentDescription
+      descriptions.forEach((description) => {
+        routes.push(createComponentRoute(description.name, description.component, `${mountPath}/${name.toLowerCase()}`))
+      })
     })
 
     return (
@@ -114,24 +131,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
                     <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
                     <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
                   </MenuGroup>
-                  <MenuGroup name="Atoms">
-                    <MenuItem to={`${mountPath}/button`}>Button</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                  </MenuGroup>
-                  <MenuGroup name="Molecules">
-                    <MenuItem to={`${mountPath}/button`}>Button</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                  </MenuGroup>
-                  <MenuGroup name="Organisms">
-                    <MenuItem to={`${mountPath}/button`}>Button</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                    <MenuItem to={`${mountPath}/button2`}>Button2</MenuItem>
-                  </MenuGroup>
+                  {menuGroups}
                 </StyleGuideMenu>
               </Panel>
               <Panel>
@@ -147,7 +147,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
                   <Route exact path={`${mountPath}/typography`} render={() => (
                     <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
                   )}/>
-                  {atomRoutes}
+                  {routes}
                 </ContentPanel>
               </Panel>
             </Row>
