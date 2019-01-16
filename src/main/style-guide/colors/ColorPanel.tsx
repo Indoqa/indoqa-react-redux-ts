@@ -63,7 +63,7 @@ const ColorPanel = ({color, name, sgTheme}: Props) => {
           fontSize: '0.70rem',
         }}
       >
-        {name}
+        {color}
       </Box>
     </FelaComponent>
   )
