@@ -19,11 +19,12 @@ const Logo: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
       ...sgTheme.fontStyles.h1,
       textTransform: 'uppercase',
       textDecoration: 'none',
-      backgroundColor: '#FF6666',
+      backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
       color: '#ffffff',
       lineHeight: 1,
       paddingLeft: sgTheme.spacing.space2,
       paddingRight: sgTheme.spacing.space2,
+      paddingBottom: 1,
       marginLeft: `-${sgTheme.spacing.space2}`,
     },
   }

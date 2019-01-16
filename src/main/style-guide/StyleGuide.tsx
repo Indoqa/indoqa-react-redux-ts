@@ -126,7 +126,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
             <Row height="100vh">
               <Panel width="300px">
                 <StyleGuideMenu>
-                  <Logo to={mountPath}>Indoqa Styleguide</Logo>
+                  <Logo to={mountPath}>Styleguide</Logo>
                   <MenuGroup>
                     <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
                     <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
