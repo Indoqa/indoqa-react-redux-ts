@@ -18,9 +18,9 @@
     "start": "indoqa-dev-server ./indoqa-webpack-options.js"
   },
   "dependencies": {
-    "fela": "^10.0.2",
-    "fela-monolithic": "^10.0.2",
-    "fela-plugin-named-media-query": "^5.0.13",
+    "fela": "^10.1.0",
+    "fela-monolithic": "^10.1.0",
+    "fela-plugin-named-keys": "^10.1.0",
     "fela-preset-web": "^10.0.2",
     "formik": "^1.4.1",
     "history": "^4.7.2",

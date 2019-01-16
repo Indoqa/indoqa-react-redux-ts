@@ -1,10 +1,10 @@
 import {IRenderer} from 'fela'
-import extend from 'fela-plugin-extend'
-import prefixer from 'fela-plugin-prefixer'
-import fallbackValue from 'fela-plugin-fallback-value'
-import unit from 'fela-plugin-unit'
-import namedMediaQuery from 'fela-plugin-named-media-query'
 import monolithic from 'fela-monolithic'
+import extend from 'fela-plugin-extend'
+import fallbackValue from 'fela-plugin-fallback-value'
+import namedKeys from 'fela-plugin-named-keys'
+import prefixer from 'fela-plugin-prefixer'
+import unit from 'fela-plugin-unit'
 
 import {BREAKPOINT_DESKTOP, BREAKPOINT_TABLET} from './breakpoints'
 
@@ -12,7 +12,7 @@ const init = (renderer: IRenderer) => {
   renderer.renderStatic('html, body, #app {height: 100%}')
 }
 
-const namedMediaQueryPlugin = namedMediaQuery({
+const keys = namedKeys({
   desktop: `@media (min-width: ${BREAKPOINT_DESKTOP}px)`,
   tablet: `@media (min-width: ${BREAKPOINT_TABLET}px)`,
 })
@@ -23,7 +23,7 @@ const config: any = {
     prefixer(),
     fallbackValue(),
     unit(),
-    namedMediaQueryPlugin,
+    keys,
   ],
   enhancers: [],
 }

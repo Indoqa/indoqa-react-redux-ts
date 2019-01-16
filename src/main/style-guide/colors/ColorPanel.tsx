@@ -42,7 +42,7 @@ const ColorPanel = ({color, name, sgTheme}: Props) => {
     marginRight: '0.4rem',
     marginBottom: '0.4rem',
     borderRadius: '3px',
-    border: sgTheme.colorPanelBorder
+    border: sgTheme.colorPanelBorder,
   }
   return (
     <FelaComponent style={style}>

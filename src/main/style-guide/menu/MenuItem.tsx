@@ -28,7 +28,7 @@ const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
     },
     '> a.active': {
       fontWeight: 'bold',
-    }
+    },
   }
   return (
     <FelaComponent style={style} as="li">
