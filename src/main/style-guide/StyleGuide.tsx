@@ -71,34 +71,24 @@ const createComponentRoute = (name: string, component: React.ReactNode, mountPat
 
 /**
  * Todos
- * - colors automatically (sorting, derive name from property)
- * - text automatically
- * - text with different backgrounds
- * - spacing automatically
- * - shadows automatically
- * - color library?
- * - use colors from theme -> in this app
- * - link styling
- * - line elements styling
- * - use semantic HTML throughout the app
- * - Atoms | Molecules | Organisms | Templates
- *     colors
- *     font-mixins
- *     Inline elements
- *     Links
- *     Spacing
- *     Icons
- *     Logo(s)
- *     ? Listen
- *     ? Tables
- *     ? Bilder
- *     ? Button
- *     ? Forms
- * - Printing
- * - Where do the names come from? Oder über die Properties des Themes iterieren? (+ Alphabetische Sortierung?)
- * - use https://github.com/yeun/open-color
- * - see https://www.producthunt.com/posts/fontspark
- * - see https://github.com/pitr12/base-styling-components/blob/master/README.md
+ * - cleanup sgTheme
+ * - logo support (-> Menu)
+ * - remove borderRadius FontStylePanel
+ * - mixed fontStylePanel for overview page
+ * - singleLine fontStylePanel -> for headlines
+ * - move to indoqa-react-fela
+ * - set <title>
+ * - printing
+ * - mobile menu -> collapsing
+ * - show effective CSS properties
+ * - show spacings
+ * - inline styles (inkl. ul, ol, link, table, etc.)
+ */
+/**
+ * see
+ * - https://github.com/yeun/open-color
+ * - https://www.producthunt.com/posts/fontspark
+ * - https://github.com/pitr12/base-styling-components/blob/master/README.md
  */
 class StyleGuide extends React.Component<Props, WithSGTheme> {
 
