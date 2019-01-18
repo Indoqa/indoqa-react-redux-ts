@@ -5,11 +5,14 @@ import {FelaComponent} from 'react-fela'
 import {Route} from 'react-router'
 
 import ColorsPanel from './colors/ColorsPanel'
+import ContentHeader from './ContentHeader'
 import ContentPanel from './ContentPanel'
 import Logo from './menu/Logo'
 import MenuGroup from './menu/MenuGroup'
+import MenuHeader from './menu/MenuHeader'
 import MenuItem from './menu/MenuItem'
 import StyleGuideMenu from './menu/StyleGuideMenu'
+import OverviewPanel from './overview/OverviewPanel'
 import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 import {lightTheme} from './sgtheme/sgThemes'
 import {WithSGTheme} from './sgtheme/withSGTheme'
@@ -18,6 +21,7 @@ import TypographyPanel from './typography/TypographyPanel'
 import importCss from './utils/importCss'
 
 interface Props {
+  projectName: string,
   colors: Color[],
   fonts: Font[],
   groups: Group[],
@@ -36,13 +40,30 @@ const OuterContainer: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   )
 }
 
+interface InnterContentPanelProps {
+  name: string,
+}
+
+const InnerContentPanel: React.FC<InnterContentPanelProps> = ({name, children}) => {
+  return (
+    <React.Fragment>
+      <ContentHeader>
+        <Logo to="" small>{name}</Logo>
+      </ContentHeader>
+      <Box p={2}>
+        {children}
+      </Box>
+    </React.Fragment>
+  )
+}
+
 const createComponentRoute = (name: string, component: React.ReactNode, mountPath: string) => {
   const componentMountPath = `${mountPath}/${name.toLowerCase()}`
   return (
     <Route key={componentMountPath} exact path={componentMountPath} render={() => (
-      <Box>
+      <InnerContentPanel name={name}>
         {component}
-      </Box>
+      </InnerContentPanel>
     )}/>
   )
 }
@@ -126,8 +147,10 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
             <Row height="100vh">
               <Panel width="300px">
                 <StyleGuideMenu>
-                  <Logo to={mountPath}>Styleguide</Logo>
-                  <MenuGroup>
+                  <MenuHeader>
+                    <Logo to={mountPath} small>{this.props.projectName}</Logo>
+                  </MenuHeader>
+                  <MenuGroup name="Base Styles">
                     <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
                     <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
                   </MenuGroup>
@@ -137,15 +160,19 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
               <Panel>
                 <ContentPanel>
                   <Route exact path={mountPath} render={() => (
-                    <div>
-                      Welcome!
-                    </div>
+                    <InnerContentPanel name={`Styleguide ${this.props.projectName}`}>
+                      <OverviewPanel colors={colors} />
+                    </InnerContentPanel>
                   )}/>
                   <Route exact path={`${mountPath}/colors`} render={() => (
-                    <ColorsPanel colors={colors}/>
+                    <InnerContentPanel name="Color Scheme">
+                      <ColorsPanel colors={colors}/>
+                    </InnerContentPanel>
                   )}/>
                   <Route exact path={`${mountPath}/typography`} render={() => (
-                    <TypographyPanel fonts={fonts} sgTheme={sgTheme}/>
+                    <InnerContentPanel name="Typography">
+                      <TypographyPanel fonts={fonts} />
+                    </InnerContentPanel>
                   )}/>
                   {routes}
                 </ContentPanel>

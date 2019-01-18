@@ -8,6 +8,7 @@ export interface SGTheme {
   fontPanelHeaderBackgroundColor: string,
   fontPanelHeaderColor: string,
   colorPanelBorder: string,
+  topMenuHeight: string,
   fontStyles: {
     base: IStyle,
     h1: IStyle,

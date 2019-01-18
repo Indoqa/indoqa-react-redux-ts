@@ -58,7 +58,13 @@ class DemoStyleGuide extends React.Component<Props> {
     const groups = [atomsGroup, moleculesGroup]
 
     return (
-      <StyleGuide fonts={fonts} colors={colors} groups={groups} mountPath="/style-guide" />
+      <StyleGuide
+        projectName="Content-Pools"
+        fonts={fonts}
+        colors={colors}
+        groups={groups}
+        mountPath="/style-guide"
+      />
     )
   }
 }

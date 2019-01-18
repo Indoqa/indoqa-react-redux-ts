@@ -1,12 +1,12 @@
 import {Flex} from 'indoqa-react-fela'
 import * as React from 'react'
 import {SGTheme} from '../sgtheme/SGTheme'
+import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
 import {Font} from '../types'
 import FontStylePanel from './FontStylePanel'
 
-interface Props {
+interface Props extends WithSGTheme {
   fonts: Font[],
-  sgTheme: SGTheme,
 }
 
 const renderFont = (font: Font, sgTheme: SGTheme) => {
@@ -23,4 +23,4 @@ const TypographyPanel: React.FunctionComponent<Props> = ({fonts, sgTheme}) => {
   )
 }
 
-export default TypographyPanel
+export default withSGTheme(TypographyPanel)

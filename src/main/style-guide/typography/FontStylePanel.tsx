@@ -1,8 +1,7 @@
 import {IStyle} from 'fela'
 import {Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
-import {FelaComponent, StyleFunction} from 'react-fela'
-import {Theme} from '../../app/theme'
+import {FelaComponent} from 'react-fela'
 import {WithSGTheme} from '../sgtheme/withSGTheme'
 
 interface FontStyleContainerProps {
@@ -14,11 +13,11 @@ interface Props extends FontStyleContainerProps {
 }
 
 const TextSample: React.FunctionComponent<FontStyleContainerProps> = ({fontStyles, children}) => {
-  const style: StyleFunction<Theme> = ({theme}): IStyle => ({
-    marginTop: theme.spacing.space1,
-    marginBottom: theme.spacing.space1,
+  const style: IStyle = {
+    marginTop: '1rem',
+    marginBottom: '1rem',
     padding: '0.5rem',
-  })
+  }
   return (
     <FelaComponent style={[style, fontStyles]} as="p">
       {children}

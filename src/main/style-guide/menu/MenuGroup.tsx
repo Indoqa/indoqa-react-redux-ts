@@ -21,7 +21,8 @@ const List: React.FC = ({children}) => {
 
 const MenuGroup: React.FC<Props> = ({sgTheme, name, children}) => {
   const style: IStyle = {
-    paddingTop: sgTheme.spacing.space3,
+    paddingTop: sgTheme.spacing.space2,
+    paddingLeft: sgTheme.spacing.space4,
   }
   return (
     <FelaComponent style={style}>

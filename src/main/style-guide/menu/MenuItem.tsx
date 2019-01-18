@@ -17,6 +17,7 @@ interface MenuLinkStyle extends IStyle {
 const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
   const style: MenuLinkStyle = {
     paddingBottom: '0.15rem',
+    paddingLeft: sgTheme.spacing.space2,
     listStyle: 'none',
     '> a': {
       textDecoration: 'none',

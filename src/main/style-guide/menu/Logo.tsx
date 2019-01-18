@@ -6,17 +6,19 @@ import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
 
 interface MenuLinkProps extends WithSGTheme {
   to: string,
+  small?: boolean,
 }
 
 interface MenuLinkStyle extends IStyle {
   '> a': IStyle,
 }
 
-const Logo: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
+const Logo: React.FC<MenuLinkProps> = ({sgTheme, to, small, children}) => {
   const style: MenuLinkStyle = {
     listStyle: 'none',
     '> a': {
       ...sgTheme.fontStyles.h1,
+      fontSize: small ? sgTheme.fontStyles.h1.fontSize : '30px',
       textTransform: 'uppercase',
       textDecoration: 'none',
       backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
