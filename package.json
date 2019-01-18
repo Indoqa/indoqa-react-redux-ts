@@ -28,7 +28,7 @@
     "i18next-browser-languagedetector": "^2.2.4",
     "immer": "^1.9.3",
     "indoqa-react-app": "^4.2.0",
-    "indoqa-react-fela": "next",
+    "indoqa-react-fela": "^0.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-document-title": "^2.0.3",
@@ -46,7 +46,7 @@
     "rxjs": "^6.3.3",
     "shortid": "^2.2.14",
     "typesafe-actions": "^2.0.4",
-    "yup": "0.26.6"
+    "yup": "^0.26.7"
   },
   "devDependencies": {
     "@types/history": "^4.7.2",
