@@ -30,7 +30,6 @@ interface Props {
 
 const OuterContainer: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: IStyle = {
-    backgroundColor: sgTheme.backgroundColor,
     minHeight: '100%',
   }
   return (
@@ -40,11 +39,11 @@ const OuterContainer: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   )
 }
 
-interface InnterContentPanelProps {
+interface InnerContentPanelProps {
   name: string,
 }
 
-const InnerContentPanel: React.FC<InnterContentPanelProps> = ({name, children}) => {
+const InnerContentPanel: React.FC<InnerContentPanelProps> = ({name, children}) => {
   return (
     <React.Fragment>
       <ContentHeader>
@@ -72,7 +71,10 @@ const createComponentRoute = (name: string, component: React.ReactNode, mountPat
 /**
  * Todos
  * - cleanup sgTheme
+ * - make sgTheme configurable
  * - logo support (-> Menu)
+ * - make colors and overview mixedFontStyle clickable to get to the details
+ *   -> see https://www.webdeveloperpal.com/2018/03/07/react-router-v4-navigate-and-redirect-programmatically/
  * - remove borderRadius FontStylePanel
  * - mixed fontStylePanel for overview page
  * - singleLine fontStylePanel -> for headlines

@@ -13,7 +13,7 @@ export const lightTheme: SGTheme = {
   fontPanelHeaderBackgroundColor: '#868e96',
   fontPanelHeaderColor: '#ffffff',
   colorPanelBorder: 'solid 1px #dedede',
-  topMenuHeight: "5rem",
+  topMenuHeight: '5rem',
   fontStyles: {
     base: {
       fontFamily: fontFamilies.base,
