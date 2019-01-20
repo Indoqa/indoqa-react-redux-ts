@@ -4980,10 +4980,10 @@ indoqa-react-fela@^0.8.0:
     react-fela "^10.0.2"
     tslib "^1.9.3"
 
-indoqa-react-fela@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/indoqa-react-fela/-/indoqa-react-fela-0.9.0.tgz#56408849f4e510ff1cf6e652efd77ea08f0002e7"
-  integrity sha512-NS/E9EXHw0JQJEDCkJFYRvanjYbh3lzg+y5RIrn/0pQMm+xzOVF1d1TLMXQJtjaGAzi5GM89NYWjiucjn5+IIg==
+indoqa-react-fela@^0.9.1-alpha.1:
+  version "0.9.1-alpha.1"
+  resolved "https://registry.yarnpkg.com/indoqa-react-fela/-/indoqa-react-fela-0.9.1-alpha.1.tgz#4f5f0b1fc69a98d381ae99f3624a4e79163e6fdd"
+  integrity sha512-6MRKC4no7AS751vKzM7GO32/M/4m+2x+g7Ai+OahD0PAdEj5gN+fz444AxMbzZj4hoAhwe9QH4f5x2HvtGhe8A==
   dependencies:
     deepmerge "^2.2.1"
     fela "^10.1.1"
