@@ -27,11 +27,12 @@ const TextSample: React.FunctionComponent<FontStyleContainerProps> = ({fontStyle
 
 const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   const style: IStyle = {
-    backgroundColor: sgTheme.fontPanelHeaderBackgroundColor,
+    backgroundColor: sgTheme.colors.primaryDark,
     textTransform: 'uppercase',
-    ...sgTheme.fontStyles.h3,
-    color: sgTheme.fontPanelHeaderColor,
-    padding: '0.5rem',
+    ...sgTheme.fontStyles.headline,
+    fontSize: sgTheme.fontSizes.small,
+    color: sgTheme.colors.textInverted,
+    padding: sgTheme.spacing.space2,
     borderRadius: '3px',
   }
   return (
@@ -43,7 +44,7 @@ const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, childr
 
 const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   const style: IStyle = {
-    backgroundColor: sgTheme.fontPanelBackgroundColor,
+    backgroundColor: sgTheme.colors.background,
     borderRadius: '3px',
     marginBottom: '2rem',
   }

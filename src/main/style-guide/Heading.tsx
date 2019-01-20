@@ -13,9 +13,10 @@ const Heading: React.FC<Props> = ({children, sgTheme, as}) => {
   const style: IStyle = {
     textTransform: 'uppercase',
     paddingBottom: sgTheme.spacing.space1,
+    fontSize: sgTheme.fontSizes.text,
   }
   return (
-    <FelaComponent style={[style, sgTheme.fontStyles[as]]} as={as}>
+    <FelaComponent style={[style, sgTheme.fontStyles.headline]} as={as}>
       {children}
     </FelaComponent>
   )

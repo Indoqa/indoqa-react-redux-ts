@@ -6,7 +6,7 @@ import {withSGTheme, WithSGTheme} from '../sgtheme/withSGTheme'
 const MenuHeader: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: IStyle = {
     boxSizing: 'border-box',
-    height: sgTheme.topMenuHeight,
+    height: sgTheme.layout.topMenuHeight,
     paddingLeft: `calc(${sgTheme.spacing.space4} + 0.5rem)`,
   }
   return (

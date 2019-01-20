@@ -16,10 +16,10 @@ const ColorPanel = ({color, sgTheme}: Props) => {
     height: '5rem',
     backgroundColor: color,
     padding: sgTheme.spacing.space1,
-    marginRight: '0.4rem',
-    marginBottom: '0.4rem',
+    marginRight: sgTheme.spacing.space1,
+    marginBottom: sgTheme.spacing.space1,
     borderRadius: '3px',
-    border: sgTheme.colorPanelBorder,
+    border: sgTheme.layout.colorPanelBorder,
   }
   return (
     <FelaComponent style={style} />

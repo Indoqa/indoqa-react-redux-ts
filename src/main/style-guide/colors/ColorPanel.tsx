@@ -39,10 +39,10 @@ const ColorPanel = ({color, name, sgTheme}: Props) => {
     textAlign: 'center',
     textTransform: 'uppercase',
     padding: sgTheme.spacing.space1,
-    marginRight: '0.4rem',
-    marginBottom: '0.4rem',
+    marginRight: sgTheme.spacing.space2,
+    marginBottom: sgTheme.spacing.space2,
     borderRadius: '3px',
-    border: sgTheme.colorPanelBorder,
+    border: sgTheme.layout.colorPanelBorder,
   }
   return (
     <FelaComponent style={style}>
@@ -50,7 +50,7 @@ const ColorPanel = ({color, name, sgTheme}: Props) => {
         style={{
           ...sgTheme.fontStyles.base,
           color: textColor,
-          fontSize: '0.80rem',
+          fontSize: sgTheme.fontSizes.small,
           marginBottom: 'auto',
         }}
       >
@@ -60,7 +60,7 @@ const ColorPanel = ({color, name, sgTheme}: Props) => {
         style={{
           ...sgTheme.fontStyles.base,
           color: textColor,
-          fontSize: '0.70rem',
+          fontSize: sgTheme.fontSizes.verySmall,
         }}
       >
         {color}

@@ -10,13 +10,9 @@ interface StyleGuideMenuCSSProps extends IStyle {
 const StyleGuideMenu: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: StyleGuideMenuCSSProps = {
     boxSizing: 'border-box',
-    fontFamily: 'Roboto',
-    fontSize: '14px',
-    marginBottom: '10px',
-    backgroundColor: '#e9ecef',
+    backgroundColor: sgTheme.colors.primary,
     tablet: {
       overflowY: 'auto',
-      boxShadow: sgTheme.menuShadow,
       borderBottom: 'none',
     },
   }

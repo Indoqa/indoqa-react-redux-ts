@@ -1,7 +1,5 @@
-import {IStyle} from 'fela'
 import {Box, Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
-import {FelaComponent} from 'react-fela'
 import {Route} from 'react-router'
 
 import ColorsPanel from './colors/ColorsPanel'
@@ -28,17 +26,6 @@ interface Props {
   mountPath: string,
 }
 
-const OuterContainer: React.FC<WithSGTheme> = ({children, sgTheme}) => {
-  const style: IStyle = {
-    minHeight: '100%',
-  }
-  return (
-    <FelaComponent style={style}>
-      {children}
-    </FelaComponent>
-  )
-}
-
 interface InnerContentPanelProps {
   name: string,
 }
@@ -47,7 +34,7 @@ const InnerContentPanel: React.FC<InnerContentPanelProps> = ({name, children}) =
   return (
     <React.Fragment>
       <ContentHeader>
-        <Logo to="" small>{name}</Logo>
+        <Logo to="">{name}</Logo>
       </ContentHeader>
       <Box p={2}>
         {children}
@@ -70,7 +57,7 @@ const createComponentRoute = (name: string, component: React.ReactNode, mountPat
 
 /**
  * Todos
- * - cleanup sgTheme
+ * - heading: Logo, Heading
  * - make sgTheme configurable
  * - logo support (-> Menu)
  * - make colors and overview mixedFontStyle clickable to get to the details
@@ -79,6 +66,7 @@ const createComponentRoute = (name: string, component: React.ReactNode, mountPat
  * - mixed fontStylePanel for overview page
  * - singleLine fontStylePanel -> for headlines
  * - move to indoqa-react-fela
+ * - search box
  * - set <title>
  * - printing
  * - mobile menu -> collapsing
@@ -134,13 +122,13 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
 
     return (
       <StyleGuideThemeContext.Provider value={sgTheme}>
-        <OuterContainer sgTheme={sgTheme}>
+        <Box fullHeight>
           <Grid spacing={0}>
             <Row height="100vh">
-              <Panel width="300px">
+              <Panel width="20rem">
                 <StyleGuideMenu>
                   <MenuHeader>
-                    <Logo to={mountPath} small>{this.props.projectName}</Logo>
+                    <Logo to={mountPath}>{this.props.projectName}</Logo>
                   </MenuHeader>
                   <MenuGroup name="Base Styles">
                     <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
@@ -171,7 +159,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
               </Panel>
             </Row>
           </Grid>
-        </OuterContainer>
+        </Box>
       </StyleGuideThemeContext.Provider>
     )
   }

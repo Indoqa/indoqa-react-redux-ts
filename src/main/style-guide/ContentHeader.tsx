@@ -6,9 +6,9 @@ import {withSGTheme, WithSGTheme} from './sgtheme/withSGTheme'
 const ContentHeader: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: IStyle = {
     boxSizing: 'border-box',
-    height: sgTheme.topMenuHeight,
+    height: sgTheme.layout.topMenuHeight,
     paddingLeft: sgTheme.spacing.space4,
-    backgroundColor: sgTheme.menuBackgroundColor,
+    backgroundColor: sgTheme.colors.primaryLight,
   }
   return (
     <Flex fullWidth style={style} alignItems="center">

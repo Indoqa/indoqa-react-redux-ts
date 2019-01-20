@@ -22,6 +22,8 @@ const MenuItem: React.FC<MenuLinkProps> = ({sgTheme, to, children}) => {
     '> a': {
       textDecoration: 'none',
       ...sgTheme.fontStyles.base,
+      color: sgTheme.colors.text,
+      fontSize: sgTheme.fontSizes.text,
     },
     '> a:visited': {
       textDecoration: 'none',
