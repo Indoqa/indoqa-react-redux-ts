@@ -122,44 +122,42 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
 
     return (
       <StyleGuideThemeContext.Provider value={sgTheme}>
-        <Box fullHeight>
-          <Grid spacing={0}>
-            <Row height="100vh">
-              <Panel width="20rem">
-                <StyleGuideMenu>
-                  <MenuHeader>
-                    <Logo to={mountPath}>{this.props.projectName}</Logo>
-                  </MenuHeader>
-                  <MenuGroup name="Base Styles">
-                    <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
-                    <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
-                  </MenuGroup>
-                  {menuGroups}
-                </StyleGuideMenu>
-              </Panel>
-              <Panel>
-                <ContentPanel>
-                  <Route exact path={mountPath} render={() => (
-                    <InnerContentPanel name={`Styleguide ${this.props.projectName}`}>
-                      <OverviewPanel colors={colors} />
-                    </InnerContentPanel>
-                  )}/>
-                  <Route exact path={`${mountPath}/colors`} render={() => (
-                    <InnerContentPanel name="Color Scheme">
-                      <ColorsPanel colors={colors}/>
-                    </InnerContentPanel>
-                  )}/>
-                  <Route exact path={`${mountPath}/typography`} render={() => (
-                    <InnerContentPanel name="Typography">
-                      <TypographyPanel fonts={fonts} />
-                    </InnerContentPanel>
-                  )}/>
-                  {routes}
-                </ContentPanel>
-              </Panel>
-            </Row>
-          </Grid>
-        </Box>
+        <Grid spacing={0}>
+          <Row height="100vh">
+            <Panel width="20rem">
+              <StyleGuideMenu>
+                <MenuHeader>
+                  <Logo to={mountPath}>{this.props.projectName}</Logo>
+                </MenuHeader>
+                <MenuGroup name="Base Styles">
+                  <MenuItem to={`${mountPath}/colors`}>Colors</MenuItem>
+                  <MenuItem to={`${mountPath}/typography`}>Typography</MenuItem>
+                </MenuGroup>
+                {menuGroups}
+              </StyleGuideMenu>
+            </Panel>
+            <Panel>
+              <ContentPanel>
+                <Route exact path={mountPath} render={() => (
+                  <InnerContentPanel name={`Styleguide ${this.props.projectName}`}>
+                    <OverviewPanel colors={colors}/>
+                  </InnerContentPanel>
+                )}/>
+                <Route exact path={`${mountPath}/colors`} render={() => (
+                  <InnerContentPanel name="Color Scheme">
+                    <ColorsPanel colors={colors}/>
+                  </InnerContentPanel>
+                )}/>
+                <Route exact path={`${mountPath}/typography`} render={() => (
+                  <InnerContentPanel name="Typography">
+                    <TypographyPanel fonts={fonts}/>
+                  </InnerContentPanel>
+                )}/>
+                {routes}
+              </ContentPanel>
+            </Panel>
+          </Row>
+        </Grid>
       </StyleGuideThemeContext.Provider>
     )
   }

@@ -57,7 +57,7 @@ const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, chil
 
 const FontStylePanel: React.FunctionComponent<Props & WithSGTheme> = ({fontStyles, name, sgTheme}) => {
   return (
-    <Grid spacing="1rem">
+    <Grid spacing="1rem" fullWidth>
       <Row>
         <Panel>
           <FontStyleContainer sgTheme={sgTheme}>
