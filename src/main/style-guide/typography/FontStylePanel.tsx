@@ -33,7 +33,7 @@ const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, childr
     fontSize: sgTheme.fontSizes.small,
     color: sgTheme.colors.textInverted,
     padding: sgTheme.spacing.space2,
-    borderRadius: '3px',
+    borderRadius: '1px',
   }
   return (
     <FelaComponent style={style}>

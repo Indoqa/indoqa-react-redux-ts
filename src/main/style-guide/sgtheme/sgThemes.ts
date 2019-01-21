@@ -32,7 +32,6 @@ export const lightTheme: SGTheme = {
       fontFamily: fontFamilies.heading,
       fontWeight: 700,
       lineHeight: 1.2,
-      color: '#868e96',
     },
   },
   spacing: {

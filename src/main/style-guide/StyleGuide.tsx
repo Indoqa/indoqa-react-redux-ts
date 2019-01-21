@@ -29,6 +29,7 @@ interface Props {
   fonts: Font[],
   groups: Group[],
   mountPath: string,
+  sgTheme?: SGTheme,
 }
 
 interface InnerContentPanelProps extends WithSGTheme {
@@ -68,12 +69,8 @@ const createComponentRoute = (name: string, component: React.ReactNode, mountPat
 
 /**
  * Todos
- * - heading: Logo, Heading
- * - make sgTheme configurable
- * - logo support (-> Menu)
  * - make colors and overview mixedFontStyle clickable to get to the details
  *   -> see https://www.webdeveloperpal.com/2018/03/07/react-router-v4-navigate-and-redirect-programmatically/
- * - remove borderRadius FontStylePanel
  * - mixed fontStylePanel for overview page
  * - singleLine fontStylePanel -> for headlines
  * - move to indoqa-react-fela
@@ -95,8 +92,9 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
 
   constructor(props: Props) {
     super(props)
+    const {sgTheme} = props
     this.state = {
-      sgTheme: lightTheme,
+      sgTheme: sgTheme || lightTheme,
     }
   }
 
@@ -104,6 +102,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
     const {sgTheme} = this.state
     const {fontFamilyCSSImports} = sgTheme
     importCss('style-guide-fonts', fontFamilyCSSImports)
+    document.title = `${this.props.projectName} | Style-Guide`
   }
 
   public render() {

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {withTheme} from 'react-fela'
+
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
 import {Color, Font, Group} from './types'
@@ -57,6 +58,30 @@ class DemoStyleGuide extends React.Component<Props> {
 
     const groups = [atomsGroup, moleculesGroup]
 
+    // const demoTheme: SGTheme = {
+    //   colors: {
+    //     ...lightTheme.colors,
+    //     primary: 'red',
+    //     text: 'white',
+    //     primaryLight: 'red',
+    //     primaryDark: 'white',
+    //     textInverted: 'red',
+    //   },
+    //   fontFamilyCSSImports: lightTheme.fontFamilyCSSImports,
+    //   fontSizes: {
+    //     ...lightTheme.fontSizes,
+    //   },
+    //   fontStyles: {
+    //     ...lightTheme.fontStyles,
+    //   },
+    //   spacing: {
+    //     ...lightTheme.spacing,
+    //   },
+    //   layout: {
+    //     ...lightTheme.layout,
+    //   },
+    // }
+
     return (
       <StyleGuide
         projectName="Content-Pools"
@@ -64,6 +89,7 @@ class DemoStyleGuide extends React.Component<Props> {
         colors={colors}
         groups={groups}
         mountPath="/style-guide"
+        // sgTheme={demoTheme}
       />
     )
   }

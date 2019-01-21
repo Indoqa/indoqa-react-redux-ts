@@ -41,7 +41,7 @@ const Heading: React.FC<Props> = ({children, sgTheme, as}) => {
   const baseStyle: IStyle = {
     textTransform: 'uppercase',
     paddingBottom: sgTheme.spacing.space1,
-    color: sgTheme.colors.text,
+    color: sgTheme.colors.primaryDark,
   }
 
   return (

@@ -7,7 +7,7 @@ const ContentHeader: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: IStyle = {
     boxSizing: 'border-box',
     height: sgTheme.layout.topMenuHeight,
-    paddingLeft: sgTheme.spacing.space3,
+    paddingLeft: sgTheme.spacing.space4,
     backgroundColor: sgTheme.colors.primaryLight,
   }
   return (
