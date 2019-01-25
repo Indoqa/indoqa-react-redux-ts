@@ -27,7 +27,7 @@ class DemoStyleGuide extends React.Component<Props> {
       {name: 'base', fontStyle: theme.fontStyles.base},
     ]
 
-    const headingFonts: Font[] = [
+    const headlineFonts: Font[] = [
       {name: 'headline', fontStyle: theme.fontStyles.headline},
     ]
 
@@ -100,7 +100,7 @@ class DemoStyleGuide extends React.Component<Props> {
       <StyleGuide
         projectName="Content-Pools"
         textFonts={textFonts}
-        headlineFonts={headingFonts}
+        headlineFonts={headlineFonts}
         fontMixes={fontMixes}
         fontSizes={fontSizes}
         colors={colors}
