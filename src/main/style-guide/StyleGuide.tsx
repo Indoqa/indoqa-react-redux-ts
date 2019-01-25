@@ -18,7 +18,7 @@ import {SGTheme} from './sgtheme/SGTheme'
 import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 import {lightTheme} from './sgtheme/sgThemes'
 import {WithSGTheme} from './sgtheme/withSGTheme'
-import {Color, Font, FontMix, Group} from './types'
+import {Color, Font, FontMix, FontSizes, Group} from './types'
 import TypographyPanel from './typography/TypographyPanel'
 import importCss from './utils/importCss'
 
@@ -27,7 +27,8 @@ interface Props {
   logo?: React.ReactNode,
   colors: Color[],
   textFonts: Font[],
-  headlineFont: Font[],
+  headlineFonts: Font[],
+  fontSizes: FontSizes,
   fontMixes: FontMix[],
   groups: Group[],
   mountPath: string,
@@ -108,7 +109,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   }
 
   public render() {
-    const {colors, textFonts, groups, mountPath, logo, projectName} = this.props
+    const {colors, textFonts, headlineFonts, fontSizes, groups, mountPath, logo, projectName} = this.props
     const {sgTheme} = this.state
 
     const menuGroups = groups.map((componentDescription) => {
@@ -168,7 +169,11 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
                 )}/>
                 <Route exact path={`${mountPath}/typography`} render={() => (
                   <InnerContentPanel name="Typography" sgTheme={sgTheme}>
-                    <TypographyPanel textFonts={textFonts}/>
+                    <TypographyPanel
+                      textFonts={textFonts}
+                      headlineFonts={headlineFonts}
+                      fontSizes={fontSizes}
+                    />
                   </InnerContentPanel>
                 )}/>
                 {routes}

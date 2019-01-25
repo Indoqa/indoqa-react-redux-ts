@@ -2,13 +2,14 @@ import {IStyle} from 'fela'
 import {Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent} from 'react-fela'
-import {WithSGTheme} from '../sgtheme/withSGTheme'
+import {withSGTheme, WithSGTheme} from '../sgtheme/withSGTheme'
+import FontStylePanel from './FontStylePanel'
 
 interface FontStyleContainerProps {
   fontStyles: IStyle,
 }
 
-interface Props extends FontStyleContainerProps {
+interface Props extends FontStyleContainerProps, WithSGTheme {
   name: string,
 }
 
@@ -25,43 +26,12 @@ const TextSample: React.FunctionComponent<FontStyleContainerProps> = ({fontStyle
   )
 }
 
-const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
-  const style: IStyle = {
-    backgroundColor: sgTheme.colors.primaryLight,
-    textTransform: 'uppercase',
-    ...sgTheme.fontStyles.headline,
-    fontSize: sgTheme.fontSizes.small,
-    color: sgTheme.colors.primaryDark,
-    padding: sgTheme.spacing.space2,
-    borderRadius: '1px',
-  }
-  return (
-    <FelaComponent style={style}>
-      {children}
-    </FelaComponent>
-  )
-}
-
-const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
-  const style: IStyle = {
-    backgroundColor: sgTheme.colors.background,
-    borderRadius: '3px',
-    marginBottom: '2rem',
-  }
-  return (
-    <FelaComponent style={style}>
-      {children}
-    </FelaComponent>
-  )
-}
-
-const TextFontStylePanel: React.FC<Props & WithSGTheme> = ({fontStyles, name, sgTheme}) => {
+const TextFontStylePanel: React.FC<Props> = ({fontStyles, name}) => {
   return (
     <Grid spacing="1rem" fullWidth>
       <Row>
         <Panel>
-          <FontStyleContainer sgTheme={sgTheme}>
-            <TextSampleHeader sgTheme={sgTheme}>{name} / plain</TextSampleHeader>
+          <FontStylePanel name={`${name} / plain`}>
             <TextSample fontStyles={fontStyles}>
               The quick brown fox jumps over the lazy dog.
             </TextSample>
@@ -79,11 +49,10 @@ const TextFontStylePanel: React.FC<Props & WithSGTheme> = ({fontStyles, name, sg
               Looking down into the dark gulf below, I could see a ruddy light streaming&nbsp;
               through a rift in the clouds.&nbsp;
             </TextSample>
-          </FontStyleContainer>
+          </FontStylePanel>
         </Panel>
         <Panel>
-          <FontStyleContainer sgTheme={sgTheme}>
-            <TextSampleHeader sgTheme={sgTheme}>{name} / inline styles</TextSampleHeader>
+          <FontStylePanel name={`${name} / inline styles`}>
             <TextSample fontStyles={fontStyles}>
               The quick brown fox jumps over the lazy dog.
             </TextSample>
@@ -101,11 +70,11 @@ const TextFontStylePanel: React.FC<Props & WithSGTheme> = ({fontStyles, name, sg
               Looking down into the dark gulf below, I could see a ruddy light streaming&nbsp;
               through a rift in the clouds.&nbsp;
             </TextSample>
-          </FontStyleContainer>
+          </FontStylePanel>
         </Panel>
       </Row>
     </Grid>
   )
 }
 
-export default TextFontStylePanel
+export default withSGTheme(TextFontStylePanel)

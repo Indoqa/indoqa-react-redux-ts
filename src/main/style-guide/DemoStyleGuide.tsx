@@ -3,7 +3,7 @@ import {withTheme} from 'react-fela'
 
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
-import {Color, Font, FontMix, Group} from './types'
+import {Color, Font, FontMix, FontSizes, Group} from './types'
 
 interface Props {
   theme: Theme,
@@ -29,6 +29,13 @@ class DemoStyleGuide extends React.Component<Props> {
 
     const headingFonts: Font[] = [
       {name: 'headline', fontStyle: theme.fontStyles.headline},
+    ]
+
+    const fontSizes: FontSizes = [
+      theme.fontSizes.extraBig,
+      theme.fontSizes.big,
+      theme.fontSizes.text,
+      theme.fontSizes.small,
     ]
 
     const fontMixes: FontMix[] = [
@@ -93,8 +100,9 @@ class DemoStyleGuide extends React.Component<Props> {
       <StyleGuide
         projectName="Content-Pools"
         textFonts={textFonts}
-        headlineFont={headingFonts}
+        headlineFonts={headingFonts}
         fontMixes={fontMixes}
+        fontSizes={fontSizes}
         colors={colors}
         groups={groups}
         mountPath="/style-guide"
