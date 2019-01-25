@@ -3,7 +3,7 @@ import {withTheme} from 'react-fela'
 
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
-import {Color, Font, Group} from './types'
+import {Color, Font, FontMix, Group} from './types'
 
 interface Props {
   theme: Theme,
@@ -23,9 +23,16 @@ class DemoStyleGuide extends React.Component<Props> {
       {name: 'secondary-text', hexCode: theme.colors.textSecondary},
       {name: 'divider', hexCode: theme.colors.divider},
     ]
-    const fonts: Font[] = [
+    const textFonts: Font[] = [
       {name: 'base', fontStyle: theme.fontStyles.base},
+    ]
+
+    const headingFonts: Font[] = [
       {name: 'headline', fontStyle: theme.fontStyles.headline},
+    ]
+
+    const fontMixes: FontMix[] = [
+      {name: 'headline', textFont: theme.fontStyles.headline, headlineFont: theme.fontStyles.headline},
     ]
 
     const atomsGroup: Group = {
@@ -85,7 +92,9 @@ class DemoStyleGuide extends React.Component<Props> {
     return (
       <StyleGuide
         projectName="Content-Pools"
-        fonts={fonts}
+        textFonts={textFonts}
+        headlineFont={headingFonts}
+        fontMixes={fontMixes}
         colors={colors}
         groups={groups}
         mountPath="/style-guide"

@@ -27,11 +27,11 @@ const TextSample: React.FunctionComponent<FontStyleContainerProps> = ({fontStyle
 
 const TextSampleHeader: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
   const style: IStyle = {
-    backgroundColor: sgTheme.colors.primaryDark,
+    backgroundColor: sgTheme.colors.primaryLight,
     textTransform: 'uppercase',
     ...sgTheme.fontStyles.headline,
     fontSize: sgTheme.fontSizes.small,
-    color: sgTheme.colors.textInverted,
+    color: sgTheme.colors.primaryDark,
     padding: sgTheme.spacing.space2,
     borderRadius: '1px',
   }
@@ -55,7 +55,7 @@ const FontStyleContainer: React.FunctionComponent<WithSGTheme> = ({sgTheme, chil
   )
 }
 
-const FontStylePanel: React.FunctionComponent<Props & WithSGTheme> = ({fontStyles, name, sgTheme}) => {
+const TextFontStylePanel: React.FC<Props & WithSGTheme> = ({fontStyles, name, sgTheme}) => {
   return (
     <Grid spacing="1rem" fullWidth>
       <Row>
@@ -83,7 +83,7 @@ const FontStylePanel: React.FunctionComponent<Props & WithSGTheme> = ({fontStyle
         </Panel>
         <Panel>
           <FontStyleContainer sgTheme={sgTheme}>
-            <TextSampleHeader sgTheme={sgTheme}>{name} / markup</TextSampleHeader>
+            <TextSampleHeader sgTheme={sgTheme}>{name} / inline styles</TextSampleHeader>
             <TextSample fontStyles={fontStyles}>
               The quick brown fox jumps over the lazy dog.
             </TextSample>
@@ -108,4 +108,4 @@ const FontStylePanel: React.FunctionComponent<Props & WithSGTheme> = ({fontStyle
   )
 }
 
-export default FontStylePanel
+export default TextFontStylePanel

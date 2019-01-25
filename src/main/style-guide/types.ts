@@ -21,3 +21,9 @@ export interface Font {
   name: string,
   fontStyle: IStyle,
 }
+
+export interface FontMix {
+  name: string,
+  textFont: IStyle,
+  headlineFont: IStyle,
+}
