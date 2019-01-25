@@ -16,6 +16,7 @@ const Header: React.FunctionComponent<WithSGTheme> = ({sgTheme, children}) => {
     color: sgTheme.colors.primaryDark,
     padding: sgTheme.spacing.space2,
     borderRadius: '1px',
+    marginBottom: sgTheme.spacing.space2,
   }
   return (
     <FelaComponent style={style}>

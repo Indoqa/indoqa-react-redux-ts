@@ -43,7 +43,7 @@ const renderHeadlineSamples = (fontStyles: IStyle, fontSizes: FontSizes) => {
   })
 }
 
-const HeadlineFontStylePanel: React.FC<Props> = ({fontStyles, fontSizes, name}) => {
+const HeadlineFontPanel: React.FC<Props> = ({fontStyles, fontSizes, name}) => {
   return (
     <Grid spacing="1rem" fullWidth>
       <Row>
@@ -57,4 +57,4 @@ const HeadlineFontStylePanel: React.FC<Props> = ({fontStyles, fontSizes, name}) 
   )
 }
 
-export default withSGTheme(HeadlineFontStylePanel)
+export default withSGTheme(HeadlineFontPanel)

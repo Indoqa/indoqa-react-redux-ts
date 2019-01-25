@@ -39,7 +39,7 @@ class DemoStyleGuide extends React.Component<Props> {
     ]
 
     const fontMixes: FontMix[] = [
-      {name: 'headline', textFont: theme.fontStyles.headline, headlineFont: theme.fontStyles.headline},
+      {name: 'Font A / Font B', textFont: theme.fontStyles.base, headlineFont: theme.fontStyles.headline},
     ]
 
     const atomsGroup: Group = {

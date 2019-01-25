@@ -27,6 +27,7 @@ const getConcreteStyle = (level: HeadingType, sgTheme: SGTheme) => {
     case 'h2': {
       return {
         fontSize: sgTheme.fontSizes.big,
+        paddingBottom: sgTheme.spacing.space2,
       }
     }
     default: {

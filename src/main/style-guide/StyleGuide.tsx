@@ -109,7 +109,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   }
 
   public render() {
-    const {colors, textFonts, headlineFonts, fontSizes, groups, mountPath, logo, projectName} = this.props
+    const {colors, textFonts, headlineFonts, fontMixes, fontSizes, groups, mountPath, logo, projectName} = this.props
     const {sgTheme} = this.state
 
     const menuGroups = groups.map((componentDescription) => {
@@ -159,7 +159,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
               <ContentPanel>
                 <Route exact path={mountPath} render={() => (
                   <InnerContentPanel name={`Styleguide ${this.props.projectName}`} sgTheme={sgTheme}>
-                    <OverviewPanel colors={colors}/>
+                    <OverviewPanel colors={colors} fontMixes={fontMixes} fontSizes={fontSizes} />
                   </InnerContentPanel>
                 )}/>
                 <Route exact path={`${mountPath}/colors`} render={() => (
@@ -172,6 +172,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
                     <TypographyPanel
                       textFonts={textFonts}
                       headlineFonts={headlineFonts}
+                      fontMixes={fontMixes}
                       fontSizes={fontSizes}
                     />
                   </InnerContentPanel>

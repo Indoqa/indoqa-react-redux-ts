@@ -1,39 +1,24 @@
 import {IStyle} from 'fela'
 import {Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
-import {FelaComponent} from 'react-fela'
 import {withSGTheme, WithSGTheme} from '../sgtheme/withSGTheme'
 import FontStylePanel from './FontStylePanel'
+import TextSample from './TextSample'
+import {longText, shortText} from './TextSpecimen'
 
-interface FontStyleContainerProps {
+interface Props extends WithSGTheme {
+  name: string,
   fontStyles: IStyle,
 }
 
-interface Props extends FontStyleContainerProps, WithSGTheme {
-  name: string,
-}
-
-const TextSample: React.FunctionComponent<FontStyleContainerProps> = ({fontStyles, children}) => {
-  const style: IStyle = {
-    marginTop: '1rem',
-    marginBottom: '1rem',
-    padding: '0.5rem',
-  }
-  return (
-    <FelaComponent style={[style, fontStyles]} as="p">
-      {children}
-    </FelaComponent>
-  )
-}
-
-const TextFontStylePanel: React.FC<Props> = ({fontStyles, name}) => {
+const TextFontPanel: React.FC<Props> = ({fontStyles, name}) => {
   return (
     <Grid spacing="1rem" fullWidth>
       <Row>
         <Panel>
           <FontStylePanel name={`${name} / plain`}>
             <TextSample fontStyles={fontStyles}>
-              The quick brown fox jumps over the lazy dog.
+              {shortText}
             </TextSample>
             <TextSample fontStyles={fontStyles}>
               ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
@@ -41,13 +26,7 @@ const TextFontStylePanel: React.FC<Props> = ({fontStyles, name}) => {
               0123456789<br/>! " § % & / ( ) = ? + * # ' - _ . : , ; € @ | &lt; &gt; {'{'} {'}'}
             </TextSample>
             <TextSample fontStyles={fontStyles}>
-              Apparently we had reached a great height in the atmosphere, for the sky was&nbsp;
-              a dead black, and the stars had ceased to twinkle. By the same illusion which&nbsp;
-              lifts the horizon of the sea to the level of the spectator on a hillside, the&nbsp;
-              sable cloud beneath was dished out, and the car seemed to float in the middle&nbsp;
-              of an immense dark sphere, whose upper half was strewn with silver.&nbsp;
-              Looking down into the dark gulf below, I could see a ruddy light streaming&nbsp;
-              through a rift in the clouds.&nbsp;
+              {longText}
             </TextSample>
           </FontStylePanel>
         </Panel>
@@ -77,4 +56,4 @@ const TextFontStylePanel: React.FC<Props> = ({fontStyles, name}) => {
   )
 }
 
-export default withSGTheme(TextFontStylePanel)
+export default withSGTheme(TextFontPanel)
