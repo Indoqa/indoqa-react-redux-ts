@@ -11,7 +11,7 @@ const TextSample: React.FunctionComponent<Props> = ({fontStyles, children}) => {
     paddingBottom: '0.5rem',
   }
   return (
-    <FelaComponent style={[style, fontStyles]} as="p">
+    <FelaComponent style={[style, fontStyles]}>
       {children}
     </FelaComponent>
   )

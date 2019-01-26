@@ -28,4 +28,6 @@ export interface FontMix {
   headlineFont: IStyle,
 }
 
-export type FontSizes = Array<string | number | undefined>
+export type FontSize = string | number | undefined
+
+export type FontSizes = FontSize[]

@@ -11,6 +11,7 @@ const StyleGuideMenu: React.FC<WithSGTheme> = ({children, sgTheme}) => {
   const style: StyleGuideMenuCSSProps = {
     boxSizing: 'border-box',
     backgroundColor: sgTheme.colors.primary,
+    marginBottom: sgTheme.spacing.space4,
     tablet: {
       overflowY: 'auto',
       borderBottom: 'none',

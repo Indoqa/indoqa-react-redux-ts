@@ -39,11 +39,23 @@ const Container: React.FC<WithSGTheme> = ({sgTheme, children}) => {
   )
 }
 
+const Content: React.FC<WithSGTheme> = ({sgTheme, children}) => {
+  const style: IStyle = {
+    paddingLeft: sgTheme.spacing.space2,
+    paddingTop: sgTheme.spacing.space2,
+  }
+  return (
+    <FelaComponent style={style}>
+      {children}
+    </FelaComponent>
+  )
+}
+
 const FontStylePanel: React.FC<Props> = ({sgTheme, name, children}) => {
   return (
     <Container sgTheme={sgTheme}>
       <Header sgTheme={sgTheme}>{name}</Header>
-      {children}
+      <Content sgTheme={sgTheme}>{children}</Content>
     </Container>
   )
 }

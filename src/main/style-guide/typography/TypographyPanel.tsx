@@ -1,7 +1,7 @@
 import {Flex} from 'indoqa-react-fela'
 import * as React from 'react'
 import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
-import {Font, FontMix, FontSizes} from '../types'
+import {Font, FontMix, FontSize, FontSizes} from '../types'
 import FontMixPanel from './FontMixPanel'
 import HeadlineFontStylePanel from './HeadlineFontPanel'
 import TextFontStylePanel from './TextFontPanel'
@@ -11,6 +11,7 @@ interface Props extends WithSGTheme {
   headlineFonts: Font[],
   fontSizes: FontSizes,
   fontMixes: FontMix[],
+  textFontSize: FontSize,
 }
 
 const renderTextFont = (font: Font) => {
@@ -34,17 +35,18 @@ const renderHeadlineFont = (font: Font, fontSizes: FontSizes) => {
   )
 }
 
-const renderFontMixes = (fontMix: FontMix, fontSizes: FontSizes) => {
+const renderFontMixes = (fontMix: FontMix, fontSizes: FontSizes, textFontSize: FontSize) => {
   return (
     <FontMixPanel
       key={fontMix.name}
       fontMix={fontMix}
       fontSizes={fontSizes}
+      textFontSize={textFontSize}
     />
   )
 }
 
-const TypographyPanel: React.FC<Props> = ({textFonts, headlineFonts, fontMixes, fontSizes}) => {
+const TypographyPanel: React.FC<Props> = ({textFonts, headlineFonts, fontMixes, fontSizes, textFontSize}) => {
   return (
     <React.Fragment>
       <Flex>
@@ -54,7 +56,7 @@ const TypographyPanel: React.FC<Props> = ({textFonts, headlineFonts, fontMixes, 
         {textFonts.map((font) => renderTextFont(font))}
       </Flex>
       <Flex>
-        {fontMixes.map((fontMix) => renderFontMixes(fontMix, fontSizes))}
+        {fontMixes.map((fontMix) => renderFontMixes(fontMix, fontSizes, textFontSize))}
       </Flex>
     </React.Fragment>
   )

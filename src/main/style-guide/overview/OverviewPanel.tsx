@@ -2,18 +2,18 @@ import {IStyle} from 'fela'
 import {Box, Flex} from 'indoqa-react-fela'
 import * as React from 'react'
 import ColorsPanel from '../colors/ColorsPanel'
-import Heading from '../Heading'
 import {WithSGTheme, withSGTheme} from '../sgtheme/withSGTheme'
-import {Color, FontMix, FontSizes} from '../types'
+import {Color, FontMix, FontSize, FontSizes} from '../types'
 import FontMixContent from '../typography/FontMixContent'
 
 interface Props extends WithSGTheme {
   colors: Color[],
   fontMixes: FontMix[],
   fontSizes: FontSizes,
+  textFontSize: FontSize,
 }
 
-const OverviewPanel: React.FC<Props> = ({fontMixes, fontSizes, colors, sgTheme}) => {
+const OverviewPanel: React.FC<Props> = ({fontMixes, fontSizes, textFontSize, colors, sgTheme}) => {
   const panelStyle: IStyle = {
     marginTop: sgTheme.spacing.space4,
   }
@@ -23,12 +23,15 @@ const OverviewPanel: React.FC<Props> = ({fontMixes, fontSizes, colors, sgTheme})
     <Flex fullWidth direction="column">
       <Box>
         <Box>
-          <Heading as="h2">Colors</Heading>
           <ColorsPanel colors={colors} small />
         </Box>
         <Box style={panelStyle}>
-          <Heading as="h2">Typography</Heading>
-          <FontMixContent textFont={textFont} headlineFont={headlineFont} fontSizes={fontSizes} />
+          <FontMixContent
+            textFont={textFont}
+            headlineFont={headlineFont}
+            fontSizes={fontSizes}
+            textFontSize={textFontSize}
+          />
         </Box>
       </Box>
     </Flex>

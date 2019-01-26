@@ -1,29 +1,43 @@
-import {IStyle} from "fela"
+import {IStyle} from 'fela'
 import * as React from 'react'
-import {FontSizes} from '../types'
+import {FelaComponent} from 'react-fela'
+import {FontSize, FontSizes} from '../types'
 import TextSample from './TextSample'
-import {longText, shortText} from './TextSpecimen'
+import {headerText, longText} from './TextSpecimen'
 
 interface Props {
   textFont: IStyle,
   headlineFont: IStyle,
   fontSizes: FontSizes
+  textFontSize: FontSize,
 }
 
-const FontMixContent: React.FC<Props> = ({textFont, headlineFont, fontSizes}) => {
+const Container: React.FC = ({children}) => {
+  const style: IStyle = {
+    maxWidth: 650,
+  }
+  return <FelaComponent style={style}>{children}</FelaComponent>
+}
+
+const FontMixContent: React.FC<Props> = ({textFont, headlineFont, fontSizes, textFontSize}) => {
   const extendedHeadlineFont: IStyle = {
     ...headlineFont,
     fontSize: fontSizes.length > 0 ? fontSizes[0] : '30px',
   }
+  const extendedTextFont: IStyle = {
+    ...textFont,
+    fontSize: textFontSize ? textFontSize : '14px',
+  }
+
   return (
-    <React.Fragment>
+    <Container>
       <TextSample fontStyles={extendedHeadlineFont}>
-        {shortText}
+        {headerText}
       </TextSample>
-      <TextSample fontStyles={textFont}>
+      <TextSample fontStyles={extendedTextFont}>
         {longText}
       </TextSample>
-    </React.Fragment>
+    </Container>
   )
 }
 

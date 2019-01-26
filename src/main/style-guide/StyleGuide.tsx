@@ -18,7 +18,7 @@ import {SGTheme} from './sgtheme/SGTheme'
 import StyleGuideThemeContext from './sgtheme/SGThemeContext'
 import {lightTheme} from './sgtheme/sgThemes'
 import {WithSGTheme} from './sgtheme/withSGTheme'
-import {Color, Font, FontMix, FontSizes, Group} from './types'
+import {Color, Font, FontMix, FontSize, FontSizes, Group} from './types'
 import TypographyPanel from './typography/TypographyPanel'
 import importCss from './utils/importCss'
 
@@ -29,6 +29,7 @@ interface Props {
   textFonts: Font[],
   headlineFonts: Font[],
   fontSizes: FontSizes,
+  textFontSize: FontSize,
   fontMixes: FontMix[],
   groups: Group[],
   mountPath: string,
@@ -109,7 +110,18 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
   }
 
   public render() {
-    const {colors, textFonts, headlineFonts, fontMixes, fontSizes, groups, mountPath, logo, projectName} = this.props
+    const {
+      colors,
+      textFonts,
+      headlineFonts,
+      fontMixes,
+      fontSizes,
+      textFontSize,
+      groups,
+      mountPath,
+      logo,
+      projectName,
+    } = this.props
     const {sgTheme} = this.state
 
     const menuGroups = groups.map((componentDescription) => {
@@ -159,7 +171,12 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
               <ContentPanel>
                 <Route exact path={mountPath} render={() => (
                   <InnerContentPanel name={`Styleguide ${this.props.projectName}`} sgTheme={sgTheme}>
-                    <OverviewPanel colors={colors} fontMixes={fontMixes} fontSizes={fontSizes} />
+                    <OverviewPanel
+                      colors={colors}
+                      fontMixes={fontMixes}
+                      fontSizes={fontSizes}
+                      textFontSize={textFontSize}
+                    />
                   </InnerContentPanel>
                 )}/>
                 <Route exact path={`${mountPath}/colors`} render={() => (
@@ -174,6 +191,7 @@ class StyleGuide extends React.Component<Props, WithSGTheme> {
                       headlineFonts={headlineFonts}
                       fontMixes={fontMixes}
                       fontSizes={fontSizes}
+                      textFontSize={textFontSize}
                     />
                   </InnerContentPanel>
                 )}/>

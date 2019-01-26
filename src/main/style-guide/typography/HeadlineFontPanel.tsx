@@ -2,11 +2,12 @@ import {IStyle} from 'fela'
 import {Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent} from 'react-fela'
+import {SGTheme} from '../sgtheme/SGTheme'
 import {withSGTheme, WithSGTheme} from '../sgtheme/withSGTheme'
 import {FontSizes} from '../types'
 import FontStylePanel from './FontStylePanel'
 
-interface FontStyleContainerProps {
+interface HeadlineProps extends  WithSGTheme {
   fontStyles: IStyle,
 }
 
@@ -14,16 +15,14 @@ interface WithFontSize {
   fontSize: string | number | undefined
 }
 
-interface Props extends FontStyleContainerProps, WithSGTheme {
+interface Props extends HeadlineProps {
   name: string,
   fontSizes: FontSizes,
 }
 
-const HeadlineSample: React.FC<FontStyleContainerProps & WithFontSize> = ({fontStyles, fontSize, children}) => {
+const HeadlineSample: React.FC<HeadlineProps & WithFontSize> = ({fontStyles, fontSize, sgTheme, children}) => {
   const style: IStyle = {
-      marginTop: '1rem',
-      paddingLeft: '0.5rem',
-      paddingRight: '0.5rem',
+      marginBottom: sgTheme.spacing.space2,
       fontSize,
   }
   return (
@@ -33,23 +32,23 @@ const HeadlineSample: React.FC<FontStyleContainerProps & WithFontSize> = ({fontS
   )
 }
 
-const renderHeadlineSamples = (fontStyles: IStyle, fontSizes: FontSizes) => {
+const renderHeadlineSamples = (fontStyles: IStyle, fontSizes: FontSizes, sgTheme: SGTheme) => {
   return fontSizes.map((fontSize) => {
     return (
-      <HeadlineSample fontStyles={fontStyles} fontSize={fontSize} key={fontSize}>
+      <HeadlineSample fontStyles={fontStyles} fontSize={fontSize} sgTheme={sgTheme} key={fontSize}>
         The quick brown fox jumps over the lazy dog.
       </HeadlineSample>
     )
   })
 }
 
-const HeadlineFontPanel: React.FC<Props> = ({fontStyles, fontSizes, name}) => {
+const HeadlineFontPanel: React.FC<Props> = ({fontStyles, fontSizes, name, sgTheme}) => {
   return (
-    <Grid spacing="1rem" fullWidth>
+    <Grid fullWidth>
       <Row>
         <Panel>
           <FontStylePanel name={`${name} / plain`}>
-            {renderHeadlineSamples(fontStyles, fontSizes)}
+            {renderHeadlineSamples(fontStyles, fontSizes, sgTheme)}
           </FontStylePanel>
         </Panel>
       </Row>

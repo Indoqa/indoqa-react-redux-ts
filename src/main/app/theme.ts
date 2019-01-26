@@ -73,13 +73,12 @@ const theme: Theme = {
     base: {
       fontFamily: baseFontFamilies.special,
       fontSize: baseFontSizes.text,
-      lineHeight: 1.2,
+      lineHeight: 1.3,
       fontWeight: 400,
       color: baseColors.black_2,
     },
     headline: {
       fontFamily: baseFontFamilies.text,
-      fontSize: baseFontSizes.big,
       lineHeight: 1.2,
       fontWeight: 700,
       color: baseColors.black_2,

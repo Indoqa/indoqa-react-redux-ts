@@ -3,7 +3,7 @@ import {withTheme} from 'react-fela'
 
 import {Theme} from '../app/theme'
 import StyleGuide from './StyleGuide'
-import {Color, Font, FontMix, FontSizes, Group} from './types'
+import {Color, Font, FontMix, FontSize, FontSizes, Group} from './types'
 
 interface Props {
   theme: Theme,
@@ -37,6 +37,8 @@ class DemoStyleGuide extends React.Component<Props> {
       theme.fontSizes.text,
       theme.fontSizes.small,
     ]
+
+    const textFontSize: FontSize = theme.fontSizes.text
 
     const fontMixes: FontMix[] = [
       {name: 'Font A / Font B', textFont: theme.fontStyles.base, headlineFont: theme.fontStyles.headline},
@@ -103,6 +105,7 @@ class DemoStyleGuide extends React.Component<Props> {
         headlineFonts={headlineFonts}
         fontMixes={fontMixes}
         fontSizes={fontSizes}
+        textFontSize={textFontSize}
         colors={colors}
         groups={groups}
         mountPath="/style-guide"
