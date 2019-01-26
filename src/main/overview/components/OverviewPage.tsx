@@ -1,94 +1,60 @@
 import * as React from 'react'
-import {createComponent} from 'react-fela'
 import {Link} from 'react-router-dom'
 
 import MainMenuTemplate from '../../commons/components/templates/MainMenuTemplate'
 
 import './OverviewPage.css'
 
-const Headline1 = createComponent(({theme}) => ({
-  fontSize: theme.fontSizes.extraBig,
-  fontWeight: 'bold',
-  marginTop: 0,
-  marginBottom: theme.spacing.space1,
-}), 'h1') as any
-
-const Headline2 = createComponent(({theme}) => ({
-  marginTop: theme.spacing.space3,
-}), Headline1) as any
-
-const Headline3 = createComponent(({theme}) => ({
-  fontSize: theme.fontSizes.big,
-  fontWeight: 'bold',
-  marginTop: theme.spacing.space2,
-  marginBottom: theme.spacing.space1,
-}), 'h3') as any
-
-const Para = createComponent(({theme}) => ({
-  lineHeight: '125%',
-  marginBottom: theme.spacing.space1,
-}), 'p') as any
-
-const List = createComponent(({theme}) => ({
-  listStyleType: 'disc',
-  listStylePosition: 'outside',
-  paddingLeft: theme.spacing.space3,
-}), 'ul') as any
-
-const ListItem = createComponent(({theme}) => ({
-  lineHeight: '125%',
-}), 'li') as any
-
 export default class OverviewPage extends React.Component<{}> {
 
   public render() {
     return (
       <MainMenuTemplate title="Overview">
-        <Headline1>Indoqa React-Redux Typescript</Headline1>
-        <Para>
+        <h1>Indoqa React-Redux Typescript</h1>
+        <p>
           Welcome to the <span className="indoqa">Indoqa React-Redux Typescript</span>. This project demonstrates how
           we at <a href="https://www.indoqa.com" target="new">Indoqa</a> setup a Typescript-based React-Redux. After
           removing the the samples it can also serve as a starter for new projects.
-        </Para>
-        <List>
-          <ListItem>
+        </p>
+        <ul>
+          <li>
             Use of <a href="" target="new">indoqa-react-app</a> to create the React root app (component).
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Creation of the typed root reducer and the root epic with injected external services for testability.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Types for actions, reducers, epics and react components. See also the global action and
             state types.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Typed <a href="http://fela.js.org/" target="new">Fela</a> application theme,
             which is based on a base theme provided
             by <a href="https://github.com/Indoqa/indoqa-react-fela" target="new">indoqa-react-fela</a>.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Using themed base components Box, Text and Flex provided
             by <a href="https://github.com/Indoqa/indoqa-react-fela" target="new">indoqa-react-fela</a>.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Use of <a href="http://fela.js.org/" target="new">Fela</a> to provide typed styles
             accessing the application theme.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Usage of <a href="https://github.com/reduxjs/reselect" target="new">Reselect</a> to access the global state.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Providing common React components based on the atomic design methodology (atoms,
             molecules, organisms and templates) by Brad Frost.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Setup of <a href="https://github.com/i18next/react-i18next" target="new">i18next</a> to
             make the i18n translation catalogues (namespaces) available to all React components.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Configuration of <a href="https://github.com/Indoqa/indoqa-webpack" target="new">indoqa-webpack</a>
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Setup of&nbsp;
             <a href="https://reacttraining.com/react-router/web/guides/philosophy" target="new">
               React-Router
@@ -96,119 +62,119 @@ export default class OverviewPage extends React.Component<{}> {
             &nbsp;with&nbsp;
             <a href="https://github.com/jamiebuilds/react-loadable" target="new">react-loadable</a>
             &nbsp; demonstrating route-based code splitting.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Hot-reload of React components, epics, actions and reducers.
-          </ListItem>
-        </List>
+          </li>
+        </ul>
 
-        <Headline2>Samples</Headline2>
-        <Para>
+        <h2>Samples</h2>
+        <p>
           Each of the following samples focuses on particular technologies:
-        </Para>
-        <Headline3>
+        </p>
+        <h3>
           <Link to="/">Overview</Link>
-        </Headline3>
-        <List>
-          <ListItem>
+        </h3>
+        <ul>
+          <li>
             Import of a CSS resource
-          </ListItem>
-        </List>
-        <Headline3>
+          </li>
+        </ul>
+        <h3>
           <Link to="/forms">Forms</Link>
-        </Headline3>
-        <List>
-          <ListItem>
+        </h3>
+        <ul>
+          <li>
             Create forms with Formik
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Usage with Redux
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Validation with yup
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Subforms
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Server-side validation - propagating errors to the form
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Changing the history (URL path) as a side-effect (redux-observable)
-          </ListItem>
-        </List>
-        <Headline3>
+          </li>
+        </ul>
+        <h3>
           <Link to="/time">Time</Link>
-        </Headline3>
-        <List>
-          <ListItem>
+        </h3>
+        <ul>
+          <li>
             Use of <a href="https://github.com/mweststrate/immer" target="new">Immer.js</a> for immutable state
             updates in reducers
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Typing of actions using the Redux action type and constants
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             i18n using <a href="https://github.com/i18next/react-i18next" target="new">i18next</a> by
             passing the withNamespace function to a react component for translations.
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             Producing side effects with redux-observable which call an RESTful webservice,
             covering the success and the error case and retry three times if the initial
             call was not successful.
-          </ListItem>
-        </List>
-        <Headline3>
+          </li>
+        </ul>
+        <h3>
           <Link to="/">Upload</Link>
-        </Headline3>
-        <List>
-          <ListItem>
+        </h3>
+        <ul>
+          <li>
             Upload a file with typed events
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             React component state
-          </ListItem>
-        </List>
-        <Headline3>
+          </li>
+        </ul>
+        <h3>
           <Link to="/">Words</Link>
-        </Headline3>
-        <List>
-          <ListItem>
+        </h3>
+        <ul>
+          <li>
             Cancelling, delaying and debouncing of side-effects (redux-observables)
-          </ListItem>
-        </List>
+          </li>
+        </ul>
 
-        <Headline2>Further readings</Headline2>
-        <Headline3>Typescript</Headline3>
-        <List>
-          <ListItem>
+        <h2>Further readings</h2>
+        <h3>Typescript</h3>
+        <ul>
+          <li>
             <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="new>">
               Typescript handbook
             </a>
             &nbsp;by Microsoft
-          </ListItem>
-        </List>
-        <Headline3>Typescript with React, Redux and redux-observables</Headline3>
-        <List>
-          <ListItem>
+          </li>
+        </ul>
+        <h3>Typescript with React, Redux and redux-observables</h3>
+        <ul>
+          <li>
             <a href="https://github.com/sw-yx/react-typescript-cheatsheet" target="new>">
               React-Typescript Cheatsheet
             </a>
             &nbsp;by Shawn Wang
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             <a href="https://github.com/piotrwitek/react-redux-typescript-guide" target="new>">
               React-Redux Typescript guide by
             </a>
             &nbsp;Piotrek Witek
-          </ListItem>
-          <ListItem>
+          </li>
+          <li>
             <a href="https://github.com/piotrwitek/typesafe-actions" target="new>">
               Typesafe actions and the "Mighty tutorial"
             </a>
             &nbsp;by Piotrek Witek
-          </ListItem>
-        </List>
+          </li>
+        </ul>
       </MainMenuTemplate>
     )
   }

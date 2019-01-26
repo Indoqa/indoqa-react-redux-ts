@@ -41,7 +41,9 @@ const getConcreteStyle = (level: HeadingType, sgTheme: SGTheme) => {
 const Heading: React.FC<Props> = ({children, sgTheme, as}) => {
   const baseStyle: IStyle = {
     textTransform: 'uppercase',
+    margin: 0,
     paddingBottom: sgTheme.spacing.space1,
+    marginBottom: sgTheme.spacing.space0,
     color: sgTheme.colors.primaryDark,
   }
 

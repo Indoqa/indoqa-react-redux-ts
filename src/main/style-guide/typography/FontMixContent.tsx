@@ -3,7 +3,7 @@ import * as React from 'react'
 import {FelaComponent} from 'react-fela'
 import {FontSize, FontSizes} from '../types'
 import TextSample from './TextSample'
-import {headerText, longText} from './TextSpecimen'
+import {headerText, longText, shortText} from './TextSpecimen'
 
 interface Props {
   textFont: IStyle,
@@ -20,9 +20,17 @@ const Container: React.FC = ({children}) => {
 }
 
 const FontMixContent: React.FC<Props> = ({textFont, headlineFont, fontSizes, textFontSize}) => {
-  const extendedHeadlineFont: IStyle = {
+  const extendedHeadline1Font: IStyle = {
     ...headlineFont,
     fontSize: fontSizes.length > 0 ? fontSizes[0] : '30px',
+  }
+  const extendedHeadline2Font: IStyle = {
+    ...headlineFont,
+    fontSize: fontSizes.length > 1 ? fontSizes[1] : '24px',
+  }
+  const extendedHeadline3Font: IStyle = {
+    ...headlineFont,
+    fontSize: fontSizes.length > 2 ? fontSizes[2] : '18px',
   }
   const extendedTextFont: IStyle = {
     ...textFont,
@@ -31,7 +39,31 @@ const FontMixContent: React.FC<Props> = ({textFont, headlineFont, fontSizes, tex
 
   return (
     <Container>
-      <TextSample fontStyles={extendedHeadlineFont}>
+      <TextSample fontStyles={extendedHeadline1Font} as="h1">
+        {headerText}
+      </TextSample>
+      <TextSample fontStyles={extendedTextFont}>
+        {longText}
+      </TextSample>
+      <TextSample fontStyles={extendedHeadline2Font} as="h2">
+        {headerText}
+      </TextSample>
+      <TextSample fontStyles={extendedTextFont}>
+        {shortText}
+      </TextSample>
+      <TextSample fontStyles={extendedHeadline3Font} as="h3">
+        {headerText}
+      </TextSample>
+      <TextSample fontStyles={extendedTextFont}>
+        {longText}
+      </TextSample>
+      <TextSample fontStyles={extendedHeadline3Font} as="h3">
+        {headerText}
+      </TextSample>
+      <TextSample fontStyles={extendedTextFont}>
+        {shortText}
+      </TextSample>
+      <TextSample fontStyles={extendedHeadline2Font} as="h2">
         {headerText}
       </TextSample>
       <TextSample fontStyles={extendedTextFont}>

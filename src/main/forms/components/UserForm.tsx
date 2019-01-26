@@ -1,15 +1,15 @@
+import {Form, Formik, FormikProps} from 'formik'
 import i18next from 'i18next'
+import {Box} from 'indoqa-react-fela'
 import * as React from 'react'
 import {WithNamespaces, withNamespaces} from 'react-i18next'
 import {Link} from 'react-router-dom'
-import {Form, Formik, FormikProps} from 'formik'
-import {Box} from 'indoqa-react-fela'
 import * as Yup from 'yup'
+import ButtonLink from '../../commons/components/atoms/ButtonLink'
+import FormRow from '../../commons/components/molecules/FormRow'
+import {User} from '../store/forms.types'
 
 import AddressesSubForm from './AddressesSubForm'
-import FormRow from '../../commons/components/molecules/FormRow'
-import ButtonLink from '../../commons/components/atoms/ButtonLink'
-import {User} from '../store/forms.types'
 
 const validationSchema = (t: i18next.TranslationFunction) =>
   Yup.object().shape({

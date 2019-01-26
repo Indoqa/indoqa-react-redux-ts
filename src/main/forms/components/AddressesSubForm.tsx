@@ -1,11 +1,11 @@
-import i18next from 'i18next'
-import * as React from 'react'
 import {ArrayHelpers, FieldArray, FormikErrors, FormikTouched} from 'formik'
+import i18next from 'i18next'
 import {Box, Flex, Text} from 'indoqa-react-fela'
+import * as React from 'react'
 import {WithNamespaces, withNamespaces} from 'react-i18next'
+import FormRow from '../../commons/components/molecules/FormRow'
 
 import Optional from '../../commons/components/utils/Optional'
-import FormRow from '../../commons/components/molecules/FormRow'
 import {createNewAddress} from '../store/forms.factory'
 import {Address} from '../store/forms.types'
 

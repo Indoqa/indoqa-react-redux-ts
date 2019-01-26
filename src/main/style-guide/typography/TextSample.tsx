@@ -4,14 +4,15 @@ import {FelaComponent} from 'react-fela'
 
 interface Props {
   fontStyles: IStyle,
+  as?: keyof React.ReactHTML,
 }
 
-const TextSample: React.FunctionComponent<Props> = ({fontStyles, children}) => {
+const TextSample: React.FunctionComponent<Props> = ({fontStyles, children, as}) => {
   const style: IStyle = {
-    paddingBottom: '0.5rem',
+    paddingBottom: 0,
   }
   return (
-    <FelaComponent style={[style, fontStyles]}>
+    <FelaComponent style={[style, fontStyles]} as={as || 'p'}>
       {children}
     </FelaComponent>
   )

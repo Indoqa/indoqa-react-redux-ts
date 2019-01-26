@@ -1,15 +1,44 @@
+import {IRenderer} from 'fela'
+import {Box, withRenderer} from 'indoqa-react-fela'
 import * as React from 'react'
-import {Switch, Route} from 'react-router-dom'
 import {ThemeProvider} from 'react-fela'
 import {I18nextProvider} from 'react-i18next'
-import {Box, buildTheme} from 'indoqa-react-fela'
 import Loadable from 'react-loadable'
+import {Route, Switch} from 'react-router-dom'
 
 import MainMenuTemplate from '../commons/components/templates/MainMenuTemplate'
 import UploadPage from '../upload/components/UploadPage'
 import WordsPage from '../words/components/WordsPage'
 import i18n from './i18n'
+import renderBaseCss, {BaseCssProps} from './renderBaseCss'
 import theme from './theme'
+
+interface Props {
+  renderer: IRenderer,
+}
+
+const baseCssProps: BaseCssProps = {
+  spacing: {
+    space1: theme.spacing.space1,
+    space2: theme.spacing.space2,
+  },
+  fontSizes: {
+    text: theme.fontSizes.text,
+    h1: theme.fontSizes.extraBig,
+    h2: theme.fontSizes.veryBig,
+    h3: theme.fontSizes.big,
+  },
+  fontStyles: {
+    base: theme.fontStyles.base,
+    headline: theme.fontStyles.headline,
+  },
+  links: {
+    base: theme.colors.primaryDark,
+    hover: theme.colors.primaryDark,
+    active: theme.colors.primaryDark,
+    visited: theme.colors.primaryDark,
+  },
+}
 
 const Loading = () => (
   <MainMenuTemplate title="Overview">
@@ -37,11 +66,15 @@ const DemoStyleGuide = Loadable({
   loading: Loading,
 })
 
-export default class App extends React.Component<{}> {
+class App extends React.Component<Props> {
+
+  public componentDidMount() {
+    renderBaseCss(this.props.renderer, baseCssProps)
+  }
 
   public render() {
     return (
-      <ThemeProvider theme={buildTheme(theme)}>
+      <ThemeProvider theme={theme}>
         <I18nextProvider i18n={i18n}>
           <Switch>
             <Route path="/style-guide" component={DemoStyleGuide} />
@@ -56,3 +89,5 @@ export default class App extends React.Component<{}> {
     )
   }
 }
+
+export default withRenderer(App)

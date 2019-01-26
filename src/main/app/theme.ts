@@ -1,4 +1,4 @@
-import {BaseColors, BaseFonts, BaseFontSizes, BaseTheme, typeScale} from 'indoqa-react-fela'
+import {BaseColors, BaseFonts, BaseFontSizes, BaseTheme, buildTheme, typeScale} from 'indoqa-react-fela'
 import {CSSProperties} from 'react'
 
 interface FontSizes extends Partial<BaseFontSizes> {
@@ -58,7 +58,7 @@ const baseFontSizes: FontSizes = {
   text: typeScale(1),
   big: typeScale(2),
   veryBig: typeScale(3),
-  extraBig: typeScale(4),
+  extraBig: typeScale(3),
   small: typeScale(0),
   verySmall: typeScale(-1),
 }
@@ -72,7 +72,6 @@ const theme: Theme = {
   fontStyles: {
     base: {
       fontFamily: baseFontFamilies.special,
-      fontSize: baseFontSizes.text,
       lineHeight: 1.3,
       fontWeight: 400,
       color: baseColors.black_2,
@@ -100,4 +99,4 @@ const theme: Theme = {
   },
 }
 
-export default theme
+export default buildTheme(theme)

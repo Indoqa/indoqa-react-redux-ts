@@ -1,13 +1,13 @@
+import {Box, Flex, Text} from 'indoqa-react-fela'
 import * as React from 'react'
 import DocumentTitle from 'react-document-title'
 import {createComponentWithProxy} from 'react-fela'
 import {Link} from 'react-router-dom'
-import {Flex, Box, Text} from 'indoqa-react-fela'
 
 import i18n from '../../../app/i18n'
 import Bar from '../molecules/Bar'
-import Logo from '../molecules/Logo'
 import Content from '../molecules/Content'
+import Logo from '../molecules/Logo'
 import MainMenu from '../organisms/MainMenu'
 
 const BASE_TITLE = 'Indoqa React-Redux Typescript'
@@ -24,7 +24,7 @@ const MOBILE_ONLY = {
 const Main = createComponentWithProxy(({theme, 'data-menu-open': menuOpen}: any): any => ({
   display: 'flex',
   paddingTop: theme.layout.actionBarHeight,
-  height: `calc(100% - ${theme.layout.actionBarHeight}px)`,
+  height: '100%',
   width: '100%',
   overflow: menuOpen ? 'hidden' : 'auto',
 }))

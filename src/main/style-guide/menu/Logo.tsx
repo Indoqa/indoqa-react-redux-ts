@@ -33,7 +33,7 @@ const Logo: React.FC<Props> = ({sgTheme, to, children}) => {
     },
   }
   return (
-    <FelaComponent style={style} as="h1">
+    <FelaComponent style={style}>
       <Link to={to}>
         <Heading as="h1">
           {children}

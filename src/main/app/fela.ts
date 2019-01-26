@@ -1,4 +1,3 @@
-import {IRenderer} from 'fela'
 import monolithic from 'fela-monolithic'
 import extend from 'fela-plugin-extend'
 import fallbackValue from 'fela-plugin-fallback-value'
@@ -7,10 +6,6 @@ import prefixer from 'fela-plugin-prefixer'
 import unit from 'fela-plugin-unit'
 
 import {BREAKPOINT_DESKTOP, BREAKPOINT_TABLET} from './breakpoints'
-
-const init = (renderer: IRenderer) => {
-  renderer.renderStatic('html, body, #app {height: 100%}')
-}
 
 const keys = namedKeys({
   desktop: `@media (min-width: ${BREAKPOINT_DESKTOP}px)`,
@@ -34,6 +29,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default {
-  init,
   config,
+  resetCss: false,
 }

@@ -6,6 +6,7 @@ import {SGTheme} from '../sgtheme/SGTheme'
 import {withSGTheme, WithSGTheme} from '../sgtheme/withSGTheme'
 import {FontSizes} from '../types'
 import FontStylePanel from './FontStylePanel'
+import {characters} from './TextSpecimen'
 
 interface HeadlineProps extends  WithSGTheme {
   fontStyles: IStyle,
@@ -26,13 +27,13 @@ const HeadlineSample: React.FC<HeadlineProps & WithFontSize> = ({fontStyles, fon
       fontSize,
   }
   return (
-    <FelaComponent style={[fontStyles, style]} as="p">
+    <FelaComponent style={[fontStyles, style]}>
       {children}
     </FelaComponent>
   )
 }
 
-const renderHeadlineSamples = (fontStyles: IStyle, fontSizes: FontSizes, sgTheme: SGTheme) => {
+const renderHeadlineSizeSamples = (fontStyles: IStyle, fontSizes: FontSizes, sgTheme: SGTheme) => {
   return fontSizes.map((fontSize) => {
     return (
       <HeadlineSample fontStyles={fontStyles} fontSize={fontSize} sgTheme={sgTheme} key={fontSize}>
@@ -44,11 +45,18 @@ const renderHeadlineSamples = (fontStyles: IStyle, fontSizes: FontSizes, sgTheme
 
 const HeadlineFontPanel: React.FC<Props> = ({fontStyles, fontSizes, name, sgTheme}) => {
   return (
-    <Grid fullWidth>
+    <Grid fullWidth spacing="1rem">
       <Row>
         <Panel>
-          <FontStylePanel name={`${name} / plain`}>
-            {renderHeadlineSamples(fontStyles, fontSizes, sgTheme)}
+          <FontStylePanel name={`${name} / sizes`}>
+            {renderHeadlineSizeSamples(fontStyles, fontSizes, sgTheme)}
+          </FontStylePanel>
+        </Panel>
+        <Panel>
+          <FontStylePanel name={`${name} / characters`}>
+            <HeadlineSample fontStyles={fontStyles} fontSize={fontSizes[0]} sgTheme={sgTheme}>
+              {characters}
+            </HeadlineSample>
           </FontStylePanel>
         </Panel>
       </Row>

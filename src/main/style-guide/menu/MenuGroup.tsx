@@ -11,6 +11,8 @@ interface Props extends WithSGTheme {
 const List: React.FC = ({children}) => {
   const style: IStyle = {
     listStyle: 'none',
+    margin: 0,
+    padding: 0,
   }
   return (
     <FelaComponent style={style} as="ul">
