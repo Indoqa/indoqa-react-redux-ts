@@ -69,6 +69,12 @@ const FontMixContent: React.FC<Props> = ({textFont, headlineFont, fontSizes, tex
       <TextSample fontStyles={extendedTextFont}>
         {longText}
       </TextSample>
+      <TextSample fontStyles={extendedHeadline1Font} as="h1">
+        {headerText}
+      </TextSample>
+      <TextSample fontStyles={extendedTextFont}>
+        {shortText}
+      </TextSample>
     </Container>
   )
 }

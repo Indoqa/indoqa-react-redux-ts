@@ -348,7 +348,7 @@ const renderBaseCss = (renderer: IRenderer, props: BaseCssProps) => {
   }, 'h1, h2, h3, h4, h5, h6')
   renderer.renderStatic({
     marginTop: props.spacing.space2,
-  }, 'h2, h3, h4, h5, h6')
+  }, 'h1:not(:first-child), h2, h3, h4, h5, h6')
   renderer.renderStatic({
     fontSize: props.fontSizes.h1,
   }, 'h1')
