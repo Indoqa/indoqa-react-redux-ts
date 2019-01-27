@@ -15,11 +15,11 @@ interface Colors extends Partial<BaseColors> {
 }
 
 interface Fonts extends Partial<BaseFonts> {
-  readonly special: string,
+  readonly headline: string,
 }
 
 interface FontStyles {
-  readonly base: CSSProperties,
+  readonly text: CSSProperties,
   readonly headline: CSSProperties,
 }
 
@@ -36,9 +36,12 @@ export declare interface Theme extends BaseTheme {
   readonly layout: Layout,
 }
 
+const systemFonts = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, ' +
+  'sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+
 const baseFontFamilies = {
-  text: 'sans-serif',
-  special: 'serif',
+  text: systemFonts,
+  headline: systemFonts,
 }
 
 const baseColors = {
@@ -67,17 +70,17 @@ const theme: Theme = {
   fontSizes: baseFontSizes,
   fonts: {
     text: baseFontFamilies.text,
-    special: baseFontFamilies.special,
+    headline: baseFontFamilies.headline,
   },
   fontStyles: {
-    base: {
-      fontFamily: baseFontFamilies.special,
+    text: {
+      fontFamily: baseFontFamilies.text,
       lineHeight: 1.3,
       fontWeight: 400,
       color: baseColors.black_2,
     },
     headline: {
-      fontFamily: baseFontFamilies.text,
+      fontFamily: baseFontFamilies.headline,
       lineHeight: 1.2,
       fontWeight: 700,
       color: baseColors.black_2,

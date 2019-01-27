@@ -21,12 +21,13 @@ export interface BaseCssProps {
     h3: CssValue,
   },
   fontStyles: {
-    base: IStyle,
+    text: IStyle,
     headline: IStyle,
   },
 }
 
 const renderBaseCss = (renderer: IRenderer, props: BaseCssProps) => {
+  // boxSizing
   renderer.renderStatic({
     boxSizing: 'border-box',
   }, ':root')
@@ -41,6 +42,7 @@ const renderBaseCss = (renderer: IRenderer, props: BaseCssProps) => {
     textAlign: 'left',
   }, 'html, body, #app')
 
+  // Bootstrap 4.1.3 Reboot (except boxSizing and links with textDecoration 'underline')
   const rebootCss = `
     hr {
       box-sizing: content-box;
@@ -132,7 +134,7 @@ const renderBaseCss = (renderer: IRenderer, props: BaseCssProps) => {
     
     a {
       color: ${props.links.base};
-      // text-decoration: none;
+      text-decoration: underline;
       background-color: transparent;
       -webkit-text-decoration-skip: objects;
     }
@@ -340,15 +342,16 @@ const renderBaseCss = (renderer: IRenderer, props: BaseCssProps) => {
   `
   renderer.renderStatic(rebootCss)
 
+  // set the base fonts for body and headlines
   renderer.renderStatic({
-    ...props.fontStyles.base,
+    ...props.fontStyles.text,
   }, 'body')
   renderer.renderStatic({
     ...props.fontStyles.headline,
   }, 'h1, h2, h3, h4, h5, h6')
   renderer.renderStatic({
     marginTop: props.spacing.space2,
-  }, 'h1:not(:first-child), h2, h3, h4, h5, h6')
+  }, '* + h1, * + h2, * + h3, * + h4, * + h5, * + h6')
   renderer.renderStatic({
     fontSize: props.fontSizes.h1,
   }, 'h1')
@@ -358,6 +361,8 @@ const renderBaseCss = (renderer: IRenderer, props: BaseCssProps) => {
   renderer.renderStatic({
     fontSize: props.fontSizes.h3,
   }, 'h3')
+
+  // render lists
   renderer.renderStatic({
     listStylePosition: 'outside',
   }, 'ul, ol')

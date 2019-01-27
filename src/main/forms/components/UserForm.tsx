@@ -21,13 +21,13 @@ const validationSchema = (t: i18next.TranslationFunction) =>
     })),
   })
 
-export interface Props {
+export interface Props extends WithNamespaces {
   user: User,
   cancelUrl: string,
   saveUser: (user: User, setErrors: any) => void
 }
 
-class UserForm extends React.Component<Props & WithNamespaces> {
+class UserForm extends React.Component<Props> {
 
   public render() {
     const {user, cancelUrl, saveUser, t} = this.props

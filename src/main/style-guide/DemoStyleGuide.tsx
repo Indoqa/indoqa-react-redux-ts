@@ -24,7 +24,7 @@ class DemoStyleGuide extends React.Component<Props> {
       {name: 'divider', hexCode: theme.colors.divider},
     ]
     const textFonts: Font[] = [
-      {name: 'base', fontStyle: theme.fontStyles.base},
+      {name: 'text', fontStyle: theme.fontStyles.text},
     ]
 
     const headlineFonts: Font[] = [
@@ -41,7 +41,7 @@ class DemoStyleGuide extends React.Component<Props> {
     const textFontSize: FontSize = theme.fontSizes.text
 
     const fontMixes: FontMix[] = [
-      {name: 'Font A / Font B', textFont: theme.fontStyles.base, headlineFont: theme.fontStyles.headline},
+      {name: 'System fonts', textFont: theme.fontStyles.text, headlineFont: theme.fontStyles.headline},
     ]
 
     const atomsGroup: Group = {
@@ -73,30 +73,6 @@ class DemoStyleGuide extends React.Component<Props> {
     }
 
     const groups = [atomsGroup, moleculesGroup]
-
-    // const demoTheme: SGTheme = {
-    //   colors: {
-    //     ...lightTheme.colors,
-    //     primary: 'red',
-    //     text: 'white',
-    //     primaryLight: 'red',
-    //     primaryDark: 'white',
-    //     textInverted: 'red',
-    //   },
-    //   fontFamilyCSSImports: lightTheme.fontFamilyCSSImports,
-    //   fontSizes: {
-    //     ...lightTheme.fontSizes,
-    //   },
-    //   fontStyles: {
-    //     ...lightTheme.fontStyles,
-    //   },
-    //   spacing: {
-    //     ...lightTheme.spacing,
-    //   },
-    //   layout: {
-    //     ...lightTheme.layout,
-    //   },
-    // }
 
     return (
       <StyleGuide

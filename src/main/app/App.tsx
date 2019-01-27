@@ -29,7 +29,7 @@ const baseCssProps: BaseCssProps = {
     h3: theme.fontSizes.big,
   },
   fontStyles: {
-    base: theme.fontStyles.base,
+    text: theme.fontStyles.text,
     headline: theme.fontStyles.headline,
   },
   links: {
