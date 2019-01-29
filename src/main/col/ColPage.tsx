@@ -1,4 +1,4 @@
-import {Box, Grid} from 'indoqa-react-fela'
+import {Box, Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
 import {Col} from './Col'
 import {ColRow} from './ColRow'
@@ -12,7 +12,8 @@ export default class ColPage extends React.Component<{}> {
       </Box>
     )
     return (
-      <Box pt={4}>
+      <Box>
+        <h1>Grid page</h1>
         <Grid spacing="1rem">
           <ColRow>
             <Col size={3}>{innerBox}</Col>
@@ -20,19 +21,42 @@ export default class ColPage extends React.Component<{}> {
             <Col size={3}>{innerBox}</Col>
             <Col size={3}>{innerBox}</Col>
             <Col size={6}>
-              {/*<Grid spacing="1rem">*/}
-                {/*<ColRow>*/}
-                  {/*<Col size={3}>{innerBox}</Col>*/}
-                  {/*<Col size={3}>{innerBox}</Col>*/}
-                  {/*<Col size={3}>{innerBox}</Col>*/}
-                  {/*<Col size={3}>{innerBox}</Col>*/}
-                {/*</ColRow>*/}
-              {/*</Grid>*/}
+              <Grid spacing="1rem">
+                <ColRow>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                  <Col size={3}>{innerBox}</Col>
+                </ColRow>
+              </Grid>
             </Col>
             <Col size={2}>{innerBox}</Col>
             <Col size={2}>{innerBox}</Col>
             <Col size={2}>{innerBox}</Col>
-            <Col size={7}>{innerBox}</Col>
+            <Col size={7}>
+              <Grid spacing="1rem">
+                <Row>
+                  <Panel>
+                    foo
+                  </Panel>
+                  <Panel>
+                    foo
+                  </Panel>
+                  <Panel>
+                    foo
+                  </Panel>
+                </Row>
+                <Row>
+                  <Panel>
+                    foo
+                  </Panel>
+                </Row>
+              </Grid>
+            </Col>
             <Col size={5}>{innerBox}</Col>
             <Col size={5}>{innerBox}</Col>
             <Col size={7}>{innerBox}</Col>

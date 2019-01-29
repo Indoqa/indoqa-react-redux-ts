@@ -35,7 +35,7 @@ class RowContainer<T extends BaseTheme> extends React.Component<RowContainerProp
       flexWrap: 'wrap',
       width: '100%',
       ':first-child': {
-        marginTop: `-${spacing}`,
+        marginTop:  0 //`-${spacing}`,
       },
     })
     const {children, style, ...otherProps} = this.props
@@ -53,7 +53,8 @@ export class ColRow<T extends BaseTheme> extends React.Component<Props<T>> {
   renderChildren(spacing: string | number) {
     let currentRowSize = 0
     let rowsCount = 0
-    return React.Children.map(this.props.children, (child, i) => {
+    // see https://mxstbr.blog/2017/02/react-children-deepdive/#looping-over-children
+    return React.Children.map(this.props.children, (child) => {
       const c = child as any
       currentRowSize += c.props.size
       if (currentRowSize >= 12) {
@@ -76,7 +77,6 @@ export class ColRow<T extends BaseTheme> extends React.Component<Props<T>> {
   }
 
   public render() {
-    console.log('children', this.props.children)
     return (
       <GridContext.Consumer>
         {({spacing}) => (
