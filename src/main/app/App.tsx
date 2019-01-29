@@ -5,6 +5,7 @@ import {ThemeProvider} from 'react-fela'
 import {I18nextProvider} from 'react-i18next'
 import Loadable from 'react-loadable'
 import {Route, Switch} from 'react-router-dom'
+import ColPage from '../col/ColPage'
 
 import MainMenuTemplate from '../commons/components/templates/MainMenuTemplate'
 import UploadPage from '../upload/components/UploadPage'
@@ -83,6 +84,7 @@ class App extends React.Component<Props> {
             <Route exact path="/words" component={WordsPage} />
             <Route path="/forms" component={FormsApp} />
             <Route path="/upload" component={UploadPage} />
+            <Route path="/col" component={ColPage} />
           </Switch>
         </I18nextProvider>
       </ThemeProvider>
