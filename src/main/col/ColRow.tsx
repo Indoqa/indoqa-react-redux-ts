@@ -34,6 +34,7 @@ class RowContainer<T extends BaseTheme> extends React.Component<RowContainerProp
       display: 'flex',
       flexWrap: 'wrap',
       width: '100%',
+      marginTop: spacing,
       ':first-child': {
         marginTop:  0 //`-${spacing}`,
       },

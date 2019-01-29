@@ -3,14 +3,14 @@ import {BaseTheme, GridContext} from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent, StyleFunction} from 'react-fela'
 
-// type Size = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+type Size = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
-const GRID_SIZE = 12
+export const GRID_SIZE: Size = 12
 
 interface Props {
   rowBreak?: boolean,
   marginTop?: string | number,
-  size?: number,
+  size?: Size,
 }
 
 interface RowContainerProps extends Props {
