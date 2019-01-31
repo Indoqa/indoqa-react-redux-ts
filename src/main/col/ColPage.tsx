@@ -1,13 +1,11 @@
-import {Box, Grid, Panel, Row} from 'indoqa-react-fela'
+import {Box, Col, ColRow, Grid, Panel, Row} from 'indoqa-react-fela'
 import * as React from 'react'
-import {Col} from './Col'
-import {ColRow} from './ColRow'
 
 export default class ColPage extends React.Component {
 
   public render() {
     const innerBox = (
-      <Box bg="primary" fullWidth fullHeight style={{height: '29px'}}>
+      <Box bg="primary" fullWidth fullHeight style={{height: '35px'}}>
         foo
       </Box>
     )
@@ -30,7 +28,7 @@ export default class ColPage extends React.Component {
             <Col size={4}>{innerBox}</Col>
             <Col size={4}>{innerBox}</Col>
             <Col size={6}>
-              <Grid spacing="0.5rem">
+              <Grid spacing={0}>
                 <ColRow>
                   <Col size={3}>{innerBox}</Col>
                   <Col size={3}>{innerBox}</Col>
@@ -47,21 +45,21 @@ export default class ColPage extends React.Component {
             <Col size={2}>{innerBox}</Col>
             <Col size={2}>{innerBox}</Col>
             <Col size={7}>
-              <Grid spacing="0">
+              <Grid spacing={1}>
                 <Row>
                   <Panel>
-                    foo
+                    {innerBox2}
                   </Panel>
                   <Panel>
-                    foo
+                    {innerBox2}
                   </Panel>
                   <Panel>
-                    foo
+                    {innerBox2}
                   </Panel>
                 </Row>
                 <Row>
                   <Panel>
-                    foo
+                    {innerBox2}
                   </Panel>
                 </Row>
               </Grid>
@@ -92,16 +90,19 @@ export default class ColPage extends React.Component {
           </Row>
         </Grid>
         <h2>col-row</h2>
-        <ColRow>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-          <Col size={3}>{innerBox}</Col>
-        </ColRow>
+        <Grid spacing={10}>
+          <ColRow>
+            <Col size={12}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+            <Col size={3}>{innerBox}</Col>
+          </ColRow>
+        </Grid>
       </Box>
     )
   }
