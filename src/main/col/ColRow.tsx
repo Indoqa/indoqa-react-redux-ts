@@ -12,6 +12,7 @@ import {
 } from 'indoqa-react-fela'
 import * as React from 'react'
 import {FelaComponent, StyleFunction} from 'react-fela'
+import {GRID_SIZE} from './Col'
 
 
 interface Props<T extends BaseTheme> extends WithStyle<T>, PaddingProps, StylingProps {}
@@ -57,11 +58,13 @@ export class ColRow<T extends BaseTheme> extends React.Component<Props<T>> {
     // see https://mxstbr.blog/2017/02/react-children-deepdive/#looping-over-children
     return React.Children.map(this.props.children, (child) => {
       const c = child as any
+      // calculate the sum of all <Col> sizes
       currentRowSize += c.props.size
-      if (currentRowSize >= 12) {
+
+      if (currentRowSize >= GRID_SIZE) {
         rowsCount++
       }
-      if (currentRowSize === 12) {
+      if (currentRowSize === GRID_SIZE) {
         currentRowSize = 0
         return React.cloneElement((c), {
           rowBreak: true,
