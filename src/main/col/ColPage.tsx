@@ -91,6 +91,17 @@ export default class ColPage extends React.Component {
             <Panel>{innerBox2}</Panel>
           </Row>
         </Grid>
+        <h2>col-row</h2>
+        <ColRow>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+          <Col size={3}>{innerBox}</Col>
+        </ColRow>
       </Box>
     )
   }

@@ -61,16 +61,22 @@ export class ColRow<T extends BaseTheme> extends React.Component<Props<T>> {
       // calculate the sum of all <Col> sizes
       currentRowSize += c.props.size
 
-      if (currentRowSize >= GRID_SIZE) {
-        rowsCount++
-      }
+      // the <Col> child fills up the full space -> manipulate rowBreak and marginTop
       if (currentRowSize === GRID_SIZE) {
         currentRowSize = 0
+        rowsCount++
         return React.cloneElement((c), {
           rowBreak: true,
           marginTop: rowsCount > 1 ? spacing : 0
         })
       }
+
+      // increase the row count if the current <Col> will be rendered at the next line
+      if (currentRowSize >= GRID_SIZE) {
+        rowsCount++
+      }
+
+      // for all rows except the first manipulate the marginTop of the <Col> child
       if (rowsCount > 0) {
         return React.cloneElement((c), {
           marginTop: spacing
@@ -83,11 +89,18 @@ export class ColRow<T extends BaseTheme> extends React.Component<Props<T>> {
   public render() {
     return (
       <GridContext.Consumer>
-        {({spacing}) => (
-          <RowContainer spacing={spacing} {...this.props}>
-            {this.renderChildren(spacing)}
-          </RowContainer>
-        )}
+        {({spacing}) => {
+          if (!spacing) {
+            return (
+              <div>rendered outside of Grid</div>
+            )
+          }
+          return (
+            <RowContainer spacing={spacing} {...this.props}>
+              {this.renderChildren(spacing)}
+            </RowContainer>
+          )
+        }}
       </GridContext.Consumer>
     )
   }
